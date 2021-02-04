@@ -36,9 +36,7 @@ and click OK.
 and you can debug Django code in pycharm.
 
 ## Other Settings
-![5](https://user-images.githubusercontent.com/24391143/96623256-f4cc1100-12bf-11eb-909c-9da0eecb1ee3.png)
-
-remember to set these two folders as source root.
+remember to set this folder as source root.
 ![6](https://user-images.githubusercontent.com/24391143/106948291-5c2b9680-66e0-11eb-86dc-8e2a9ca59ebe.png)
 
 ## Sample API
