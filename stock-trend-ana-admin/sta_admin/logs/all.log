@@ -1,0 +1,3 @@
+[2021-02-04 12:00:06,455][MainThread:12068][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-02-04 12:00:16,155][Thread-1:2456][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/ HTTP/1.1" 200 267]
+[2021-02-04 12:00:31,300][Thread-1:2456][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/error/ HTTP/1.1" 200 61]
