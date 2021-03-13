@@ -150,7 +150,7 @@ LOGGING = {
     # 处理器
     'handlers': {
         'console': {  # 在终端打印
-            'level': 'DEBUG',
+            'level': 'INFO',
             'filters': ['require_debug_true'],  # 只有在Django debug为True时才在屏幕打印日志
             'class': 'logging.StreamHandler',  #
             'formatter': 'simple'
@@ -183,7 +183,7 @@ LOGGING = {
             'encoding': "utf-8"
         },
         'scprits_handler': {
-            'level': 'DEBUG',
+            'level': 'INFO',
             'class': 'logging.handlers.RotatingFileHandler',
             'filename': os.path.join(BASE_DIR + '/logs/', "script.log"),
             'maxBytes': 1024 * 1024 * 5,

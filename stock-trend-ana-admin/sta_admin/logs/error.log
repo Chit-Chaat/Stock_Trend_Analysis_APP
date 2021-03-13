@@ -1,0 +1,90 @@
+[2021-03-13 02:50:57,281][Thread-1:11400][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/news/latest/AMAZ]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 30, in get_latest_news
+    logger.log("parameter stock is: ----> ", stock)
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\logging\__init__.py", line 1369, in log
+    raise TypeError("level must be an integer")
+TypeError: level must be an integer
+[2021-03-13 02:50:57,283][Thread-1:11400][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/news/latest/AMAZ HTTP/1.1" 500 80145]
+[2021-03-13 03:05:37,697][Thread-1:10088][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/news/latest/AMAZ]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 32, in get_latest_news
+    a, b = crawl_news(stock)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\NewCollector.py", line 20, in crawl_news
+    html_content = BeautifulSoup(urlopen(req))
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\urllib\request.py", line 223, in urlopen
+    return opener.open(url, data, timeout)
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\urllib\request.py", line 532, in open
+    response = meth(req, response)
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\urllib\request.py", line 642, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\urllib\request.py", line 570, in error
+    return self._call_chain(*args)
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\urllib\request.py", line 504, in _call_chain
+    result = func(*args)
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\urllib\request.py", line 650, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 404: Not Found
+[2021-03-13 03:05:37,698][Thread-1:10088][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/news/latest/AMAZ HTTP/1.1" 500 111128]
+[2021-03-13 04:33:48,416][Thread-6:17952][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/news/latest/AMAZ]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 32, in get_latest_news
+    a, b = crawl_news(stock)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\NewCollector.py", line 21, in crawl_news
+    response = requests.get(url=url, headers=headers)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\requests\api.py", line 76, in get
+    return request('get', url, params=params, **kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\requests\api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\requests\sessions.py", line 542, in request
+    resp = self.send(prep, **send_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\requests\sessions.py", line 649, in send
+    adapter = self.get_adapter(url=request.url)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\requests\sessions.py", line 742, in get_adapter
+    raise InvalidSchema("No connection adapters were found for {!r}".format(url))
+requests.exceptions.InvalidSchema: No connection adapters were found for 'Ahttps://finviz.com/quote.ashx?t=Mhttps://finviz.com/quote.ashx?t=Ahttps://finviz.com/quote.ashx?t=Z'
+[2021-03-13 04:33:48,419][Thread-6:17952][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/news/latest/AMAZ HTTP/1.1" 500 108898]
+[2021-03-13 04:34:34,868][Thread-6:10100][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/news/latest/AMAZ]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 32, in get_latest_news
+    a, b = crawl_news(stock)
+TypeError: 'NoneType' object is not iterable
+[2021-03-13 04:34:34,870][Thread-6:10100][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/news/latest/AMAZ HTTP/1.1" 500 78605]
+[2021-03-13 05:24:02,693][Thread-1:14648][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/news/latest/AMZN]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 35, in get_latest_news
+    news = generate_score(raw_news)
+TypeError: generate_score() missing 1 required positional argument: 'key'
+[2021-03-13 05:24:02,694][Thread-1:14648][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/news/latest/AMZN HTTP/1.1" 500 77773]
+[2021-03-13 05:24:23,611][Thread-1:6472][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/news/latest/AMZN]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 35, in get_latest_news
+    news = generate_score(raw_news, key="content")
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\SentimentalAnalyzer.py", line 18, in generate_score
+    kv[scores] = scores
+TypeError: unhashable type: 'dict'
+[2021-03-13 05:24:23,612][Thread-1:6472][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/news/latest/AMZN HTTP/1.1" 500 83637]

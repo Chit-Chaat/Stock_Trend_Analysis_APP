@@ -8,4 +8,5 @@ from . import views
 urlpatterns = [
     path('', views.index, name='index'),
     path('error/', views.bad_request, name='diff_name'),
+    path('news/latest/<str:stock>', views.get_latest_news, name="get_news")
 ]

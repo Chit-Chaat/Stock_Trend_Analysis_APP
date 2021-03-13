@@ -1,0 +1,145 @@
+<!--
+    THIS EXAMPLE WAS DOWNLOADED FROM https://echarts.apache.org/examples/zh/editor.html?c=bar-background
+-->
+<!DOCTYPE html>
+<html style="height: 100%">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body style="height: 100%; margin: 0">
+        <div id="container" style="height: 100%"></div>
+
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+        <!-- Uncomment this line if you want to dataTool extension
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5/dist/extension/dataTool.min.js"></script>
+        -->
+        <!-- Uncomment this line if you want to use gl extension
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-gl@2/dist/echarts-gl.min.js"></script>
+        -->
+        <!-- Uncomment this line if you want to echarts-stat extension
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-stat@latest/dist/ecStat.min.js"></script>
+        -->
+        <!-- Uncomment this line if you want to use map
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5/map/js/china.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5/map/js/world.js"></script>
+        -->
+        <!-- Uncomment these two lines if you want to use bmap extension
+        <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=<Your Key Here>"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5/dist/extension/bmap.min.js"></script>
+        -->
+
+        <script type="text/javascript">
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom);
+var app = {};
+
+var option;
+
+
+
+var colors = ['#5470C6', '#91CC75', '#EE6666'];
+
+option = {
+    title:{ 
+        show:true,
+        text: "Poor Model Predictive Performance"
+    },
+    color: colors,
+    tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'cross',
+            crossStyle: {
+                color: '#999'
+            }
+        }
+    },
+    toolbox: {
+        feature: {
+            dataView: {show: true, readOnly: false},
+            magicType: {show: true, type: ['line', 'bar']},
+            restore: {show: true},
+            saveAsImage: {show: true}
+        }
+    },
+    legend: {
+        data: ['Errors', 'Percentage']
+    },
+    xAxis: [
+        {
+            type: 'category',
+            data: ['Sub-optimal model', 'Insufficient expertise', 
+            'Data limitation', 'Unpredictable market' ,'Limited computation power', 
+            'Market manipulation', 'Others'],
+            axisPointer: {
+                type: 'shadow'
+            },
+            axisLabel:{
+                formatter:function(val){
+            return val.split(" ").join("\n");
+}
+            }
+        }
+    ],
+             grid: { // 控制图的大小，调整下面这些值就可以，
+             x: 100,
+             x2: 80
+         },
+    yAxis: [
+        {
+            type: 'value',
+            name: 'Impact',
+            min: 0,
+            max: 60,
+            interval: 60,
+            axisLine: {
+                show: true,
+                lineStyle: {
+                    color:colors[0]
+                }
+            },
+            axisTick:{
+                show: false,
+            }
+            
+        },
+        {
+            type: 'value',
+            name: 'Percentage',
+            min: 0,
+            max: 100,
+            interval: 5,
+            axisLine: {
+                show: true,
+                lineStyle: {
+                    color:colors[1]
+                }
+            },
+            axisLabel: {
+                formatter: '{value} %'
+            }
+        }
+    ],
+    series: [
+        {
+            name: 'Errors',
+            type: 'bar',
+            data: [55, 25, 10, 7, 1.5, 1, 0.5]
+        },
+        {
+            name: 'Percentage',
+            type: 'line',
+            yAxisIndex: 1,
+            data: [55, 80, 90, 97, 98.5, 99.5, 100]
+        }
+    ]
+};
+
+if (option && typeof option === 'object') {
+    myChart.setOption(option);
+}
+
+        </script>
+    </body>
+</html>
+    
