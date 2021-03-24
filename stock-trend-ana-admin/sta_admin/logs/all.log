@@ -206,3 +206,164 @@ TypeError: unhashable type: 'dict'
 [2021-03-13 05:30:35,578][Thread-1:18332][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/news/latest/AMZN HTTP/1.1" 200 1878]
 [2021-03-13 05:31:01,216][MainThread:5836][task_id:django.utils.autoreload][autoreload.py:240][INFO][D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py changed, reloading.]
 [2021-03-13 05:31:02,234][MainThread:10656][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-22 21:15:04,341][MainThread:13212][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-22 21:15:20,125][Thread-1:15712][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/news/latest/AMZN HTTP/1.1" 200 2003]
+[2021-03-22 21:15:20,387][Thread-1:15712][task_id:django.request][log.py:230][WARNING][Not Found: /favicon.ico]
+[2021-03-22 21:15:20,387][Thread-1:15712][task_id:django.server][basehttp.py:157][WARNING]["GET /favicon.ico HTTP/1.1" 404 2084]
+[2021-03-22 21:17:25,770][MainThread:7172][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-22 21:18:58,806][MainThread:7172][task_id:django.utils.autoreload][autoreload.py:240][INFO][D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\NewCollector.py changed, reloading.]
+[2021-03-22 21:19:00,744][MainThread:8120][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-22 21:21:59,403][MainThread:8120][task_id:django.utils.autoreload][autoreload.py:240][INFO][D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\NewCollector.py changed, reloading.]
+[2021-03-22 21:22:01,306][MainThread:3824][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-22 21:22:43,606][MainThread:14516][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-22 21:24:46,237][MainThread:14632][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-22 21:24:50,097][Thread-1:18308][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/news/latest/AMZN HTTP/1.1" 200 3210]
+[2021-03-22 21:24:54,007][Thread-1:18308][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/news/latest/AMZN HTTP/1.1" 200 3210]
+[2021-03-22 21:25:11,739][Thread-1:18308][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/news/latest/TSLA HTTP/1.1" 200 3037]
+[2021-03-23 00:37:03,625][Thread-4:17248][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/news/latest/TSLA2]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 33, in get_latest_news
+    raw_news = crawl_news(stock)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\NewCollector.py", line 40, in crawl_news
+    logger.warn("Something bad happened, when crawl news data. since the Http Code is " + response.status_code)
+TypeError: must be str, not int
+[2021-03-23 00:37:03,627][Thread-4:17248][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/news/latest/TSLA2 HTTP/1.1" 500 78966]
+[2021-03-23 00:37:59,599][MainThread:7972][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-23 00:39:14,199][Thread-6:7724][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/news/latest/TSLA2]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 33, in get_latest_news
+    raw_news = crawl_news(stock)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\NewCollector.py", line 40, in crawl_news
+    logger.warn("Something bad happened, when crawl news data. since the Http Code is " + response.status_code)
+TypeError: must be str, not int
+[2021-03-23 00:39:14,206][Thread-6:7724][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/news/latest/TSLA2 HTTP/1.1" 500 82057]
+[2021-03-23 00:40:39,244][MainThread:14932][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-23 00:41:12,370][Thread-6:5348][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/news/latest/TSLA2 HTTP/1.1" 200 81]
+[2021-03-23 00:41:23,298][Thread-6:5348][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/news/latest/TSLA3 HTTP/1.1" 200 81]
+[2021-03-23 00:41:32,676][Thread-6:5348][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/news/latest/TSLA HTTP/1.1" 200 3052]
+[2021-03-23 01:09:06,054][MainThread:12372][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-23 01:09:23,550][Thread-1:2084][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/news/latest/TSLA HTTP/1.1" 200 3049]
+[2021-03-23 01:09:32,000][Thread-1:2084][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/news/latest/TSLA2 HTTP/1.1" 200 81]
+[2021-03-23 01:09:45,818][MainThread:12372][task_id:django.utils.autoreload][autoreload.py:240][INFO][D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py changed, reloading.]
+[2021-03-23 01:09:46,974][MainThread:9748][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-23 01:12:03,452][MainThread:9748][task_id:django.utils.autoreload][autoreload.py:240][INFO][D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py changed, reloading.]
+[2021-03-23 01:12:04,510][MainThread:18048][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-23 01:36:55,032][MainThread:18048][task_id:django.utils.autoreload][autoreload.py:240][INFO][D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py changed, reloading.]
+[2021-03-23 01:36:55,939][MainThread:6748][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-23 01:37:49,887][MainThread:6748][task_id:django.utils.autoreload][autoreload.py:240][INFO][D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py changed, reloading.]
+[2021-03-23 01:37:50,888][MainThread:6520][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-23 02:15:08,369][MainThread:6520][task_id:django.utils.autoreload][autoreload.py:240][INFO][D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py changed, reloading.]
+[2021-03-23 02:15:09,514][MainThread:16288][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-23 02:15:42,111][MainThread:16288][task_id:django.utils.autoreload][autoreload.py:240][INFO][D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py changed, reloading.]
+[2021-03-23 02:15:43,026][MainThread:6912][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-23 02:15:56,397][MainThread:6912][task_id:django.utils.autoreload][autoreload.py:240][INFO][D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py changed, reloading.]
+[2021-03-23 02:15:57,474][MainThread:2332][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-23 02:16:08,451][MainThread:2332][task_id:django.utils.autoreload][autoreload.py:240][INFO][D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py changed, reloading.]
+[2021-03-23 02:16:09,421][MainThread:492][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-23 02:17:21,641][MainThread:492][task_id:django.utils.autoreload][autoreload.py:240][INFO][D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockMetaData.py changed, reloading.]
+[2021-03-23 02:17:22,683][MainThread:2028][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-23 02:18:18,181][MainThread:2028][task_id:django.utils.autoreload][autoreload.py:240][INFO][D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockMetaData.py changed, reloading.]
+[2021-03-23 02:18:19,170][MainThread:16836][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-23 02:18:41,273][MainThread:16836][task_id:django.utils.autoreload][autoreload.py:240][INFO][D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockMetaData.py changed, reloading.]
+[2021-03-23 02:18:42,307][MainThread:15624][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-23 02:20:14,880][MainThread:15624][task_id:django.utils.autoreload][autoreload.py:240][INFO][D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockMetaData.py changed, reloading.]
+[2021-03-23 02:20:16,131][MainThread:2664][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-23 02:20:31,099][MainThread:2664][task_id:django.utils.autoreload][autoreload.py:240][INFO][D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockMetaData.py changed, reloading.]
+[2021-03-23 02:20:32,168][MainThread:10136][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-23 02:20:46,512][MainThread:10136][task_id:django.utils.autoreload][autoreload.py:240][INFO][D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockMetaData.py changed, reloading.]
+[2021-03-23 02:20:47,569][MainThread:2840][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-23 02:20:55,469][MainThread:2840][task_id:django.utils.autoreload][autoreload.py:240][INFO][D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockMetaData.py changed, reloading.]
+[2021-03-23 02:20:56,443][MainThread:1308][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-23 02:37:42,331][MainThread:1284][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-23 02:39:54,881][MainThread:656][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-23 02:42:28,933][MainThread:12376][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-23 02:43:55,854][MainThread:17536][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-23 02:44:37,127][MainThread:18256][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-23 02:50:32,787][MainThread:2364][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-23 02:52:37,188][MainThread:17468][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-23 02:54:02,065][MainThread:1340][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-23 02:58:21,552][MainThread:6280][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-23 03:56:12,453][MainThread:8548][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-23 03:57:45,978][Thread-6:18340][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/basic/2015-01-01/AMZN HTTP/1.1" 200 96]
+[2021-03-23 03:57:46,261][Thread-6:18340][task_id:django.request][log.py:230][WARNING][Not Found: /favicon.ico]
+[2021-03-23 03:57:46,261][Thread-6:18340][task_id:django.server][basehttp.py:157][WARNING]["GET /favicon.ico HTTP/1.1" 404 2084]
+[2021-03-23 03:58:12,761][Thread-6:18340][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/basic/2015-01-01/AMZN HTTP/1.1" 200 96]
+[2021-03-23 03:59:45,113][MainThread:11748][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-23 19:43:46,337][MainThread:3512][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-23 19:44:19,768][MainThread:3512][task_id:django.utils.autoreload][autoreload.py:240][INFO][D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py changed, reloading.]
+[2021-03-23 19:44:20,833][MainThread:20000][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-23 19:44:30,574][Thread-1:12532][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/basic/2015-01-01/AMZN]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 44, in get_basic_info
+    return JsonResponseResult().ok(data=data_items)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\JsonResponseResult.py", line 23, in ok
+    self.__init__(data=data, code=code, msg=msg, **kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\JsonResponseResult.py", line 14, in __init__
+    super().__init__(content=json.dumps(self.data), **kwargs)
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\encoder.py", line 180, in default
+    o.__class__.__name__)
+TypeError: Object of type 'Timestamp' is not JSON serializable
+[2021-03-23 19:44:30,579][Thread-1:12532][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/basic/2015-01-01/AMZN HTTP/1.1" 500 134916]
+[2021-03-23 19:45:11,205][MainThread:12180][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-23 19:47:10,362][Thread-6:17228][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/basic/2015-01-01/AMZN HTTP/1.1" 200 152090]
+[2021-03-23 19:47:34,861][MainThread:17732][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-23 19:52:16,705][MainThread:10672][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-23 19:55:09,551][MainThread:10672][task_id:django.utils.autoreload][autoreload.py:240][INFO][D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockDataGenerator.py changed, reloading.]
+[2021-03-23 19:55:11,687][MainThread:18168][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-23 19:58:29,397][MainThread:18952][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-23 19:59:16,798][Thread-6:15224][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/basic/2015-01-01/AMZN]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 44, in get_basic_info
+    return JsonResponseResult().ok(data=data_items)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\JsonResponseResult.py", line 23, in ok
+    self.__init__(data=data, code=code, msg=msg, **kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\JsonResponseResult.py", line 14, in __init__
+    super().__init__(content=json.dumps(self.data), **kwargs)
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\encoder.py", line 180, in default
+    o.__class__.__name__)
+TypeError: Object of type 'Timestamp' is not JSON serializable
+[2021-03-23 19:59:16,808][Thread-6:15224][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/basic/2015-01-01/AMZN HTTP/1.1" 500 137860]
+[2021-03-23 20:00:13,065][Thread-6:15224][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/basic/2015-01-01/AMZN HTTP/1.1" 200 152090]
+[2021-03-23 20:00:55,115][MainThread:18952][task_id:django.utils.autoreload][autoreload.py:240][INFO][D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockDataGenerator.py changed, reloading.]
+[2021-03-23 20:00:56,900][MainThread:1256][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-23 20:01:08,536][MainThread:1256][task_id:django.utils.autoreload][autoreload.py:240][INFO][D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockDataGenerator.py changed, reloading.]
+[2021-03-23 20:01:10,310][MainThread:6504][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-23 20:01:18,603][Thread-6:1936][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/basic/2015-01-01/AMZN HTTP/1.1" 200 152038]
+[2021-03-23 20:01:35,383][MainThread:6504][task_id:django.utils.autoreload][autoreload.py:240][INFO][D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockDataGenerator.py changed, reloading.]
+[2021-03-23 20:01:37,160][MainThread:19108][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-23 20:01:44,033][Thread-6:6740][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/basic/2015-01-01/AMZN HTTP/1.1" 200 143752]
+[2021-03-23 20:01:50,432][MainThread:19108][task_id:django.utils.autoreload][autoreload.py:240][INFO][D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockDataGenerator.py changed, reloading.]
+[2021-03-23 20:01:52,321][MainThread:15676][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-23 20:02:01,911][Thread-6:3868][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/basic/2015-01-01/AMZN HTTP/1.1" 200 143752]
+[2021-03-23 20:02:20,468][Thread-6:3868][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/basic/2015-01-01/TSLA HTTP/1.1" 200 137528]
+[2021-03-23 20:02:49,186][MainThread:15608][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-23 20:03:17,548][Thread-6:20428][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/basic/2015-01-01/TSLA HTTP/1.1" 200 155554]
+[2021-03-23 20:03:56,962][Thread-6:20428][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/basic/2015-01-01/AMZN HTTP/1.1" 200 125021]

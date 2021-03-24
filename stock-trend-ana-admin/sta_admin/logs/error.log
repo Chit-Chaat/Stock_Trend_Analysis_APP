@@ -88,3 +88,71 @@ Traceback (most recent call last):
     kv[scores] = scores
 TypeError: unhashable type: 'dict'
 [2021-03-13 05:24:23,612][Thread-1:6472][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/news/latest/AMZN HTTP/1.1" 500 83637]
+[2021-03-23 00:37:03,625][Thread-4:17248][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/news/latest/TSLA2]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 33, in get_latest_news
+    raw_news = crawl_news(stock)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\NewCollector.py", line 40, in crawl_news
+    logger.warn("Something bad happened, when crawl news data. since the Http Code is " + response.status_code)
+TypeError: must be str, not int
+[2021-03-23 00:37:03,627][Thread-4:17248][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/news/latest/TSLA2 HTTP/1.1" 500 78966]
+[2021-03-23 00:39:14,199][Thread-6:7724][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/news/latest/TSLA2]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 33, in get_latest_news
+    raw_news = crawl_news(stock)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\NewCollector.py", line 40, in crawl_news
+    logger.warn("Something bad happened, when crawl news data. since the Http Code is " + response.status_code)
+TypeError: must be str, not int
+[2021-03-23 00:39:14,206][Thread-6:7724][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/news/latest/TSLA2 HTTP/1.1" 500 82057]
+[2021-03-23 19:44:30,574][Thread-1:12532][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/basic/2015-01-01/AMZN]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 44, in get_basic_info
+    return JsonResponseResult().ok(data=data_items)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\JsonResponseResult.py", line 23, in ok
+    self.__init__(data=data, code=code, msg=msg, **kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\JsonResponseResult.py", line 14, in __init__
+    super().__init__(content=json.dumps(self.data), **kwargs)
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\encoder.py", line 180, in default
+    o.__class__.__name__)
+TypeError: Object of type 'Timestamp' is not JSON serializable
+[2021-03-23 19:44:30,579][Thread-1:12532][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/basic/2015-01-01/AMZN HTTP/1.1" 500 134916]
+[2021-03-23 19:59:16,798][Thread-6:15224][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/basic/2015-01-01/AMZN]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 44, in get_basic_info
+    return JsonResponseResult().ok(data=data_items)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\JsonResponseResult.py", line 23, in ok
+    self.__init__(data=data, code=code, msg=msg, **kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\JsonResponseResult.py", line 14, in __init__
+    super().__init__(content=json.dumps(self.data), **kwargs)
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\encoder.py", line 180, in default
+    o.__class__.__name__)
+TypeError: Object of type 'Timestamp' is not JSON serializable
+[2021-03-23 19:59:16,808][Thread-6:15224][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/basic/2015-01-01/AMZN HTTP/1.1" 500 137860]

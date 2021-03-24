@@ -4,7 +4,9 @@ __date__ = '3/13/2021 2:56 AM'
 
 import requests
 from bs4 import BeautifulSoup
+import logging
 
+logger = logging.getLogger('NewCollector Module')
 source_url = 'https://finviz.com/quote.ashx?t='
 
 
@@ -20,6 +22,7 @@ def crawl_news(identifier, size=10):
         current_date_prefix = ""
         for i, row in enumerate(content_table):
             content = row.a.text
+            new_s_url = row.a.attrs['href']
             time_str = str(row.td.text).strip()
             if len(time_str) > 7:
                 prefix, date_str = time_str.split(' ')
@@ -29,8 +32,11 @@ def crawl_news(identifier, size=10):
             content_list.append({
                 "content": content,
                 "time": time_str,
+                "url": new_s_url
             })
             if i == size:
                 break
+    else:
+        logger.warn("Something bad happened, when crawl news data. since the Http Code is " + str(response.status_code))
 
     return content_list
