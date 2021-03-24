@@ -231,3 +231,200 @@ Traceback (most recent call last):
     raise KeyError(key) from err
 KeyError: 'Date'
 [2021-03-23 21:02:23,977][Thread-6:19356][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/basic/2014-01-01/AMZN HTTP/1.1" 500 148841]
+[2021-03-24 01:22:17,072][Thread-1:7924][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/predict/2015-01-01/AMZN]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\pandas\core\indexes\base.py", line 2898, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas\_libs\index.pyx", line 70, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\index.pyx", line 101, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\hashtable_class_helper.pxi", line 1675, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\_libs\hashtable_class_helper.pxi", line 1683, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Date'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 55, in predict_future_price
+    x_test, y_test, test_dataset = generator.generate_future_data()
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockDataGenerator.py", line 118, in generate_future_data
+    training_data = data[data['Date'] < self._stock.get_validation_date()].copy()
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\pandas\core\frame.py", line 2906, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\pandas\core\indexes\base.py", line 2900, in get_loc
+    raise KeyError(key) from err
+KeyError: 'Date'
+[2021-03-24 01:22:17,079][Thread-1:7924][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/predict/2015-01-01/AMZN HTTP/1.1" 500 150249]
+[2021-03-24 01:23:43,089][Thread-1:1912][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/predict/2015-01-01/AMZN]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 55, in predict_future_price
+    x_test, y_test, test_dataset = generator.generate_future_data()
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockDataGenerator.py", line 127, in generate_future_data
+    tomorrow_date = latest_date + timedelta(1)
+TypeError: must be str, not datetime.timedelta
+[2021-03-24 01:23:43,091][Thread-1:1912][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/predict/2015-01-01/AMZN HTTP/1.1" 500 90305]
+[2021-03-24 01:45:27,365][Thread-6:8784][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/predict/2015-01-01/AMZN]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 55, in predict_future_price
+    x_test, y_test, test_dataset = generator.generate_future_data()
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockDataGenerator.py", line 87, in generate_future_data
+    latest_date = datetime.timestamp(test_data[-1:]['Close'].idxmin())
+TypeError: descriptor 'timestamp' requires a 'datetime.datetime' object but received a 'str'
+[2021-03-24 01:45:27,375][Thread-6:8784][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/predict/2015-01-01/AMZN HTTP/1.1" 500 93451]
+[2021-03-24 01:46:36,972][Thread-6:8088][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/predict/2015-01-01/AMZN]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 55, in predict_future_price
+    x_test, y_test, test_dataset = generator.generate_future_data()
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockDataGenerator.py", line 89, in generate_future_data
+    tomorrow_date = latest_date + timedelta(1)
+TypeError: unsupported operand type(s) for +: 'float' and 'datetime.timedelta'
+[2021-03-24 01:46:36,977][Thread-6:8088][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/predict/2015-01-01/AMZN HTTP/1.1" 500 93687]
+[2021-03-24 01:53:33,375][Thread-6:17572][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/predict/2015-01-01/AMZN]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 55, in predict_future_price
+    x_test, y_test, test_dataset = generator.generate_future_data()
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockDataGenerator.py", line 116, in generate_future_data
+    test_scaled = min_max.fit_transform(test_data)
+AttributeError: 'numpy.ndarray' object has no attribute 'fit_transform'
+[2021-03-24 01:53:33,382][Thread-6:17572][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/predict/2015-01-01/AMZN HTTP/1.1" 500 102697]
+[2021-03-24 02:02:41,453][Thread-6:2424][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/predict/2015-01-01/AMZN]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 58, in predict_future_price
+    return JsonResponseResult().ok(data=x_test)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\JsonResponseResult.py", line 23, in ok
+    self.__init__(data=data, code=code, msg=msg, **kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\JsonResponseResult.py", line 10, in __init__
+    if not data: data = list()
+ValueError: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+[2021-03-24 02:02:41,457][Thread-6:2424][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/predict/2015-01-01/AMZN HTTP/1.1" 500 95562]
+[2021-03-24 03:27:06,613][Thread-6:10420][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/predict/2015-01-01/AMZN]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 63, in predict_future_price
+    y_test = model.predict(generator)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\ModelLoader.py", line 36, in predict
+    y_test = dataGenerator.get_min_max().inverse_transform(y_test)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\sklearn\preprocessing\_data.py", line 461, in inverse_transform
+    X -= self.min_
+ValueError: non-broadcastable output operand with shape (296,1) doesn't match the broadcast shape (296,2)
+[2021-03-24 03:27:06,618][Thread-6:10420][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/predict/2015-01-01/AMZN HTTP/1.1" 500 102469]
+[2021-03-24 03:28:51,521][Thread-6:12184][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/predict/2015-01-01/AMZN]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 63, in predict_future_price
+    y_test = model.predict(generator)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\ModelLoader.py", line 40, in predict
+    latest_date = datetime.strptime(test_dataset[-1:]['Close'].idxmin(), '%Y-%m-%d')
+TypeError: strptime() argument 1 must be str, not Timestamp
+[2021-03-24 03:28:51,524][Thread-6:12184][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/predict/2015-01-01/AMZN HTTP/1.1" 500 94417]
+[2021-03-24 03:30:35,741][Thread-6:19040][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/predict/2015-01-01/AMZN]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 63, in predict_future_price
+    y_test = model.predict(generator)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\ModelLoader.py", line 45, in predict
+    y_test = np.concatenate([date_arr, y_test], axis=1)
+  File "<__array_function__ internals>", line 6, in concatenate
+numpy.AxisError: axis 1 is out of bounds for array of dimension 1
+[2021-03-24 03:30:35,746][Thread-6:19040][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/predict/2015-01-01/AMZN HTTP/1.1" 500 111525]
+[2021-03-24 03:40:59,600][Thread-6:1048][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/predict/2015-01-01/AMZN]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 63, in predict_future_price
+    y_test = model.predict(generator)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\ModelLoader.py", line 41, in predict
+    y_test = np.concatenate([date_arr, y_test], axis=1)
+  File "<__array_function__ internals>", line 6, in concatenate
+numpy.AxisError: axis 1 is out of bounds for array of dimension 1
+[2021-03-24 03:40:59,606][Thread-6:1048][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/predict/2015-01-01/AMZN HTTP/1.1" 500 115419]
+[2021-03-24 03:44:24,125][Thread-6:11052][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/predict/2015-01-01/AMZN]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 63, in predict_future_price
+    y_test = model.predict(generator)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\ModelLoader.py", line 41, in predict
+    for timestamp_obj in test_dataset.index.tolist()][:len(y_test)])
+  File "<__array_function__ internals>", line 6, in concatenate
+numpy.AxisError: axis 1 is out of bounds for array of dimension 1
+[2021-03-24 03:44:24,131][Thread-6:11052][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/predict/2015-01-01/AMZN HTTP/1.1" 500 115574]
+[2021-03-24 03:52:32,125][Thread-6:4184][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/predict/2015-01-01/AMZN]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 65, in predict_future_price
+    return JsonResponseResult().ok(data=y_test)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\JsonResponseResult.py", line 23, in ok
+    self.__init__(data=data, code=code, msg=msg, **kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\JsonResponseResult.py", line 10, in __init__
+    if not data: data = list()
+ValueError: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+[2021-03-24 03:52:32,130][Thread-6:4184][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/predict/2015-01-01/AMZN HTTP/1.1" 500 108340]
+[2021-03-24 03:54:43,634][Thread-6:2424][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/predict/2013-01-01/AMZN]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\pandas\core\indexes\base.py", line 2898, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas\_libs\index.pyx", line 70, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\index.pyx", line 101, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\hashtable_class_helper.pxi", line 1675, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\_libs\hashtable_class_helper.pxi", line 1683, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Date'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 63, in predict_future_price
+    y_test = model.predict(generator)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\ModelLoader.py", line 34, in predict
+    x_test, _, test_dataset = dataGenerator.generate_future_data()
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockDataGenerator.py", line 86, in generate_future_data
+    training_data = data[data['Date'] < self._stock.get_validation_date()].copy()
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\pandas\core\frame.py", line 2906, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\pandas\core\indexes\base.py", line 2900, in get_loc
+    raise KeyError(key) from err
+KeyError: 'Date'
+[2021-03-24 03:54:43,646][Thread-6:2424][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/predict/2013-01-01/AMZN HTTP/1.1" 500 157330]

@@ -91,6 +91,6 @@ if __name__ == '__main__':
     TIME_STEPS = 3
     RUN_FOLDER = 'GOOG_20210316_6c6181c0a13c63653b7c1ea89ad4e06d'
     STOCK_TICKER = 'GOOG'
-    STOCK_START_DATE = pd.to_datetime('2015-01-01')
+    STOCK_START_DATE = pd.to_datetime('2016-01-01')
     STOCK_VALIDATION_DATE = pd.to_datetime('2020-01-01')
     app.run(main)

@@ -1,6 +1,7 @@
 import logging
 from datetime import datetime
 
+from ModelLoader import StockModel
 from JsonResponseResult import JsonResponseResult
 from NewCollector import crawl_news
 from SentimentalAnalyzer import generate_score
@@ -45,6 +46,26 @@ def get_basic_info(request, ticker, start_date):
     else:
         return JsonResponseResult().error(code=405,
                                           data="failed to download data of " + ticker + ", please check trickier.")
+
+
+def predict_future_price(request, ticker, start_date):
+    logger.info("parameter stock is: ----> ", ticker)
+    start_date_obj = datetime.strptime(start_date, '%Y-%m-%d')
+    metadata = StockMetaData(ticker, start_date_obj)
+    generator = StockDataGenerator(metadata)
+    model = None
+    try:
+        model = StockModel(metadata)
+        model.load()
+    except FileNotFoundError:
+        return JsonResponseResult().error(code=405,
+                                          data="failed to load model file of " + ticker + ", please check trickier.")
+    y_test = model.predict(generator)
+    if len(y_test) > 0:
+        return JsonResponseResult().ok(data=y_test)
+    else:
+        return JsonResponseResult().error(code=405,
+                                          data="failed to predict future value of " + ticker)
 
 
 def get_latest_news(request, ticker):
