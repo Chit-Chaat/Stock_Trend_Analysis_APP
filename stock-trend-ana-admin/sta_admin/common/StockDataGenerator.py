@@ -37,30 +37,33 @@ class StockDataGenerator:
         if Path(os.path.join(self._stock.get_data_folder(), self._data_save_file)).is_file():
             # if the file exist already
             data = pd.read_csv(os.path.join(self._stock.get_data_folder(), self._data_save_file))
-            return data.values.tolist()
+            data = data[data['Date'] >= self._stock.get_start_date().strftime("%Y-%m-%d")].copy()
+            return data, data.values.tolist()
         else:
             # if not exist, then download
             end_date = datetime.today()
+            rawdata = None
             try:
-                data = yf.download([self._stock.get_ticker()], start=self._stock.get_start_date(), end=end_date)[
+                rawdata = yf.download([self._stock.get_ticker()], start=self._stock.get_start_date(), end=end_date)[
                     ['Open', 'Close', 'Low', 'High', 'Volume']]
+                data = rawdata[rawdata['Date'] > self._stock.get_start_date().strftime("%Y-%m-%d")].copy()
                 data.to_csv(os.path.join(self._stock.get_data_folder(), self._data_save_file))
-                return data.values.tolist()
+                return data, data.values.tolist()
             except TimeoutError:
                 print("Download Data Failed, Since the network reason.")
-            except:
-                print("Download Data Failed. Since some unknown reason.")
-            return []
+            except ConnectionError:
+                print("Download Data Failed, Since the network reason.")
+            except KeyError:
+                rawdata.to_csv(os.path.join(self._stock.get_data_folder(), self._data_save_file))
+                return rawdata, rawdata.values.tolist()
+            except Exception:
+                print("Download Data Failed, Since some unknown reason.")
+                return [], []
+            return [], []
 
-    def download_transform_to_numpy(self, time_steps, project_folder):
-        end_date = datetime.today()
-        print('End Date: ' + end_date.strftime("%Y-%m-%d"))
-        data = yf.download([self._stock.get_ticker()], start=self._stock.get_start_date(), end=end_date)[
-            ['Open', 'Close']]
-        data = data.reset_index()
-        data.to_csv(os.path.join(project_folder, 'downloaded_data_' + self._stock.get_ticker() + '.csv'))
-        # print(data)
-
+    def download_transform_to_numpy(self, time_steps):
+        # normally, the data should came from the local file.
+        data, _ = self.download_basic_info()
         training_data = data[data['Date'] < self._stock.get_validation_date()].copy()
         test_data = data[data['Date'] >= self._stock.get_validation_date()].copy()
         training_data = training_data.set_index('Date')
@@ -68,7 +71,6 @@ class StockDataGenerator:
         test_data = test_data.set_index('Date')
 
         train_scaled = self._min_max.fit_transform(training_data)
-        # self.__data_verification(train_scaled)
 
         # Training Data Transformation
         x_train = []

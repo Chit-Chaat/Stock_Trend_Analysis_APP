@@ -367,3 +367,108 @@ TypeError: Object of type 'Timestamp' is not JSON serializable
 [2021-03-23 20:02:49,186][MainThread:15608][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
 [2021-03-23 20:03:17,548][Thread-6:20428][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/basic/2015-01-01/TSLA HTTP/1.1" 200 155554]
 [2021-03-23 20:03:56,962][Thread-6:20428][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/basic/2015-01-01/AMZN HTTP/1.1" 200 125021]
+[2021-03-23 20:12:04,746][MainThread:15608][task_id:django.utils.autoreload][autoreload.py:240][INFO][D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockDataGenerator.py changed, reloading.]
+[2021-03-23 20:12:06,583][MainThread:6596][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-23 20:18:50,998][MainThread:6596][task_id:django.utils.autoreload][autoreload.py:240][INFO][D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockDataGenerator.py changed, reloading.]
+[2021-03-23 20:18:52,777][MainThread:17732][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-23 20:42:19,008][MainThread:17732][task_id:django.utils.autoreload][autoreload.py:240][INFO][D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockDataGenerator.py changed, reloading.]
+[2021-03-23 20:42:20,741][MainThread:11776][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-23 20:44:04,571][MainThread:11776][task_id:django.utils.autoreload][autoreload.py:240][INFO][D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockDataGenerator.py changed, reloading.]
+[2021-03-23 20:44:09,159][MainThread:18372][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-23 20:44:17,304][Thread-6:19644][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/basic/2015-01-01/AMZN]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 42, in get_basic_info
+    data_items = generator.download_basic_info()
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockDataGenerator.py", line 40, in download_basic_info
+    data = data[data['Date'] >= self._stock.get_start_date()].copy()
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\pandas\core\ops\common.py", line 65, in new_method
+    return method(self, other)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\pandas\core\ops\__init__.py", line 370, in wrapper
+    res_values = comparison_op(lvalues, rvalues, op)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\pandas\core\ops\array_ops.py", line 244, in comparison_op
+    res_values = comp_method_OBJECT_ARRAY(op, lvalues, rvalues)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\pandas\core\ops\array_ops.py", line 56, in comp_method_OBJECT_ARRAY
+    result = libops.scalar_compare(x.ravel(), y, op)
+  File "pandas\_libs\ops.pyx", line 103, in pandas._libs.ops.scalar_compare
+TypeError: '>=' not supported between instances of 'str' and 'datetime.datetime'
+[2021-03-23 20:44:17,313][Thread-6:19644][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/basic/2015-01-01/AMZN HTTP/1.1" 500 108015]
+[2021-03-23 20:45:16,648][MainThread:18372][task_id:django.utils.autoreload][autoreload.py:240][INFO][D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockDataGenerator.py changed, reloading.]
+[2021-03-23 20:45:18,417][MainThread:1468][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-23 20:45:27,083][Thread-6:16452][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/basic/2015-01-01/AMZN HTTP/1.1" 200 120129]
+[2021-03-23 20:45:40,934][Thread-6:16452][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/basic/2014-01-01/AMZN HTTP/1.1" 200 96]
+[2021-03-23 20:46:42,841][MainThread:1824][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-23 20:48:37,069][Thread-6:19292][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/basic/2014-01-01/AMZN HTTP/1.1" 200 96]
+[2021-03-23 20:49:00,990][MainThread:4616][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-23 20:52:09,374][MainThread:18756][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-23 20:52:16,501][MainThread:19104][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-23 20:53:51,349][Thread-6:3304][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/basic/2014-01-01/AMZN]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\pandas\core\indexes\base.py", line 2898, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas\_libs\index.pyx", line 70, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\index.pyx", line 101, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\hashtable_class_helper.pxi", line 1675, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\_libs\hashtable_class_helper.pxi", line 1683, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Date'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 42, in get_basic_info
+    data_items = generator.download_basic_info()
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockDataGenerator.py", line 48, in download_basic_info
+    data = data[data['Date'] >= self._stock.get_start_date().strftime("%Y%m%d")].copy()
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\pandas\core\frame.py", line 2906, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\pandas\core\indexes\base.py", line 2900, in get_loc
+    raise KeyError(key) from err
+KeyError: 'Date'
+[2021-03-23 20:53:57,626][Thread-6:3304][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/basic/2014-01-01/AMZN HTTP/1.1" 500 148891]
+[2021-03-23 20:57:16,575][MainThread:19104][task_id:django.utils.autoreload][autoreload.py:240][INFO][D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockDataGenerator.py changed, reloading.]
+[2021-03-23 20:57:18,422][MainThread:16824][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-23 20:59:27,887][MainThread:11520][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-23 21:01:37,532][MainThread:4324][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-23 21:02:08,630][Thread-6:19356][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/basic/2014-01-01/AMZN]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\pandas\core\indexes\base.py", line 2898, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas\_libs\index.pyx", line 70, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\index.pyx", line 101, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\hashtable_class_helper.pxi", line 1675, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\_libs\hashtable_class_helper.pxi", line 1683, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Date'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 42, in get_basic_info
+    data_items = generator.download_basic_info()
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockDataGenerator.py", line 48, in download_basic_info
+    ss = len(data['Date'])
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\pandas\core\frame.py", line 2906, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\pandas\core\indexes\base.py", line 2900, in get_loc
+    raise KeyError(key) from err
+KeyError: 'Date'
+[2021-03-23 21:02:23,977][Thread-6:19356][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/basic/2014-01-01/AMZN HTTP/1.1" 500 148841]
+[2021-03-23 21:06:41,609][MainThread:2676][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-23 21:06:50,537][Thread-6:3644][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/basic/2014-01-01/AMZN HTTP/1.1" 200 146123]
+[2021-03-23 21:07:19,616][Thread-6:3644][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/basic/2014-01-01/AMZN HTTP/1.1" 200 143752]
+[2021-03-23 21:09:30,610][MainThread:8560][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-23 21:10:14,551][MainThread:11104][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-23 21:11:58,617][MainThread:12024][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-23 21:12:17,668][Thread-6:15380][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/basic/2014-01-01/AMZN HTTP/1.1" 200 167861]
+[2021-03-23 21:12:33,777][MainThread:12024][task_id:django.utils.autoreload][autoreload.py:240][INFO][D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockDataGenerator.py changed, reloading.]
+[2021-03-23 21:12:35,558][MainThread:5740][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]

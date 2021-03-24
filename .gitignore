@@ -128,3 +128,4 @@ dmypy.json
 # Pyre type checker
 .pyre/
 /stock-trend-ana-admin/.idea
+/stock-prediction-deep-neural-learning/.idea

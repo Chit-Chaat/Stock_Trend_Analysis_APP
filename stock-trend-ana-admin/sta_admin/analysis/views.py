@@ -39,7 +39,7 @@ def get_basic_info(request, ticker, start_date):
     start_date_obj = datetime.strptime(start_date, '%Y-%m-%d')
     metadata = StockMetaData(ticker, start_date_obj)
     generator = StockDataGenerator(metadata)
-    data_items = generator.download_basic_info()
+    _, data_items = generator.download_basic_info()
     if len(data_items) > 0:
         return JsonResponseResult().ok(data=data_items)
     else:
