@@ -720,3 +720,118 @@ Traceback (most recent call last):
     raise KeyError(key) from err
 KeyError: 'Date'
 [2021-03-24 03:54:43,646][Thread-6:2424][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/predict/2013-01-01/AMZN HTTP/1.1" 500 157330]
+[2021-03-24 04:01:10,218][MainThread:7948][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-24 04:01:40,417][Thread-6:11816][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/predict/2013-01-01/AMZN HTTP/1.1" 200 8524]
+[2021-03-24 04:03:00,433][MainThread:7948][task_id:django.utils.autoreload][autoreload.py:240][INFO][D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockDataGenerator.py changed, reloading.]
+[2021-03-24 04:03:02,518][MainThread:13816][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-24 04:03:15,169][MainThread:19792][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-24 04:03:31,908][Thread-1:16408][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/predict/2012-01-01/AMZN]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\pandas\core\indexes\base.py", line 2898, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas\_libs\index.pyx", line 70, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\index.pyx", line 101, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\hashtable_class_helper.pxi", line 1675, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\_libs\hashtable_class_helper.pxi", line 1683, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Date'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 63, in predict_future_price
+    y_test = model.predict(generator)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\ModelLoader.py", line 34, in predict
+    x_test, _, test_dataset = dataGenerator.generate_future_data()
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockDataGenerator.py", line 87, in generate_future_data
+    training_data = data[data['Date'] < self._stock.get_validation_date()].copy()
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\pandas\core\frame.py", line 2906, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\pandas\core\indexes\base.py", line 2900, in get_loc
+    raise KeyError(key) from err
+KeyError: 'Date'
+[2021-03-24 04:03:31,914][Thread-1:16408][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/predict/2012-01-01/AMZN HTTP/1.1" 500 154376]
+[2021-03-24 04:04:48,492][Thread-1:16408][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/predict/2012-01-01/AMZN HTTP/1.1" 200 8525]
+[2021-03-24 04:05:01,302][MainThread:13016][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-24 04:05:37,412][Thread-6:6712][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/predict/2011-01-01/AMZN]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\pandas\core\indexes\base.py", line 2898, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas\_libs\index.pyx", line 70, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\index.pyx", line 101, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\hashtable_class_helper.pxi", line 1675, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\_libs\hashtable_class_helper.pxi", line 1683, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Date'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 63, in predict_future_price
+    y_test = model.predict(generator)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\ModelLoader.py", line 34, in predict
+    x_test, _, test_dataset = dataGenerator.generate_future_data()
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockDataGenerator.py", line 87, in generate_future_data
+    training_data = data[data['Date'] < self._stock.get_validation_date()].copy()
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\pandas\core\frame.py", line 2906, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\pandas\core\indexes\base.py", line 2900, in get_loc
+    raise KeyError(key) from err
+KeyError: 'Date'
+[2021-03-24 04:05:37,423][Thread-6:6712][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/predict/2011-01-01/AMZN HTTP/1.1" 500 157330]
+[2021-03-24 04:06:39,749][MainThread:13688][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-24 04:07:16,348][Thread-6:17592][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/predict/2011-01-01/AMZN HTTP/1.1" 200 8530]
+[2021-03-24 04:07:23,011][Thread-6:17592][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/predict/2013-01-01/TSLA HTTP/1.1" 200 98]
+[2021-03-24 04:10:16,067][MainThread:13688][task_id:django.utils.autoreload][autoreload.py:240][INFO][D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockDataGenerator.py changed, reloading.]
+[2021-03-24 04:13:07,471][MainThread:11416][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-24 04:13:24,458][Thread-6:11976][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/predict/2010-01-01/AMZN]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 63, in predict_future_price
+    y_test = model.predict(generator)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\ModelLoader.py", line 34, in predict
+    x_test, _, test_dataset = dataGenerator.generate_future_data()
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockDataGenerator.py", line 95, in generate_future_data
+    latest_date = datetime.strptime(test_data[-1:]['Close'].idxmin(), '%Y-%m-%d')
+TypeError: strptime() argument 1 must be str, not Timestamp
+[2021-03-24 04:13:24,463][Thread-6:11976][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/predict/2010-01-01/AMZN HTTP/1.1" 500 96770]
+[2021-03-24 04:14:04,085][Thread-6:11976][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/predict/2015-01-01/AMZN HTTP/1.1" 200 8547]
+[2021-03-24 04:14:09,956][Thread-6:11976][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/predict/2014-01-01/AMZN HTTP/1.1" 200 8535]
+[2021-03-24 04:14:16,881][Thread-6:11976][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/predict/2010-01-01/AMZN HTTP/1.1" 200 8538]
+[2021-03-24 04:14:26,882][Thread-6:11976][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/predict/2009-01-01/AMZN]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 63, in predict_future_price
+    y_test = model.predict(generator)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\ModelLoader.py", line 34, in predict
+    x_test, _, test_dataset = dataGenerator.generate_future_data()
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockDataGenerator.py", line 95, in generate_future_data
+    latest_date = datetime.strptime(test_data[-1:]['Close'].idxmin(), '%Y-%m-%d')
+TypeError: strptime() argument 1 must be str, not Timestamp
+[2021-03-24 04:14:26,885][Thread-6:11976][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/predict/2009-01-01/AMZN HTTP/1.1" 500 96633]
+[2021-03-24 04:15:34,367][MainThread:11416][task_id:django.utils.autoreload][autoreload.py:240][INFO][D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockDataGenerator.py changed, reloading.]
+[2021-03-24 04:15:36,601][MainThread:17328][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-24 04:15:54,335][MainThread:17328][task_id:django.utils.autoreload][autoreload.py:240][INFO][D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockDataGenerator.py changed, reloading.]
+[2021-03-24 04:15:56,159][MainThread:7948][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-24 04:16:14,030][MainThread:7948][task_id:django.utils.autoreload][autoreload.py:240][INFO][D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockDataGenerator.py changed, reloading.]
+[2021-03-24 04:16:16,019][MainThread:19108][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-24 04:16:44,636][MainThread:19108][task_id:django.utils.autoreload][autoreload.py:240][INFO][D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockDataGenerator.py changed, reloading.]
+[2021-03-24 04:16:46,580][MainThread:11060][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-24 04:16:58,627][Thread-6:1648][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/predict/2009-01-01/AMZN HTTP/1.1" 200 8538]
+[2021-03-24 04:17:06,625][Thread-6:1648][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/predict/2008-01-01/AMZN HTTP/1.1" 200 8551]
+[2021-03-24 04:17:21,068][Thread-10:13256][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/news/latest/TSLA HTTP/1.1" 200 3115]
+[2021-03-24 04:17:21,651][Thread-10:13256][task_id:django.request][log.py:230][WARNING][Not Found: /favicon.ico]
+[2021-03-24 04:17:21,652][Thread-10:13256][task_id:django.server][basehttp.py:157][WARNING]["GET /favicon.ico HTTP/1.1" 404 2084]
+[2021-03-24 04:17:24,488][Thread-6:1648][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/basic/2015-01-01/AMZN HTTP/1.1" 200 143752]

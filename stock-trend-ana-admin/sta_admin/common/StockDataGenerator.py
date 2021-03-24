@@ -49,6 +49,7 @@ class StockDataGenerator:
             try:
                 rawdata = yf.download([self._stock.get_ticker()], start=self._stock.get_start_date(), end=end_date)[
                     ['Open', 'Close', 'Low', 'High', 'Volume']]
+                rawdata.reset_index(inplace=True)
                 data = rawdata[rawdata['Date'] > self._stock.get_start_date().strftime("%Y-%m-%d")].copy()
                 data.to_csv(os.path.join(self._stock.get_data_folder(), self._data_save_file))
                 return data, data.values.tolist()
@@ -91,7 +92,13 @@ class StockDataGenerator:
         self._min_max.fit_transform(training_data)
 
         latest_close_price = test_data.Close.iloc[-1]
-        latest_date = datetime.strptime(test_data[-1:]['Close'].idxmin(), '%Y-%m-%d')
+        latest_date_obj = test_data[-1:]['Close'].idxmin()
+
+        if isinstance(latest_date_obj, str):
+            latest_date = datetime.strptime(test_data[-1:]['Close'].idxmin(), '%Y-%m-%d')
+        else:
+            latest_date = latest_date_obj
+
         tomorrow_date = latest_date + timedelta(1)
         prediction_end_date = latest_date + timedelta(self.get_time_steps() * 100)
 
@@ -131,7 +138,3 @@ class StockDataGenerator:
         x_test, y_test = np.array(x_test), np.array(y_test)
         x_test = np.reshape(x_test, (x_test.shape[0], x_test.shape[1], -1))
         return x_test, y_test, test_data
-
-
-
-
