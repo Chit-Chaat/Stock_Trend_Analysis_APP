@@ -514,3 +514,40 @@ Traceback (most recent call last):
     latest_date = datetime.strptime(test_data[-1:]['Close'].idxmin(), '%Y-%m-%d')
 TypeError: strptime() argument 1 must be str, not Timestamp
 [2021-03-24 04:14:26,885][Thread-6:11976][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/predict/2009-01-01/AMZN HTTP/1.1" 500 96633]
+[2021-03-27 18:34:16,806][Thread-3:7088][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/basic/2015-01-01/AMZN]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 45, in get_basic_info
+    return JsonResponseResult().ok(data=data_items)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\JsonResponseResult.py", line 23, in ok
+    self.__init__(data=data, code=code, msg=msg, **kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\JsonResponseResult.py", line 14, in __init__
+    super().__init__(content=json.dumps(self.data), **kwargs)
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\encoder.py", line 180, in default
+    o.__class__.__name__)
+TypeError: Object of type 'Timestamp' is not JSON serializable
+[2021-03-27 18:34:16,809][Thread-3:7088][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/basic/2015-01-01/AMZN HTTP/1.1" 500 136236]
+[2021-03-27 18:58:11,094][Thread-6:19608][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/predict/AMZN HTTP/1.1" 500 59]
+[2021-03-27 19:01:59,137][Thread-6:1264][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/predict/AMZN]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 65, in predict_future_price
+    return JsonResponseResult().ok(data=y_test)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\JsonResponseResult.py", line 23, in ok
+    self.__init__(data=data, code=code, msg=msg, **kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\JsonResponseResult.py", line 10, in __init__
+    if not data: data = list()
+ValueError: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+[2021-03-27 19:01:59,141][Thread-6:1264][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/predict/AMZN HTTP/1.1" 500 105485]

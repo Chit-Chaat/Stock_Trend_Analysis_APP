@@ -48,7 +48,7 @@ def get_basic_info(request, ticker, start_date):
                                           data="failed to download data of " + ticker + ", please check trickier.")
 
 
-def predict_future_price(request, ticker, start_date):
+def predict_future_price(request, ticker, start_date="2015-01-01"):
     logger.info("parameter stock is: ----> ", ticker)
     start_date_obj = datetime.strptime(start_date, '%Y-%m-%d')
     metadata = StockMetaData(ticker, start_date_obj)

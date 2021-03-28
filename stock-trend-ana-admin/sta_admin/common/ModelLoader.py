@@ -42,5 +42,5 @@ class StockModel:
 
         y_test = y_test[:, 0].reshape(-1, 1)
         date_arr = date_arr.reshape(-1, 1)
-        y_test = np.concatenate([date_arr, y_test], axis=1)
+        y_test = np.rec.fromarrays([date_arr, y_test], names='Date, Value').flatten()
         return y_test.tolist()
