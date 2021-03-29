@@ -21,20 +21,11 @@ class StockDataGenerator:
         self._y_min_max = MinMaxScaler(feature_range=(0, 1))
         self._data_save_file = "data.csv"
 
-    # def get_stock_short_name(self):
-    #     return self._ticker.info['shortName']
-
     def get_min_max(self):
         return self._min_max
 
     def get_y_min_max(self):
         return self._y_min_max
-
-    # def get_stock_currency(self):
-    #     return self._ticker.info['currency']
-
-    # def get_data_dir(self):
-    #     return self._stock.get_data_folder()
 
     def download_basic_info(self):
         if Path(os.path.join(self._stock.get_data_folder(), self._data_save_file)).is_file():
