@@ -7,4 +7,6 @@
 #### Chart Online Editor: [https://mermaid-js.github.io/mermaid-live-editor/](https://mermaid-js.github.io/mermaid-live-editor/)
 
 
-#### Echarts Candle Sample: [https://echarts.apache.org/examples/en/editor.html?c=candlestick-sh](https://echarts.apache.org/examples/en/editor.html?c=candlestick-sh)
+#### Echarts Candle Sample: [https://echarts.apache.org/examples/zh/editor.html?c=candlestick-brush](https://echarts.apache.org/examples/zh/editor.html?c=candlestick-brush)
+
+#### Prototype [https://modao.cc/app/c883993c29346b23a26fac8a18755529d19333e4](https://modao.cc/app/c883993c29346b23a26fac8a18755529d19333e4)
