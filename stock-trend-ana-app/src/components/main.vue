@@ -2,7 +2,7 @@
   <el-container>
     <el-aside>
       <el-menu :default-active="this.$route.path" class="siderbar" mode="vertical" @select="handleSelect" router
-        background-color="#fff" text-color="#333" active-text-color="#0084ff">
+        background-color="#409EFF" text-color="#C0C4CC" active-text-color="#fff">
         <el-menu-item v-for="(item,i) in navList" :key="i" :index="item.path" :disabled="item.disabled">
           <template slot="title">
             <i :class="item.icon"></i>
@@ -24,10 +24,10 @@
     data() {
       return {
         navList: [
-          { path: '/index', navItem: 'Index', disabled: false, icon: 'el-icon-data-line' },
-          { path: '/news', navItem: 'News', disabled: false, icon: 'el-icon-postcard' },
-          { path: '/support', navItem: 'Help!!', disabled: true, icon: 'el-icon-help' },
-          { path: '/about', navItem: 'About', disabled: false, icon: 'el-icon-user' },
+          { path: '/index', navItem: 'INDEX', disabled: false, icon: 'el-icon-data-line' },
+          { path: '/news', navItem: 'NEWS', disabled: false, icon: 'el-icon-postcard' },
+          { path: '/support', navItem: 'HELP!!', disabled: true, icon: 'el-icon-help' },
+          { path: '/about', navItem: 'ABOUT', disabled: false, icon: 'el-icon-user' },
         ]
 
       }
@@ -42,22 +42,32 @@
 </script>
 
 <style scoped>
-  .sidebar {}
+  .navName {
+    font-family: "Microsoft YaHei";
 
-  .content {}
+  }
+
+  .el-menu-item i {
+    color: #C0C4CC;
+  }
 
   .el-aside {
-    background-color: #D3DCE6;
-    color: #333;
+    padding-top: 50px;
+    background-color: #409EFF;
     text-align: center;
     line-height: 200px;
     width: 200px !important;
+    height: 500px;
   }
 
   .el-main {
     background-color: #E9EEF3;
     color: #333;
     text-align: center;
+    padding-bottom: 0px;
   }
 
+  .el-menu {
+    border-right: none;
+  }
 </style>
