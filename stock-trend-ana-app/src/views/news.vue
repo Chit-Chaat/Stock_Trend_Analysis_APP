@@ -6,7 +6,7 @@
         </el-option>
       </el-select>
       <el-button type="success" style="margin-left:20px; width: 180px;">Do Filter<i
-          class="el-icon-search el-icon--right"></i></el-button>
+          class="el-icon-s-operation el-icon--right"></i></el-button>
     </el-header>
     <el-main id="news_content">
       <el-timeline>

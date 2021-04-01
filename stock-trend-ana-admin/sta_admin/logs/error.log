@@ -551,3 +551,17 @@ Traceback (most recent call last):
     if not data: data = list()
 ValueError: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
 [2021-03-27 19:01:59,141][Thread-6:1264][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/predict/AMZN HTTP/1.1" 500 105485]
+[2021-03-31 21:00:02,815][Thread-3:9600][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/basic/Mon Apr 01 2019 21:00:02 GMT-0700 (Pacific Daylight Time)/AMZN]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 40, in get_basic_info
+    start_date_obj = datetime.strptime(start_date, '%Y-%m-%d')
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\_strptime.py", line 565, in _strptime_datetime
+    tt, fraction = _strptime(data_string, format)
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\_strptime.py", line 362, in _strptime
+    (data_string, format))
+ValueError: time data 'Mon Apr 01 2019 21:00:02 GMT-0700 (Pacific Daylight Time)' does not match format '%Y-%m-%d'
+[2021-03-31 21:00:02,818][Thread-3:9600][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/basic/Mon%20Apr%2001%202019%2021:00:02%20GMT-0700%20(Pacific%20Daylight%20Time)/AMZN HTTP/1.1" 500 86963]

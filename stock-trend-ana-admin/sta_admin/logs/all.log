@@ -908,3 +908,29 @@ ValueError: The truth value of an array with more than one element is ambiguous.
 [2021-03-27 19:01:59,141][Thread-6:1264][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/predict/AMZN HTTP/1.1" 500 105485]
 [2021-03-27 19:03:45,180][MainThread:3004][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
 [2021-03-27 19:04:20,653][Thread-6:6604][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/predict/AMZN HTTP/1.1" 200 9836]
+[2021-03-31 20:01:35,702][MainThread:17492][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-31 20:32:18,762][Thread-1:20816][task_id:django.request][log.py:230][WARNING][Not Found: /basic/Mon Apr 01 2019 20:32:16 GMT-0700 (Pacific Daylight Time)/AMZN]
+[2021-03-31 20:32:18,763][Thread-1:20816][task_id:django.server][basehttp.py:157][WARNING]["GET /basic/Mon%20Apr%2001%202019%2020:32:16%20GMT-0700%20(Pacific%20Daylight%20Time)/AMZN HTTP/1.1" 404 2271]
+[2021-03-31 20:59:34,085][Thread-3:9600][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/basic/2015-01-01/AMZN HTTP/1.1" 200 144359]
+[2021-03-31 21:00:02,815][Thread-3:9600][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/basic/Mon Apr 01 2019 21:00:02 GMT-0700 (Pacific Daylight Time)/AMZN]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 40, in get_basic_info
+    start_date_obj = datetime.strptime(start_date, '%Y-%m-%d')
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\_strptime.py", line 565, in _strptime_datetime
+    tt, fraction = _strptime(data_string, format)
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\_strptime.py", line 362, in _strptime
+    (data_string, format))
+ValueError: time data 'Mon Apr 01 2019 21:00:02 GMT-0700 (Pacific Daylight Time)' does not match format '%Y-%m-%d'
+[2021-03-31 21:00:02,818][Thread-3:9600][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/basic/Mon%20Apr%2001%202019%2021:00:02%20GMT-0700%20(Pacific%20Daylight%20Time)/AMZN HTTP/1.1" 500 86963]
+[2021-03-31 21:00:51,864][Thread-3:9600][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/basic/2019-04-02/AMZN HTTP/1.1" 200 48486]
+[2021-03-31 21:01:58,691][MainThread:10504][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-03-31 21:02:48,085][Thread-6:20388][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/basic/2019-04-02/AMZN HTTP/1.1" 200 48486]
+[2021-03-31 21:03:17,124][Thread-6:20388][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/basic/2019-04-02/AMZN HTTP/1.1" 200 48486]
+[2021-03-31 21:04:07,092][Thread-6:20388][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/basic/2019-04-02/AMZN HTTP/1.1" 200 48486]
+[2021-03-31 21:07:08,983][Thread-6:20388][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/basic/2019-04-02/AMZN HTTP/1.1" 200 48486]
+[2021-03-31 21:15:47,366][Thread-11:22508][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/basic/2015-01-01/AMZN HTTP/1.1" 200 152620]
+[2021-03-31 21:25:16,062][Thread-14:5368][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/basic/2015-01-01/AMZN HTTP/1.1" 200 152620]
