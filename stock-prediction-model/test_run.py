@@ -1,4 +1,3 @@
-
 import os
 from absl import app
 import tensorflow as tf
@@ -8,6 +7,7 @@ import numpy as np
 from stock_prediction_class import StockMetaData
 from stock_prediction_numpy import StockDataGenerator
 from datetime import timedelta
+
 os.environ["PATH"] += os.pathsep + 'C:/Program Files (x86)/Graphviz2.38/bin/'
 
 
@@ -68,29 +68,21 @@ def main(argv):
 
     print("plotting predictions")
     plt.figure(figsize=(14, 5))
-    plt.plot(test_predictions_baseline[STOCK_TICKER + '_predicted'], color='red', label='Predicted [' + 'GOOG' + '] price')
+    plt.plot(test_predictions_baseline[STOCK_TICKER + '_predicted'], color='red',
+             label='Predicted [' + STOCK_TICKER + '] price')
     plt.xlabel('Time')
     plt.ylabel('Price [' + 'USD' + ']')
     plt.legend()
     plt.title('Prediction')
     plt.savefig(os.path.join(inference_folder, STOCK_TICKER + '_future_prediction.png'))
     plt.pause(0.001)
-
-    plt.figure(figsize=(14, 5))
-    plt.plot(test_data.Close, color='green', label='Simulated [' + 'GOOG' + '] price')
-    plt.xlabel('Time')
-    plt.ylabel('Price [' + 'USD' + ']')
-    plt.legend()
-    plt.title('Random')
-    plt.savefig(os.path.join(inference_folder, STOCK_TICKER + '_future_random.png'))
-    plt.pause(0.001)
     plt.show()
 
 
 if __name__ == '__main__':
     TIME_STEPS = 3
-    RUN_FOLDER = 'GOOG_20210316_6c6181c0a13c63653b7c1ea89ad4e06d'
-    STOCK_TICKER = 'GOOG'
-    STOCK_START_DATE = pd.to_datetime('2016-01-01')
+    RUN_FOLDER = 'AMZN_20210401_add22fa825800974f38f1af6aa9f1dac'
+    STOCK_TICKER = 'AMZN'
+    STOCK_START_DATE = pd.to_datetime('2018-01-01')
     STOCK_VALIDATION_DATE = pd.to_datetime('2020-01-01')
     app.run(main)
