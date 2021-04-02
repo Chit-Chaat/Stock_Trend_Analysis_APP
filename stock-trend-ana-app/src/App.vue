@@ -70,7 +70,7 @@
   }
 
   .el-main {
-    background-color: #E9EEF3;
+    background-color: #ecf0f4;
     color: #333;
     text-align: center;
     height: 500px;

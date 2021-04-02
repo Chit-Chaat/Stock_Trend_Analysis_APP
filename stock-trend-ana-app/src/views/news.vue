@@ -12,7 +12,7 @@
       <el-timeline>
         <el-timeline-item v-for="(activity, index) in activities" :key="index" :icon="activity.icon"
           :type="activity.type" :color="activity.color" size="large" :timestamp="activity.timestamp">
-          <el-link :href="activity.url" :underline="false" target="_self">{{activity.content}}</el-link>
+          <el-link :href="activity.url" :underline="false" target="_blank">{{activity.content}}</el-link>
           <div>
             <el-tag v-for="tag in activity.tags" :key="tag.name" :type="tag.type">
               {{tag.name}}

@@ -11,7 +11,6 @@ class Plotter:
         self.stock_ticker = stock_ticker
 
     def project_plot_predictions(self, price_predicted, test_data):
-        print("plotting predictions")
         plt.figure(figsize=(14, 5))
         plt.plot(price_predicted[self.stock_ticker + '_predicted'], color='red', label='Predicted [' + self.short_name + '] price')
         plt.plot(test_data.Close, color='green', label='Actual [' + self.short_name + '] price')

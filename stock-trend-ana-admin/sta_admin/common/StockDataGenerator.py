@@ -130,3 +130,34 @@ class StockDataGenerator:
         x_test, y_test = np.array(x_test), np.array(y_test)
         x_test = np.reshape(x_test, (x_test.shape[0], x_test.shape[1], -1))
         return x_test, y_test, test_data
+
+# calculateMA(orginalData, dayCount) {
+#         var result = [];
+#         for (var i = 0, len = orginalData.values.length; i < len; i++) {
+#           if (i < dayCount) {
+#             result.push("-");
+#             continue;
+#           }
+#           var sum = 0;
+#           for (var j = 0; j < dayCount; j++) {
+#             sum += orginalData.values[i - j][1];
+#           }
+#           result.push(sum / dayCount);
+#         }
+#         return result;
+#       },
+#       splitData: function (rawData) {
+#         var categoryData = [];
+#         var values = [];
+#         var volumes = [];
+#         for (var i = 0; i < rawData.length; i++) {
+#           categoryData.push(rawData[i][1]);
+#           volumes.push([i, rawData[i][6], rawData[i][2] > rawData[i][3] ? 1 : -1]);
+#           values.push(rawData[i].splice(2, 4));
+#         }
+#         return {
+#           categoryData: categoryData,
+#           values: values,
+#           volumes: volumes,
+#         };
+#       },

@@ -10,7 +10,8 @@ class LongShortTermMemory:
 
     def get_defined_metrics(self):
         defined_metrics = [
-            tf.keras.metrics.MeanSquaredError(name='MSE')
+            tf.keras.metrics.MeanSquaredError(name='MSE'),
+            tf.keras.metrics.RootMeanSquaredError(name="RMSE")
         ]
         return defined_metrics
 
@@ -31,7 +32,7 @@ class LongShortTermMemory:
         model.add(Dense(units=1))
         model.summary()
         tf.keras.utils.plot_model(model,
-                                  to_file=os.path.join(self.project_folder, 'model_lstm.png'),
+                                  to_file=os.path.join(self.project_folder, 'model_seq2seq.png'),
                                   show_shapes=True,
                                   show_layer_names=True)
         return model

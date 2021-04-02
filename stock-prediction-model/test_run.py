@@ -81,7 +81,7 @@ def main(argv):
 
 if __name__ == '__main__':
     TIME_STEPS = 3
-    RUN_FOLDER = 'AMZN_20210401_add22fa825800974f38f1af6aa9f1dac'
+    RUN_FOLDER = 'AMZN_20210401_aad5f3430ff242e2ae6a981f1cbefa5c'
     STOCK_TICKER = 'AMZN'
     STOCK_START_DATE = pd.to_datetime('2018-01-01')
     STOCK_VALIDATION_DATE = pd.to_datetime('2020-01-01')
