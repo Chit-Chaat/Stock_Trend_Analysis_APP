@@ -1173,3 +1173,72 @@ AttributeError: 'DataFrame' object has no attribute 'tolist'
 [2021-04-04 00:53:38,379][Thread-6:12400][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/candle/2018-04-05/AMZN HTTP/1.1" 200 109764]
 [2021-04-04 00:53:42,398][Thread-6:12400][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/news/latest/AMZN HTTP/1.1" 200 4069]
 [2021-04-04 00:53:47,241][Thread-6:12400][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/candle/2018-04-05/AMZN HTTP/1.1" 200 109764]
+[2021-04-04 00:56:03,683][Thread-6:12400][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/candle/2018-04-05/AMZN HTTP/1.1" 200 109764]
+[2021-04-04 01:02:01,370][Thread-9:16572][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/predict/AMZN HTTP/1.1" 200 10241]
+[2021-04-04 01:24:22,969][MainThread:18180][task_id:django.utils.autoreload][autoreload.py:240][INFO][D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py changed, reloading.]
+[2021-04-04 01:24:24,538][MainThread:3572][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-04-04 01:25:13,255][MainThread:3572][task_id:django.utils.autoreload][autoreload.py:240][INFO][D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py changed, reloading.]
+[2021-04-04 01:25:14,770][MainThread:13752][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-04-04 01:25:51,743][MainThread:13752][task_id:django.utils.autoreload][autoreload.py:240][INFO][D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py changed, reloading.]
+[2021-04-04 01:25:52,982][MainThread:14152][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-04-04 01:27:31,335][MainThread:14152][task_id:django.utils.autoreload][autoreload.py:240][INFO][D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py changed, reloading.]
+[2021-04-04 01:27:32,758][MainThread:21544][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-04-04 01:30:09,294][MainThread:21544][task_id:django.utils.autoreload][autoreload.py:240][INFO][D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockDataGenerator.py changed, reloading.]
+[2021-04-04 01:30:10,632][MainThread:6808][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-04-04 01:30:21,868][MainThread:6808][task_id:django.utils.autoreload][autoreload.py:240][INFO][D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockDataGenerator.py changed, reloading.]
+[2021-04-04 01:30:23,224][MainThread:4552][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-04-04 01:30:52,170][MainThread:4552][task_id:django.utils.autoreload][autoreload.py:240][INFO][D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockDataGenerator.py changed, reloading.]
+[2021-04-04 01:30:53,507][MainThread:17948][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-04-04 01:34:24,384][MainThread:17948][task_id:django.utils.autoreload][autoreload.py:240][INFO][D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockDataGenerator.py changed, reloading.]
+[2021-04-04 01:34:25,724][MainThread:13932][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-04-04 01:34:49,526][MainThread:13932][task_id:django.utils.autoreload][autoreload.py:240][INFO][D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py changed, reloading.]
+[2021-04-04 01:34:50,903][MainThread:17516][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-04-04 01:35:13,232][Thread-1:23268][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/predict/AMZN HTTP/1.1" 200 108014]
+[2021-04-04 01:36:42,257][MainThread:17516][task_id:django.utils.autoreload][autoreload.py:240][INFO][D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\ModelLoader.py changed, reloading.]
+[2021-04-04 01:36:43,613][MainThread:22484][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-04-04 01:36:57,769][Thread-1:13012][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/predict/AMZN]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 97, in predict_future_price
+    return JsonResponseResult().ok(data=result)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\JsonResponseResult.py", line 23, in ok
+    self.__init__(data=data, code=code, msg=msg, **kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\JsonResponseResult.py", line 14, in __init__
+    super().__init__(content=json.dumps(self.data), **kwargs)
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\encoder.py", line 180, in default
+    o.__class__.__name__)
+TypeError: Object of type 'recarray' is not JSON serializable
+[2021-04-04 01:36:57,774][Thread-1:13012][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/predict/AMZN HTTP/1.1" 500 140096]
+[2021-04-04 01:37:39,663][MainThread:19884][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-04-04 01:39:45,984][MainThread:12760][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-04-04 01:40:27,544][MainThread:22648][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-04-04 01:42:10,158][MainThread:17980][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-04-04 01:44:22,381][MainThread:12908][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-04-04 01:44:34,494][Thread-1:11920][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/predict/AMZN HTTP/1.1" 200 148759]
+[2021-04-04 01:45:35,972][Thread-1:11920][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/candle/2018-04-05/AMZN HTTP/1.1" 200 109764]
+[2021-04-04 01:46:45,059][Thread-1:11920][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/predict/AMZN HTTP/1.1" 200 149241]
+[2021-04-04 01:47:03,330][Thread-1:11920][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/candle/2018-04-05/AMZN HTTP/1.1" 200 109764]
+[2021-04-04 01:47:09,062][Thread-1:11920][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/predict/AMZN HTTP/1.1" 200 149027]
+[2021-04-04 01:48:56,295][MainThread:12908][task_id:django.utils.autoreload][autoreload.py:240][INFO][D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockDataGenerator.py changed, reloading.]
+[2021-04-04 01:48:57,692][MainThread:11808][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-04-04 01:49:13,305][Thread-1:4340][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/candle/2018-04-05/AMZN HTTP/1.1" 200 79553]
+[2021-04-04 01:49:21,218][Thread-1:4340][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/predict/AMZN HTTP/1.1" 200 108568]
+[2021-04-04 01:56:40,841][MainThread:11808][task_id:django.utils.autoreload][autoreload.py:240][INFO][D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\ModelLoader.py changed, reloading.]
+[2021-04-04 01:56:42,167][MainThread:17216][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-04-04 01:57:00,114][Thread-1:16324][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/predict/AMZN HTTP/1.1" 200 108340]
+[2021-04-04 01:57:19,059][Thread-1:16324][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/candle/2018-04-05/AMZN HTTP/1.1" 200 79553]
+[2021-04-04 01:57:26,703][Thread-1:16324][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/predict/AMZN HTTP/1.1" 200 108130]
+[2021-04-04 01:57:53,038][Thread-1:16324][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/news/latest/AMZN HTTP/1.1" 200 4069]
+[2021-04-04 01:59:01,003][Thread-1:16324][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/news/latest/AMZN HTTP/1.1" 200 4069]
+[2021-04-04 01:59:05,628][Thread-1:16324][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/news/latest/BOTZ HTTP/1.1" 200 3691]
+[2021-04-04 01:59:52,292][Thread-1:16324][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/news/latest/AMZN HTTP/1.1" 200 4069]
+[2021-04-04 01:59:56,986][Thread-1:16324][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/news/latest/GOOG HTTP/1.1" 200 3730]

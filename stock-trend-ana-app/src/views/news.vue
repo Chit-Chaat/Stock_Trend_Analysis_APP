@@ -5,7 +5,7 @@
         <el-option v-for="item in ticker_options" :key="item.value" :label="item.label" :value="item.value">
         </el-option>
       </el-select>
-      <el-button type="success" style="margin-left:20px; width: 180px;">Do Filter<i
+      <el-button type="success" style="margin-left:20px; width: 180px;" @click="crawl_new">Do Filter<i
           class="el-icon-s-operation el-icon--right"></i></el-button>
     </el-header>
     <el-main id="news_content" v-loading.fullscreen.lock="loading">
@@ -72,6 +72,7 @@
         window.open(url_str, '_blank');
       },
       crawl_new() {
+        this.loading = true
         if (this.isNull(this.stock_ticker)) {
           this.$options.methods.sendTips.bind(this)("You can check other stock news by clicking filter.");
         } else {

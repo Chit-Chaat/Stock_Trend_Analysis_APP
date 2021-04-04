@@ -41,6 +41,7 @@ class StockModel:
              for timestamp_obj in test_dataset.index.tolist()][:len(y_test)])
 
         y_test = y_test[:, 0].reshape(-1, 1)
+        y_test = np.round(y_test, 2)
         date_arr = date_arr.reshape(-1, 1)
         y_test = np.rec.fromarrays([date_arr, y_test], names='Date, Value').flatten()
-        return y_test.tolist()
+        return y_test

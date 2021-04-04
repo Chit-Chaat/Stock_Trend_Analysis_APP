@@ -79,7 +79,7 @@ def get_candle_render_data(request, ticker, start_date):
                                           data="failed to download data of " + ticker + ", please check trickier.")
 
 
-def predict_future_price(request, ticker, start_date="2015-01-01"):
+def predict_future_price(request, ticker, start_date="2018-01-01"):
     logger.info("parameter stock is: ----> ", ticker)
     start_date_obj = datetime.strptime(start_date, '%Y-%m-%d')
     metadata = StockMetaData(ticker, start_date_obj)
@@ -92,8 +92,9 @@ def predict_future_price(request, ticker, start_date="2015-01-01"):
         return JsonResponseResult().error(code=405,
                                           data="failed to load model file of " + ticker + ", please check trickier.")
     y_test = model.predict(generator)
-    if len(y_test) > 0:
-        return JsonResponseResult().ok(data=y_test)
+    result = generator.concat_prediction_result(y_test)
+    if len(result) > 0:
+        return JsonResponseResult().ok(data=result)
     else:
         return JsonResponseResult().error(code=405,
                                           data="failed to predict future value of " + ticker)

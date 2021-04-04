@@ -59,19 +59,6 @@ class StockDataGenerator:
             return [], []
 
     def download_and_wrap_basic_info(self):
-        # stock_data: {
-        #     categoryData: ["2020-12-18", "2020-12-19", "2020-12-20", "2020-12-21", "2020-12-22"],
-        #     values: [[3243.989990234375, 3201.64990234375, 3171.60009765625, 3249.419921875],
-        #              [3200.010009765625, 3206.179931640625, 3166.0, 3226.969970703125],
-        #              [3202.840087890625, 3206.52001953125, 3180.080078125, 3222.0],
-        #              [3205.0, 3185.27001953125, 3184.169921875, 3210.1298828125],
-        #              [3193.89990234375, 3172.68994140625, 3169.0, 3202.0]],
-        #     volumes: [[0, 5995700, 1], [1, 3836800, 1], [2, 2369400, -1], [3, 2093800, 1], [4, 1451900, -1]],
-        #     MA5: [3243, 3200, 3202, 3205, 3193],
-        #     MA10: [3243, 3201, 3212, 3235, 3199],
-        #     MA20: [3233, 3220, 3222, 3225, 3198],
-        #     MA30: [3223, 3210, 3232, 3215, 3197],
-        # },
         result = defaultdict(list)
         if Path(os.path.join(self._stock.get_data_folder(), self._data_save_file)).is_file():
             # if the file exist already
@@ -126,8 +113,19 @@ class StockDataGenerator:
                 return result
             except Exception:
                 print("Download Data Failed, Since some unknown reason.")
-                return [], []
-            return [], []
+                return []
+            return []
+
+    def concat_prediction_result(self, prediction_result):
+        history_data_dict = self.download_and_wrap_basic_info()
+        prediction_result = pd.DataFrame(prediction_result).to_numpy()
+        future_date_list = prediction_result[:, 0]
+        future_value_list = prediction_result[:, 1]
+        history_data_dict['categoryData'].extend(future_date_list)
+        original_MA5 = history_data_dict['MA5']
+        original_MA5.extend(future_value_list)
+        history_data_dict['prediction'] = original_MA5
+        return history_data_dict
 
     def __date_range(self, start_date, end_date):
         for n in range(int((end_date - start_date).days)):
@@ -219,6 +217,6 @@ class StockDataGenerator:
             if i < dayCount:
                 result.append('-')
                 continue
-            result.append(sum(orginalData[i - dayCount + 1: i + 1]) / dayCount)
+            result.append(round(sum(orginalData[i - dayCount + 1: i + 1]) / dayCount, 2))
 
         return result

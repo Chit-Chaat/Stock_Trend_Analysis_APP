@@ -10,8 +10,8 @@
       </el-date-picker>
       <el-button type="success" icon="el-icon-download" style="width: 180px;" @click="load_history">Load History
       </el-button>
-      <el-button type="primary" style="margin-left:20px; width: 180px;">Predict Future<i
-          class="el-icon-search el-icon--right"></i></el-button>
+      <el-button type="primary" style="margin-left:20px; width: 180px;" @click="predict_future">Predict Future<i
+          class="el-icon-search el-icon--right" ></i></el-button>
     </el-header>
     <el-main id="index_content" v-loading.fullscreen.lock="loading">
       <div id="candle_cover" v-show="cover_show">Please Select One Stock</div>
@@ -28,6 +28,7 @@
     data() {
       return {
         renderDataApiPrefix: "/analysis/candle/",
+        predictApiPrefix: "/analysis/predict/",
         upColor: '#67C23A',
         downColor: '#F56C6C',
         ticker_options: [{
@@ -405,6 +406,35 @@
               if (result.data != null) {
                 if (result.data.code == 200) {
                   this.stock_data = result.data.data;
+                  this.$options.methods.sendSuccessMsg.bind(this)("Load predict future stock value successfully.");
+                  this.cover_show = false;
+                  this.loading = false;
+                } else {
+                  this.$options.methods.sendErrorMsg.bind(this)(result.data.msg);
+                }
+              }
+            },
+            error => {
+              this.$options.methods.sendErrorMsg.bind(this)(
+                "Something wrong with getting Future Value Data."
+              );
+            }
+          );
+        }
+      },
+      predict_future(){
+        if (this.isNull(this.start_date) || this.isNull(this.stock_ticker)) {
+          this.$options.methods.sendErrorMsg.bind(this)("Please assign Ticker and Data first.");
+        } else {
+          this.loading = true;
+          axios({
+            method: "GET",
+            url: this.$hostname + this.predictApiPrefix + this.stock_ticker
+          }).then(
+            result => {
+              if (result.data != null) {
+                if (result.data.code == 200) {
+                  this.stock_data = result.data.data;
                   this.$options.methods.sendSuccessMsg.bind(this)("Load historical data successfully.");
                   this.cover_show = false;
                   this.loading = false;
@@ -420,7 +450,6 @@
             }
           );
         }
-
       },
       sendTips(msg) {
         const h = this.$createElement;
