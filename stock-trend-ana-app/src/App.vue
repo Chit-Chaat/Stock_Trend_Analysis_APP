@@ -55,7 +55,7 @@
     right: 0;
     top: 0;
     bottom: 0;
-    background-color: rgb(187, 40, 40);
+    background-color: rgb(199, 199, 199);
     opacity: 0.20;
     z-index: -1;
   }
@@ -80,9 +80,8 @@
   .el-footer {
     width: 100%;
     height: 150px !important;
-    background-color: #B3C0D1;
     color: #333;
-    text-align: center;
     line-height: 120px;
+    padding: 0 !important;
   }
 </style>

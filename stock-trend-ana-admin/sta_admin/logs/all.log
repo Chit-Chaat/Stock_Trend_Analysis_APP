@@ -1242,3 +1242,7 @@ TypeError: Object of type 'recarray' is not JSON serializable
 [2021-04-04 01:59:05,628][Thread-1:16324][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/news/latest/BOTZ HTTP/1.1" 200 3691]
 [2021-04-04 01:59:52,292][Thread-1:16324][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/news/latest/AMZN HTTP/1.1" 200 4069]
 [2021-04-04 01:59:56,986][Thread-1:16324][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/news/latest/GOOG HTTP/1.1" 200 3730]
+[2021-04-04 02:01:52,512][Thread-1:16324][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/news/latest/AMZN HTTP/1.1" 200 4069]
+[2021-04-04 02:07:22,534][Thread-4:6308][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/news/latest/AMZN HTTP/1.1" 200 4069]
+[2021-04-04 02:34:35,962][Thread-6:13120][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/news/latest/AMZN HTTP/1.1" 200 4069]
+[2021-04-04 02:34:51,597][Thread-6:13120][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/news/latest/AMZN HTTP/1.1" 200 4069]
