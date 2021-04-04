@@ -55,7 +55,7 @@
     right: 0;
     top: 0;
     bottom: 0;
-    background-color: rgb(199, 199, 199);
+    /* background-color: rgb(199, 199, 199); */
     opacity: 0.20;
     z-index: -1;
   }
@@ -63,7 +63,7 @@
   .el-header{
     width: 100%;
     height: 80px !important;
-    background-color: #B3C0D1;
+    background-color: #ecf0f4;
     color: #333;
     text-align: center;
     line-height: 80px;
@@ -78,6 +78,7 @@
   }
 
   .el-footer {
+    background-color: #ecf0f4;
     width: 100%;
     height: 150px !important;
     color: #333;

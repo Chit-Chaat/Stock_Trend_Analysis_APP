@@ -1,8 +1,8 @@
 <template>
-  <el-container>
+  <el-container style="    background-color: #ecf0f4;">
     <el-aside>
       <el-menu :default-active="this.$route.path" class="siderbar" mode="vertical" @select="handleSelect" router
-        background-color="#409EFF" text-color="#C0C4CC" active-text-color="#fff">
+        background-color="#409EFF" text-color="#fff" active-text-color="#C0C4CC">
         <el-menu-item v-for="(item,i) in navList" :key="i" :index="item.path" :disabled="item.disabled">
           <template slot="title">
             <i :class="item.icon"></i>
@@ -52,6 +52,7 @@
   }
 
   .el-aside {
+    border-radius: 0 20px 0 0;
     padding-top: 50px;
     background-color: #409EFF;
     text-align: center;
