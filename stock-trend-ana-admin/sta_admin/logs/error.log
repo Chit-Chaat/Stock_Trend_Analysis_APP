@@ -565,3 +565,44 @@ Traceback (most recent call last):
     (data_string, format))
 ValueError: time data 'Mon Apr 01 2019 21:00:02 GMT-0700 (Pacific Daylight Time)' does not match format '%Y-%m-%d'
 [2021-03-31 21:00:02,818][Thread-3:9600][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/basic/Mon%20Apr%2001%202019%2021:00:02%20GMT-0700%20(Pacific%20Daylight%20Time)/AMZN HTTP/1.1" 500 86963]
+[2021-04-03 19:28:51,601][Thread-1:3712][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/candle/2015-01-01/AMZN]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\pandas\core\indexes\base.py", line 2898, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas\_libs\index.pyx", line 70, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\index.pyx", line 101, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\hashtable_class_helper.pxi", line 1675, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\_libs\hashtable_class_helper.pxi", line 1683, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: ('Open', 'Close', 'Low', 'High')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 74, in get_candle_render_data
+    data_obj = generator.download_and_wrap_basic_info()
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockDataGenerator.py", line 81, in download_and_wrap_basic_info
+    result['values'] = data['Open', 'Close', 'Low', 'High'].tolist()
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\pandas\core\frame.py", line 2906, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\pandas\core\indexes\base.py", line 2900, in get_loc
+    raise KeyError(key) from err
+KeyError: ('Open', 'Close', 'Low', 'High')
+[2021-04-03 19:28:51,608][Thread-1:3712][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/candle/2015-01-01/AMZN HTTP/1.1" 500 153684]
+[2021-04-03 19:30:22,624][Thread-1:8396][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/candle/2015-01-01/AMZN]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 74, in get_candle_render_data
+    data_obj = generator.download_and_wrap_basic_info()
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockDataGenerator.py", line 81, in download_and_wrap_basic_info
+    result['values'] = data[['Open', 'Close', 'Low', 'High']].tolist()
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\pandas\core\generic.py", line 5141, in __getattr__
+    return object.__getattribute__(self, name)
+AttributeError: 'DataFrame' object has no attribute 'tolist'
+[2021-04-03 19:30:22,631][Thread-1:8396][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/candle/2015-01-01/AMZN HTTP/1.1" 500 94179]

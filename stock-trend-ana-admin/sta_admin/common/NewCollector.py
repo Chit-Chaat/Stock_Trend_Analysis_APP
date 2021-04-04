@@ -31,7 +31,7 @@ def crawl_news(identifier, size=10):
                 time_str = current_date_prefix + ' ' + time_str
             content_list.append({
                 "content": content,
-                "time": time_str,
+                "timestamp": time_str,
                 "url": new_s_url
             })
             if i == size:

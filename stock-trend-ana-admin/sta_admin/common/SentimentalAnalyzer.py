@@ -14,5 +14,14 @@ def generate_score(rawData, textKey, scoreKey="score"):
         value = kv[textKey]
         scores = analyzer.polarity_scores(value)
         kv[scoreKey] = scores
-
+        if scores['compound'] > 0:
+            kv['type'] = "success"
+            kv['icon'] = "el-icon-circle-check"
+        elif scores['compound'] < 0:
+            kv['type'] = "error"
+            kv['icon'] = "el-icon-error"
+            kv['color'] = '#F56C6C'
+        else:
+            kv['type']="info"
+            kv['icon'] = "el-icon-info"
     return rawData

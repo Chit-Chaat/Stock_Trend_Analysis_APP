@@ -3,6 +3,7 @@ __email__ = 'byang971@usc.edu'
 __date__ = '3/23/2021 2:56 AM'
 
 import os
+from collections import defaultdict
 from pathlib import Path
 import numpy as np
 from datetime import timedelta
@@ -32,7 +33,7 @@ class StockDataGenerator:
             # if the file exist already
             rawdata = pd.read_csv(os.path.join(self._stock.get_data_folder(), self._data_save_file))
             data = rawdata[rawdata['Date'] >= self._stock.get_start_date().strftime("%Y-%m-%d")].copy()
-            return rawdata, data.values.tolist()
+            return data, data.values.tolist()
         else:
             # if not exist, then download
             end_date = datetime.today()
@@ -52,6 +53,77 @@ class StockDataGenerator:
             except KeyError:
                 rawdata.to_csv(os.path.join(self._stock.get_data_folder(), self._data_save_file))
                 return rawdata, rawdata.values.tolist()
+            except Exception:
+                print("Download Data Failed, Since some unknown reason.")
+                return [], []
+            return [], []
+
+    def download_and_wrap_basic_info(self):
+        # stock_data: {
+        #     categoryData: ["2020-12-18", "2020-12-19", "2020-12-20", "2020-12-21", "2020-12-22"],
+        #     values: [[3243.989990234375, 3201.64990234375, 3171.60009765625, 3249.419921875],
+        #              [3200.010009765625, 3206.179931640625, 3166.0, 3226.969970703125],
+        #              [3202.840087890625, 3206.52001953125, 3180.080078125, 3222.0],
+        #              [3205.0, 3185.27001953125, 3184.169921875, 3210.1298828125],
+        #              [3193.89990234375, 3172.68994140625, 3169.0, 3202.0]],
+        #     volumes: [[0, 5995700, 1], [1, 3836800, 1], [2, 2369400, -1], [3, 2093800, 1], [4, 1451900, -1]],
+        #     MA5: [3243, 3200, 3202, 3205, 3193],
+        #     MA10: [3243, 3201, 3212, 3235, 3199],
+        #     MA20: [3233, 3220, 3222, 3225, 3198],
+        #     MA30: [3223, 3210, 3232, 3215, 3197],
+        # },
+        result = defaultdict(list)
+        if Path(os.path.join(self._stock.get_data_folder(), self._data_save_file)).is_file():
+            # if the file exist already
+            rawdata = pd.read_csv(os.path.join(self._stock.get_data_folder(), self._data_save_file))
+            data = rawdata[rawdata['Date'] >= self._stock.get_start_date().strftime("%Y-%m-%d")].copy()
+            result['categoryData'] = data['Date'].tolist()
+            result['values'] = data[['Open', 'Close', 'Low', 'High']].round(2).values.tolist()
+            compound_volumes_obj = self.__get_compound_volume(data[['Open', 'Close']].round(2).values.tolist(),
+                                                              data['Volume'].tolist())
+            result['volumes'] = compound_volumes_obj
+            result['MA5'] = self.__calculateMA(data['Close'].tolist(), 5)
+            result['MA10'] = self.__calculateMA(data['Close'].tolist(), 10)
+            result['MA20'] = self.__calculateMA(data['Close'].tolist(), 20)
+            result['MA30'] = self.__calculateMA(data['Close'].tolist(), 30)
+            return result
+        else:
+            # if not exist, then download
+            end_date = datetime.today()
+            rawdata = None
+            try:
+                rawdata = yf.download([self._stock.get_ticker()], start=self._stock.get_start_date(), end=end_date)[
+                    ['Open', 'Close', 'Low', 'High', 'Volume']]
+                rawdata.reset_index(inplace=True)
+                data = rawdata[rawdata['Date'] > self._stock.get_start_date().strftime("%Y-%m-%d")].copy()
+                data.to_csv(os.path.join(self._stock.get_data_folder(), self._data_save_file))
+                data['Date'] = data['Date'].astype(str)
+                result['categoryData'] = data['Date'].tolist()
+                result['values'] = data[['Open', 'Close', 'Low', 'High']].round(2).values.tolist()
+                compound_volumes_obj = self.__get_compound_volume(data[['Open', 'Close']].round(2).values.tolist(),
+                                                                  data['Volume'].tolist())
+                result['volumes'] = compound_volumes_obj
+                result['MA5'] = self.__calculateMA(data['Close'].tolist(), 5)
+                result['MA10'] = self.__calculateMA(data['Close'].tolist(), 10)
+                result['MA20'] = self.__calculateMA(data['Close'].tolist(), 20)
+                result['MA30'] = self.__calculateMA(data['Close'].tolist(), 30)
+                return result
+            except TimeoutError:
+                print("Download Data Failed, Since the network reason.")
+            except ConnectionError:
+                print("Download Data Failed, Since the network reason.")
+            except KeyError:
+                rawdata.to_csv(os.path.join(self._stock.get_data_folder(), self._data_save_file))
+                result['categoryData'] = rawdata['Date'].tolist()
+                result['values'] = rawdata[['Open', 'Close', 'Low', 'High']].round(2).values.tolist()
+                compound_volumes_obj = self.__get_compound_volume(rawdata[['Open', 'Close']].round(2).values.tolist(),
+                                                                  rawdata['Volume'].tolist())
+                result['volumes'] = compound_volumes_obj
+                result['MA5'] = self.__calculateMA(rawdata['Close'].tolist(), 5)
+                result['MA10'] = self.__calculateMA(rawdata['Close'].tolist(), 10)
+                result['MA20'] = self.__calculateMA(rawdata['Close'].tolist(), 20)
+                result['MA30'] = self.__calculateMA(rawdata['Close'].tolist(), 30)
+                return result
             except Exception:
                 print("Download Data Failed, Since some unknown reason.")
                 return [], []
@@ -131,33 +203,22 @@ class StockDataGenerator:
         x_test = np.reshape(x_test, (x_test.shape[0], x_test.shape[1], -1))
         return x_test, y_test, test_data
 
-# calculateMA(orginalData, dayCount) {
-#         var result = [];
-#         for (var i = 0, len = orginalData.values.length; i < len; i++) {
-#           if (i < dayCount) {
-#             result.push("-");
-#             continue;
-#           }
-#           var sum = 0;
-#           for (var j = 0; j < dayCount; j++) {
-#             sum += orginalData.values[i - j][1];
-#           }
-#           result.push(sum / dayCount);
-#         }
-#         return result;
-#       },
-#       splitData: function (rawData) {
-#         var categoryData = [];
-#         var values = [];
-#         var volumes = [];
-#         for (var i = 0; i < rawData.length; i++) {
-#           categoryData.push(rawData[i][1]);
-#           volumes.push([i, rawData[i][6], rawData[i][2] > rawData[i][3] ? 1 : -1]);
-#           values.push(rawData[i].splice(2, 4));
-#         }
-#         return {
-#           categoryData: categoryData,
-#           values: values,
-#           volumes: volumes,
-#         };
-#       },
+    def __get_compound_volume(self, open_close_pair, volumes):
+        result = []
+        if len(open_close_pair) == len(volumes):
+            # normally, their length should keep the same.
+            for index, (o_c, vol) in enumerate(zip(open_close_pair, volumes)):
+                open_val, close_val = o_c[0], o_c[1]
+                result.append([index, vol, 1 if open_val >= close_val else -1])
+
+            return result
+
+    def __calculateMA(self, orginalData, dayCount):
+        result = []
+        for i in range(0, len(orginalData)):
+            if i < dayCount:
+                result.append('-')
+                continue
+            result.append(sum(orginalData[i - dayCount + 1: i + 1]) / dayCount)
+
+        return result

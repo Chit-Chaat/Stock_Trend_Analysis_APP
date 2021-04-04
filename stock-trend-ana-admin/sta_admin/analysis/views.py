@@ -39,9 +39,21 @@ def bad_request(request):
 
 
 def get_basic_info(request, ticker, start_date):
-    # keep same data structure with// https://echarts.apache.org/examples/data/asset/data/stock-DJI.json
+    logger.info("parameter stock is: ----> ", ticker)
+    start_date_obj = datetime.strptime(start_date, '%Y-%m-%d')
+    metadata = StockMetaData(ticker, start_date_obj)
+    generator = StockDataGenerator(metadata)
+    _, data_items = generator.download_basic_info()
+    if len(data_items) > 0:
+        return JsonResponseResult().ok(data=data_items)
+    else:
+        return JsonResponseResult().error(code=405,
+                                          data="failed to download data of " + ticker + ", please check trickier.")
+
+
+def get_candle_render_data(request, ticker, start_date):
     # sample viz https://echarts.apache.org/examples/zh/editor.html?c=candlestick-brush
-    ###
+    # returning data structure should be look like this:
     # stock_data: {
     #     categoryData: ["2020-12-18", "2020-12-19", "2020-12-20", "2020-12-21", "2020-12-22"],
     #     values: [[3243.989990234375, 3201.64990234375, 3171.60009765625, 3249.419921875],
@@ -59,9 +71,9 @@ def get_basic_info(request, ticker, start_date):
     start_date_obj = datetime.strptime(start_date, '%Y-%m-%d')
     metadata = StockMetaData(ticker, start_date_obj)
     generator = StockDataGenerator(metadata)
-    _, data_items = generator.download_basic_info()
-    if len(data_items) > 0:
-        return JsonResponseResult().ok(data=data_items)
+    data_obj = generator.download_and_wrap_basic_info()
+    if data_obj is not None:
+        return JsonResponseResult().ok(data=data_obj)
     else:
         return JsonResponseResult().error(code=405,
                                           data="failed to download data of " + ticker + ", please check trickier.")

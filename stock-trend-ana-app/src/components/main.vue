@@ -43,7 +43,7 @@
 
 <style scoped>
   .navName {
-    font-family: "Microsoft YaHei";
+    font-family: Microsoft YaHei;
 
   }
 

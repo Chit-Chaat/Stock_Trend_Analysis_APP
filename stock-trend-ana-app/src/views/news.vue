@@ -8,16 +8,13 @@
       <el-button type="success" style="margin-left:20px; width: 180px;">Do Filter<i
           class="el-icon-s-operation el-icon--right"></i></el-button>
     </el-header>
-    <el-main id="news_content">
+    <el-main id="news_content" v-loading.fullscreen.lock="loading">
       <el-timeline>
         <el-timeline-item v-for="(activity, index) in activities" :key="index" :icon="activity.icon"
           :type="activity.type" :color="activity.color" size="large" :timestamp="activity.timestamp">
-          <el-link :href="activity.url" :underline="false" target="_blank">{{activity.content}}</el-link>
-          <div>
-            <el-tag v-for="tag in activity.tags" :key="tag.name" :type="tag.type">
-              {{tag.name}}
-            </el-tag>
-          </div>
+          <el-alert :title="activity.content" :type="activity.type" :description="wrapper(activity.url)"
+            close-text="Check More Detail..." @close="go_that_url(activity.url)">
+          </el-alert>
         </el-timeline-item>
       </el-timeline>
     </el-main>
@@ -25,6 +22,7 @@
 </template>
 
 <script>
+  import axios from "axios"
   export default {
     data() {
       return {
@@ -54,47 +52,81 @@
           label: 'XLK (SPDR Fund)'
         }
         ],
-        stock_ticker: '',
-        activities: [{
-          content: '3 Stocks to Buy and Hold for the Next 10 Years',
-          timestamp: '2021-04-12 20:46',
-          type: 'primary',
-          icon: 'el-icon-more',
-          url: "http://www.baidu.com",
-          tags: [
-            { name: 'Tag1', type: '' },
-            { name: 'Tag2', type: 'success' },
-            { name: 'Tag2Tag3', type: 'info' },
-            { name: 'Tag4', type: 'warning' },
-            { name: 'Tag5Tag2', type: 'danger' }
-          ]
-        }, {
-          content: 'Amazon May Do More Than Make You Rich, It Could Literally Save Your Life One Day',
-          timestamp: '2021-04-03 20:46',
-          color: '#355e86'
-        }, {
-          content: 'Cathie Wood Is Buying Teladoc. Should You?',
-          timestamp: '2021-04-03 20:46',
-          size: 'large'
-        }, {
-          content: 'Ballot review enters second day in landmark Amazon union election',
-          timestamp: '2021-04-03 20:46'
-        }, {
-          content: '3 Robinhood Stocks That Are Great Buys',
-          timestamp: '2021-04-03 20:46'
-        }, {
-          content: '3 Robinhood Stocks That Are Great Buys',
-          timestamp: '2021-04-03 20:46'
-        }, {
-          content: '3 Robinhood Stocks That Are Great Buys',
-          timestamp: '2021-04-03 20:46'
-        }, {
-          content: '3 Robinhood Stocks That Are Great Buys',
-          timestamp: '2021-04-03 20:46'
-        }
-        ],
+        stock_ticker: 'AMZN',
+        crawlNewApiPrefix: '/analysis/news/latest/',
+        activities: [],
+        loading: true
       }
-    }
+    },
+    mounted() {
+      this.crawl_new()
+    },
+    methods: {
+      wrapper(text) {
+        return "Came from " + text
+      },
+      isNull(str) {
+        return !str && str !== 0 && typeof str !== "boolean" ? true : false;
+      },
+      go_that_url(url_str) {
+        window.open(url_str, '_blank');
+      },
+      crawl_new() {
+        if (this.isNull(this.stock_ticker)) {
+          this.$options.methods.sendTips.bind(this)("You can check other stock news by clicking filter.");
+        } else {
+          axios({
+            method: "GET",
+            url: this.$hostname + this.crawlNewApiPrefix + this.stock_ticker
+          }).then(
+            result => {
+              if (result.data != null) {
+                if (result.data.code == 200) {
+                  this.activities = result.data.data;
+                  this.$options.methods.sendSuccessMsg.bind(this)("Crawl Real Time News data successfully.");
+                  this.loading = false
+                } else {
+                  this.$options.methods.sendErrorMsg.bind(this)(result.data.msg);
+                }
+              }
+            },
+            error => {
+              this.$options.methods.sendErrorMsg.bind(this)(
+                "Something wrong with crawling Stock Market News Data."
+              );
+            }
+          );
+        }
+      },
+      sendTips(msg) {
+        const h = this.$createElement;
+        this.$notify.success({
+          title: 'Success',
+          message: h('p', { style: 'font-size:12px' }, msg),
+          duration: 1500
+        });
+      },
+      sendAlert(msg) {
+        const h = this.$createElement;
+        this.$notify.warning({
+          title: 'Warning',
+          message: h('p', { style: 'font-size:12px' }, msg),
+          duration: 1500
+        });
+      },
+      sendSuccessMsg(msg) {
+        this.$message.success({
+          type: 'Success',
+          message: msg
+        });
+      },
+      sendErrorMsg(msg) {
+        this.$message.warning({
+          type: 'Warning',
+          message: msg
+        });
+      },
+    },
   }
 </script>
 

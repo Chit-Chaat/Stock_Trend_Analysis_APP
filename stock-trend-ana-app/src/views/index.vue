@@ -13,7 +13,8 @@
       <el-button type="primary" style="margin-left:20px; width: 180px;">Predict Future<i
           class="el-icon-search el-icon--right"></i></el-button>
     </el-header>
-    <el-main id="index_content">
+    <el-main id="index_content" v-loading.fullscreen.lock="loading">
+      <div id="candle_cover" v-show="cover_show">Please Select One Stock</div>
       <div id="echartContainer" ref="echartContainer" style="width:100%; height:380px"></div>
     </el-main>
   </el-container>
@@ -26,7 +27,7 @@
 
     data() {
       return {
-        basicDataApiPrefix: "/analysis/basic/",
+        renderDataApiPrefix: "/analysis/candle/",
         upColor: '#67C23A',
         downColor: '#F56C6C',
         ticker_options: [{
@@ -93,10 +94,17 @@
               picker.$emit('pick', date);
             }
           }, {
-            text: 'Two year ago',
+            text: '2 year ago',
             onClick(picker) {
               const date = new Date();
               date.setTime(date.getTime() - 3600 * 1000 * 24 * 365 * 2);
+              picker.$emit('pick', date);
+            }
+          }, {
+            text: '3 year ago',
+            onClick(picker) {
+              const date = new Date();
+              date.setTime(date.getTime() - 3600 * 1000 * 24 * 365 * 3);
               picker.$emit('pick', date);
             }
           }
@@ -105,18 +113,13 @@
         },
         start_date: '',
         stock_ticker: '',
-        stock_data: {
-          categoryData: ["2020-12-18", "2020-12-19", "2020-12-20", "2020-12-21", "2020-12-22"],
-          values: [[3243.989990234375, 3201.64990234375, 3171.60009765625, 3249.419921875], [3200.010009765625, 3206.179931640625, 3166.0, 3226.969970703125], [3202.840087890625, 3206.52001953125, 3180.080078125, 3222.0], [3205.0, 3185.27001953125, 3184.169921875, 3210.1298828125], [3193.89990234375, 3172.68994140625, 3169.0, 3202.0]],
-          volumes: [[0, 5995700, 1], [1, 3836800, 1], [2, 2369400, -1], [3, 2093800, 1], [4, 1451900, -1]],
-          MA5: [3243, 3200, 3202, 3205, 3193],
-          MA10: [3243, 3201, 3212, 3235, 3199],
-          MA20: [3233, 3220, 3222, 3225, 3198],
-          MA30: [3223, 3210, 3232, 3215, 3197],
-        },
+        stock_data: {},
+        cover_show: true,
+        loading: false,
       }
     },
     mounted() {
+      this.cover_show = true;
       this.drawCandleChart();
     },
     watch: {
@@ -135,7 +138,7 @@
           legend: {
             bottom: 360,
             left: 'center',
-            data: ['Daily Value', 'MA5', 'MA10', 'MA20', 'MA30','prediction']
+            data: ['Daily Value', 'MA5', 'MA10', 'MA20', 'MA30', 'prediction']
           },
           tooltip: {
             trigger: 'axis',
@@ -179,7 +182,7 @@
           },
           visualMap: {
             show: false,
-            seriesIndex: 5,
+            seriesIndex: 6,
             dimension: 2,
             pieces: [{
               value: 1,
@@ -381,7 +384,7 @@
           areas: [
             {
               brushType: 'lineX',
-              coordRange: ['2016-7-15', '2016-7-20'],
+              coordRange: ['2020-7-15', '2020-7-20'],
               xAxisIndex: 0
             }
           ]
@@ -389,42 +392,35 @@
 
       },
       load_history() {
-        if (this.isNull(this.start_date) || this.isNull(this.stock_ticker)){
+        if (this.isNull(this.start_date) || this.isNull(this.stock_ticker)) {
           this.$options.methods.sendErrorMsg.bind(this)("Please assign Ticker and Data first.");
-        }else{
+        } else {
+          this.loading = true;
           var start_date_str = this.start_date.toISOString().substring(0, 10)
-        axios({
-          method: "GET",
-          url: this.$hostname + this.basicDataApiPrefix + start_date_str + "/" + this.stock_ticker
-        }).then(
-          result => {
-            if (result.data != null) {
-              if (result.data.code == 200) {
-                // this.stock_data = result.data.data;
-                this.stock_data = {
-                  categoryData: ["2020-12-28", "2020-12-29", "2020-12-30", "2020-12-31", "2021-01-01", "2021-01-02", "2021-01-03", "2021-01-04", "2021-01-05"],
-                  values: [[3243.989990234375, 3201.64990234375, 3171.60009765625, 3249.419921875], [3200.010009765625, 3206.179931640625, 3166.0, 3226.969970703125], [3202.840087890625, 3206.52001953125, 3180.080078125, 3222.0], [3205.0, 3185.27001953125, 3184.169921875, 3210.1298828125], [3193.89990234375, 3172.68994140625, 3169.0, 3202.0]],
-                  volumes: [[0, 5995700, -1], [1, 3836800, -1], [2, 2369400, 1], [3, 2093800, -1], [4, 1451900, 1], [5, 1451900, 1], [6, 1451900, 1], [7, 1451900, 1], [8, 1451900, 1]],
-                  MA5: [3243, 3200, 3202, 3205, 3193],
-                  MA10: [3243, 3201, 3212, 3235, 3199],
-                  MA20: [3233, 3220, 3222, 3225, 3198],
-                  MA30: [3223, 3210, 3232, 3215, 3197],
-                  prediction: [3223, 3210, 3232, 3215, 3197, 3200, 3201, 3202, 3203],
-                },
-                  this.$options.methods.sendSuccessMsg.bind(this)(result.data.msg);
-              } else {
-                this.$options.methods.sendErrorMsg.bind(this)(result.data.msg);
+          axios({
+            method: "GET",
+            url: this.$hostname + this.renderDataApiPrefix + start_date_str + "/" + this.stock_ticker
+          }).then(
+            result => {
+              if (result.data != null) {
+                if (result.data.code == 200) {
+                  this.stock_data = result.data.data;
+                  this.$options.methods.sendSuccessMsg.bind(this)("Load historical data successfully.");
+                  this.cover_show = false;
+                  this.loading = false;
+                } else {
+                  this.$options.methods.sendErrorMsg.bind(this)(result.data.msg);
+                }
               }
+            },
+            error => {
+              this.$options.methods.sendErrorMsg.bind(this)(
+                "Something wrong with getting Stock Historical Data."
+              );
             }
-          },
-          error => {
-            this.$options.methods.sendErrorMsg.bind(this)(
-              "Something wrong with getting Stock Historical Data."
-            );
-          }
-        );
+          );
         }
-        
+
       },
       sendTips(msg) {
         const h = this.$createElement;
@@ -460,6 +456,16 @@
 </script>
 
 <style scoped>
+  #candle_cover {
+    float: left;
+    padding-left: 22%;
+    margin-top: -3%;
+    font-family: Microsoft YaHei;
+    color: #C0C4CC;
+    font-size: 60px;
+    font-weight: 500;
+  }
+
   #index_content {
     line-height: 380px;
   }
