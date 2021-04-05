@@ -8,15 +8,17 @@
             <div slot="content">多行信息<br />第二行信息</div>
             <el-card shadow="hover" class="grid-content bg-purple-light">
               <div class="clearfix"> Stock Market Emotion </div>
-              <g2-radar :is-show-area="true" 
-              style="width: 200px; height: 200px; margin: 0;"
-              :show-legend="true" :axis-name="{a:'companya',b:'companyb',c:'companyc'}"
-                :data="[{item: 'Design',a: 70,b: 30,c: 11},
-   {item: 'Development',a: 60,b: 70,c: 11},
-   {item: 'Marketing',a: 50,b: 60,c: 11},
-   {item: 'Users',a: 40,b: 50,c: 11},
-   {item: 'Test',a: 60,b: 70,c: 11}]">
-              </g2-radar>
+              <div style="display: inline;">
+                <g2-pie :type="'ring'" :axis-name="{name:'type', value:'amount'}"
+                  style="width: 150px; height: 150px; margin: 0; padding-top: 10px;" :data="emotion_obj"
+                  :useTooltip="false">
+                </g2-pie>
+              </div>
+              <div class="textual-content">
+                <div v-for="obj in emotion_obj" :key="obj.name" class="textual-item">
+                  <i :class="obj.icon"></i>{{ " " + obj.name + " : " + obj.value +'%' }}
+                </div>
+              </div>
             </el-card>
           </el-tooltip>
         </el-col>
@@ -81,11 +83,47 @@
           </el-tooltip>
         </el-col>
         <el-col :span="9">
-          <el-tooltip effect="light" content="Top Left 提示文字" placement="top">
-            <el-card shadow="hover" class="grid-content bg-purple-light">
-              <div class="clearfix"> Stock Market Emotion </div>
-            </el-card>
-          </el-tooltip>
+          <el-card shadow="hover" class="grid-content bg-purple-light">
+            <div class="clearfix"> Net Price Calculator </div>
+            <div class="calculator_form">
+              <el-form :inline="true" :model="formInline" id="calculator_form_inline">
+                <el-form-item>
+                  <el-popover placement="top-start" title="标题" width="200" trigger="hover"
+                    content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。">
+                    <el-button slot="reference" size="mini" icon="el-icon-info" circle></el-button>
+                  </el-popover>
+                  &nbsp;
+                  <el-input size="mini" placeholder="Cost Price" clearable v-model="formInline.region"
+                    style="width: 120px;">
+                  </el-input>
+                </el-form-item>
+                <el-form-item>
+                  <el-input-number size="mini" v-model="formInline.amount" style="width: 120px;"></el-input-number>
+                </el-form-item>
+                <el-form-item>
+                  <el-button type="primary" size="mini" icon="el-icon-video-play"></el-button>
+                  <el-button type="danger" size="mini" icon="el-icon-video-pause"></el-button>
+                </el-form-item>
+              </el-form>
+              <el-form :inline="true" :model="formResult" id="form_result_inline">
+                <el-form-item>
+                  <div id="net_price_title">Net Price:</div>
+                </el-form-item>
+                <el-form-item>
+                  <div class="price_value" :style="{'color':up_or_down3}">{{'$' + formResult.netValue}}</div>
+                </el-form-item>
+                <el-form-item>
+                  <div id="float_price_title">Floating:</div>
+                </el-form-item>
+                <el-form-item>
+                  <div class="price_value" :style="{'color':up_or_down4}">{{'$' + formResult.floatingValue}}</div>
+                </el-form-item>
+                <el-form-item>
+                  <div class="price_value" :style="{'color':up_or_down5}">{{ "(" +formResult.percentChange + "%)"}}</div>
+                </el-form-item>
+              </el-form>
+            </div>
+          </el-card>
         </el-col>
       </el-row>
     </div>
@@ -125,6 +163,21 @@
           change: -47.68,
           lastestVal: 4068.78,
 
+        },
+        emotion_obj: [
+          { icon: 'el-icon-cloudy-and-sunny', name: 'positive', value: 2 },
+          { icon: 'el-icon-lightning', name: 'negative', value: 1 },
+          { icon: 'el-icon-partly-cloudy', name: 'neutral', value: 3 }
+        ],
+        formInline: {
+          amount: 10,
+          region: ''
+        },
+        formResult:{
+          netValue: 123123,
+          floatingValue: 123123,
+          percentChange: 12.12,
+          change:131,
         }
       }
     },
@@ -134,6 +187,20 @@
       },
       up_or_down2: function () {
         return this.SP500_val_obj.change > 0 ? this.upColor : this.downColor
+      },
+      up_or_down3: function () {
+        return this.formResult.netValue > 0 ? this.upColor : this.downColor
+      },
+      up_or_down4: function () {
+        return this.formResult.floatingValue > 0 ? this.upColor : this.downColor
+      },
+      up_or_down5: function () {
+        return this.formResult.percentChange > 0 ? this.upColor : this.downColor
+      }
+    },
+    methods: {
+      onSubmit() {
+        console.log('submit!');
       }
     }
   }
@@ -203,7 +270,21 @@
     line-height: 50px;
   }
 
-  #lastest {}
+  .textual-content {
+    display: inline;
+    width: 110px;
+    height: 80px;
+    position: absolute;
+    left: 240px;
+    bottom: 20px;
+  }
+
+  .textual-item {
+    font-family: Microsoft YaHei;
+    color: #909399;
+    font-size: 14px;
+    line-height: 25px;
+  }
 
   #percent {
     display: inline;
@@ -221,5 +302,29 @@
 
   #downClass {
     color: #F56C6C;
+  }
+
+  .calculator_form {
+    height: 100px;
+    margin-top: 10px;
+  }
+
+  #calculator_form_inline{
+    height: 50px;
+    margin-top: 20px;
+  }
+
+  #form_result_inline{
+    height: 50px;
+    font-family: Microsoft YaHei;
+    color: #909399;
+  }
+  #form_result_inline > .el-form-item__content{
+    font-size: 12px !important;
+  }
+
+  .price_value{
+    font-size: 16px !important;
+    font-weight: 600;
   }
 </style>
