@@ -80,7 +80,7 @@
   .el-footer {
     background-color: #ecf0f4;
     width: 100%;
-    height: 150px !important;
+    height: 160px !important;
     color: #333;
     line-height: 120px;
     padding: 0 !important;

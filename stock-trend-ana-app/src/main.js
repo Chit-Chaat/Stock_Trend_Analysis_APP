@@ -5,6 +5,7 @@ import App from './App.vue'
 import axios from 'axios'
 import locale from 'element-ui/lib/locale/lang/en'
 import 'element-ui/lib/theme-chalk/index.css'
+import 'vue-g2'
 
 Vue.config.productionTip = false
 Vue.config.devtools = false;

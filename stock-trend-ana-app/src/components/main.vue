@@ -48,7 +48,7 @@
   }
 
   .el-menu-item i {
-    color: #C0C4CC;
+    color: #fff;
   }
 
   .el-aside {
