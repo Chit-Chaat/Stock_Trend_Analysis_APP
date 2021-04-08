@@ -1,8 +1,11 @@
 <template>
   <div>
     <div id="title">
-      <div id="logo"></div>
-      <div id="desc"></div>
+      <div id="logo">
+        sfasda12131
+      </div>
+      <div id="desc">
+      </div>
     </div>
     <div id="about">
       <span>Team Oracle (G5):</span>
@@ -46,6 +49,7 @@
     height: 100%;
     border-radius: 0 0 20px 0;
   }
+
   .el-divider--horizontal{
     margin: 1px 0;
     float: right;

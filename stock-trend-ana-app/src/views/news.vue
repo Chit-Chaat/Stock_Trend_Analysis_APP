@@ -2,6 +2,7 @@
   <el-container id="news_container">
     <el-header>
       <el-select v-model="stock_ticker" filterable placeholder="Choose a Stock" style="width: 300px;">
+        <i slot="prefix" class="el-input__icon el-icon-search"></i>
         <el-option v-for="item in ticker_options" :key="item.value" :label="item.label" :value="item.value">
         </el-option>
       </el-select>
@@ -9,6 +10,8 @@
           class="el-icon-s-operation el-icon--right"></i></el-button>
     </el-header>
     <el-main id="news_content" v-loading.fullscreen.lock="loading">
+      <div id="news_cover" v-show="cover_show">Failed to get News Data.</div>
+      <div id="news_cover2" v-show="cover_show">Please contact the admin team.</div>
       <el-timeline>
         <el-timeline-item v-for="(activity, index) in activities" :key="index" :icon="activity.icon"
           :type="activity.type" :color="activity.color" size="large" :timestamp="activity.timestamp">
@@ -55,10 +58,12 @@
         stock_ticker: 'AMZN',
         crawlNewApiPrefix: '/analysis/news/latest/',
         activities: [],
-        loading: true
+        loading: true,
+        cover_show: false,
       }
     },
     mounted() {
+      this.cover_show = false
       this.crawl_new()
     },
     methods: {
@@ -95,6 +100,8 @@
               this.$options.methods.sendErrorMsg.bind(this)(
                 "Something wrong with crawling Stock Market News Data."
               );
+              this.loading = false
+              this.cover_show = true
             }
           );
         }
@@ -169,5 +176,23 @@
 
   .el-timeline-item__content {
     color: #303133;
+  }
+  #news_cover {
+    float: left;
+    padding-left: 22%;
+    margin-top: 5%;
+    font-family: Microsoft YaHei;
+    color: #C0C4CC;
+    font-size: 60px;
+    font-weight: 500;
+  }
+  #news_cover2 {
+    float: left;
+    padding-left: 30%;
+    margin-top: 0%;
+    font-family: Microsoft YaHei;
+    color: #C0C4CC;
+    font-size: 30px;
+    font-weight: 500;
   }
 </style>

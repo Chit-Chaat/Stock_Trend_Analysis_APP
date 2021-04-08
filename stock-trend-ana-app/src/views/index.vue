@@ -2,6 +2,7 @@
   <el-container>
     <el-header>
       <el-select v-model="stock_ticker" filterable placeholder="Choose a Stock" style="width: 300px;">
+        <i slot="prefix" class="el-input__icon el-icon-search"></i>
         <el-option v-for="item in ticker_options" :key="item.value" :label="item.label" :value="item.value">
         </el-option>
       </el-select>
@@ -11,10 +12,10 @@
       <el-button type="success" icon="el-icon-download" style="width: 180px;" @click="load_history">Load History
       </el-button>
       <el-button type="primary" style="margin-left:20px; width: 180px;" @click="predict_future">Predict Future<i
-          class="el-icon-search el-icon--right" ></i></el-button>
+          class="el-icon-data-line el-icon--right" ></i></el-button>
     </el-header>
     <el-main id="index_content" v-loading.fullscreen.lock="loading">
-      <div id="candle_cover" v-show="cover_show">Please Select One Stock</div>
+      <div id="candle_cover" v-show="cover_show">{{cover_msg}}</div>
       <div id="echartContainer" ref="echartContainer" style="width:100%; height:380px"></div>
     </el-main>
   </el-container>
@@ -117,9 +118,11 @@
         stock_data: {},
         cover_show: true,
         loading: false,
+        cover_msg: "",
       }
     },
     mounted() {
+      this.cover_msg = "Please Select One Stock"
       this.cover_show = true;
       this.drawCandleChart();
     },
@@ -406,7 +409,7 @@
               if (result.data != null) {
                 if (result.data.code == 200) {
                   this.stock_data = result.data.data;
-                  this.$options.methods.sendSuccessMsg.bind(this)("Load predict future stock value successfully.");
+                  this.$options.methods.sendSuccessMsg.bind(this)("Load historical data successfully.");
                   this.cover_show = false;
                   this.loading = false;
                 } else {
@@ -416,8 +419,11 @@
             },
             error => {
               this.$options.methods.sendErrorMsg.bind(this)(
-                "Something wrong with getting Future Value Data."
+                "Something wrong with getting Stock Historical Data."
               );
+              this.loading = false;
+              this.cover_show = true;
+              this.cover_msg = "Failed to load history data."
             }
           );
         }
@@ -435,7 +441,7 @@
               if (result.data != null) {
                 if (result.data.code == 200) {
                   this.stock_data = result.data.data;
-                  this.$options.methods.sendSuccessMsg.bind(this)("Load historical data successfully.");
+                  this.$options.methods.sendSuccessMsg.bind(this)("Load predict future stock value successfully.");
                   this.cover_show = false;
                   this.loading = false;
                 } else {
@@ -445,8 +451,11 @@
             },
             error => {
               this.$options.methods.sendErrorMsg.bind(this)(
-                "Something wrong with getting Stock Historical Data."
+                "Something wrong with getting Future Value Data."
               );
+              this.loading = false;
+              this.cover_show = true;
+              this.cover_msg = "Failed to make prediction."
             }
           );
         }
