@@ -109,6 +109,20 @@
               date.setTime(date.getTime() - 3600 * 1000 * 24 * 365 * 3);
               picker.$emit('pick', date);
             }
+          }, {
+            text: '4 year ago',
+            onClick(picker) {
+              const date = new Date();
+              date.setTime(date.getTime() - 3600 * 1000 * 24 * 365 * 4);
+              picker.$emit('pick', date);
+            }
+          }, {
+            text: '5 year ago',
+            onClick(picker) {
+              const date = new Date();
+              date.setTime(date.getTime() - 3600 * 1000 * 24 * 365 * 5);
+              picker.$emit('pick', date);
+            }
           }
 
           ]

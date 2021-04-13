@@ -119,7 +119,8 @@
                   <div class="price_value" :style="{'color':up_or_down4}">{{'$' + formResult.floatingValue}}</div>
                 </el-form-item>
                 <el-form-item>
-                  <div class="price_value" :style="{'color':up_or_down5}">{{ "(" +formResult.percentChange + "%)"}}</div>
+                  <div class="price_value" :style="{'color':up_or_down5}">{{ "(" +formResult.percentChange + "%)"}}
+                  </div>
                 </el-form-item>
               </el-form>
             </div>
@@ -134,6 +135,7 @@
 </template>
 
 <script>
+  import axios from "axios"
   export default {
 
     data() {
@@ -142,6 +144,7 @@
         downColor: '#F56C6C',
         COMP_Real_API: "https://finance.api.seekingalpha.com/v2/real-time-prices?symbols=COMP",
         SP500_Real_API: "https://finance.api.seekingalpha.com/v2/real-time-prices?symbols=SP500",
+        // COMP_temp_vals: [],
         COMP_val_obj: {
           values: [{ name: 1, value: 86085 }, { name: 2, value: 87085 }, { name: 3, value: 80085 },
           { name: 4, value: 86185 }, { name: 5, value: 87015 }, { name: 6, value: 81085 },
@@ -173,13 +176,23 @@
           amount: 10,
           region: ''
         },
-        formResult:{
+        formResult: {
           netValue: 123123,
           floatingValue: 123123,
           percentChange: 12.12,
-          change:131,
-        }
+          change: 131,
+        },
+        num1: 0,
+        num2: 0,
       }
+    },
+    created() {
+      window.setInterval(() => {
+        setTimeout(this.getIndexValues('COMP'), 0);
+      }, 3000);
+      window.setInterval(() => {
+        setTimeout(this.getIndexValues('SP500'), 0);
+      }, 3000);
     },
     computed: {
       up_or_down1: function () {
@@ -199,9 +212,62 @@
       }
     },
     methods: {
+      getIndexValues: function (index_type) {
+        // axios({
+        //   method: "GET",
+        //   url: this.COMP_Real_API,
+        // }).then(
+        //   result => {
+        //     if (result.data != null) {
+        //       console.log(result.data)
+        //       if (result.data.code == 200) {
+        //         this.COMP_temp_vals = result.data;
+        //       } else {
+        //         this.$options.methods.sendErrorMsg.bind(this)("failed to get Nasdaq Index value.");
+        //       }
+        //     }
+        //   },
+        //   error => {
+        //     this.$options.methods.sendErrorMsg.bind(this)("failed to get Nasdaq Index value.");
+        //   }
+        // );
+        if (index_type === "COMP"){
+          console.log("Type:"+ index_type +  " 请求" + this.num1++ + "次");
+        }else if (index_type === "SP500"){
+          console.log("Type:"+ index_type +  " 请求" + this.num2++ + "次");
+        }
+      },
       onSubmit() {
         console.log('submit!');
-      }
+      },
+      sendTips(msg) {
+        const h = this.$createElement;
+        this.$notify.success({
+          title: 'Success',
+          message: h('p', { style: 'font-size:12px' }, msg),
+          duration: 1500
+        });
+      },
+      sendAlert(msg) {
+        const h = this.$createElement;
+        this.$notify.warning({
+          title: 'Warning',
+          message: h('p', { style: 'font-size:12px' }, msg),
+          duration: 1500
+        });
+      },
+      sendSuccessMsg(msg) {
+        this.$message.success({
+          type: 'Success',
+          message: msg
+        });
+      },
+      sendErrorMsg(msg) {
+        this.$message.warning({
+          type: 'Warning',
+          message: msg
+        });
+      },
     }
   }
 </script>
@@ -309,21 +375,22 @@
     margin-top: 10px;
   }
 
-  #calculator_form_inline{
+  #calculator_form_inline {
     height: 50px;
     margin-top: 20px;
   }
 
-  #form_result_inline{
+  #form_result_inline {
     height: 50px;
     font-family: Microsoft YaHei;
     color: #909399;
   }
-  #form_result_inline > .el-form-item__content{
+
+  #form_result_inline>.el-form-item__content {
     font-size: 12px !important;
   }
 
-  .price_value{
+  .price_value {
     font-size: 16px !important;
     font-weight: 600;
   }

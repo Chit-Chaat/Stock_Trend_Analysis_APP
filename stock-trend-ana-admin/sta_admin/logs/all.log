@@ -1274,3 +1274,177 @@ TypeError: Object of type 'recarray' is not JSON serializable
 [2021-04-07 18:27:59,051][Thread-1:14476][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/candle/2018-04-09/AMZN HTTP/1.1" 200 79663]
 [2021-04-07 18:28:05,187][Thread-1:14476][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/predict/AMZN HTTP/1.1" 200 108302]
 [2021-04-07 18:28:31,369][Thread-1:14476][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/news/latest/AMZN HTTP/1.1" 200 3823]
+[2021-04-08 08:09:06,090][MainThread:16396][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-04-08 08:10:23,519][Thread-1:9108][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/candle/2018-04-09/AMZN HTTP/1.1" 200 79767]
+[2021-04-08 08:10:34,644][Thread-1:9108][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/predict/AMZN HTTP/1.1" 200 108720]
+[2021-04-08 08:10:47,607][Thread-1:9108][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/news/latest/AMZN HTTP/1.1" 200 3977]
+[2021-04-08 08:10:52,080][Thread-1:9108][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/news/latest/BOTZ HTTP/1.1" 200 3691]
+[2021-04-08 09:09:13,987][Thread-5:12532][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/candle/2018-04-09/AMZN HTTP/1.1" 200 79767]
+[2021-04-08 09:09:21,795][Thread-5:12532][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/predict/AMZN HTTP/1.1" 200 108790]
+[2021-04-08 09:09:35,973][Thread-5:12532][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/news/latest/AMZN HTTP/1.1" 200 3881]
+[2021-04-08 09:09:48,414][Thread-5:12532][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/news/latest/FB HTTP/1.1" 200 3876]
+[2021-04-11 20:42:39,397][MainThread:14796][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-04-11 20:43:11,187][Thread-1:15892][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/candle/2016-04-13/AMZN HTTP/1.1" 200 130286]
+[2021-04-11 20:44:29,738][Thread-1:15892][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/predict/AMZN HTTP/1.1" 200 108681]
+[2021-04-11 20:48:05,835][MainThread:4332][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-04-11 20:48:37,122][Thread-6:18644][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/candle/2016-04-13/AMZN HTTP/1.1" 200 130286]
+[2021-04-11 20:49:53,092][Thread-6:18644][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/predict/AMZN HTTP/1.1" 200 108881]
+[2021-04-11 20:50:06,368][Thread-6:18644][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/predict/AMZN HTTP/1.1" 200 108907]
+[2021-04-11 20:51:49,651][Thread-6:18644][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/news/latest/AMZN HTTP/1.1" 200 3920]
+[2021-04-11 20:52:01,720][Thread-6:18644][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/news/latest/BOTZ HTTP/1.1" 200 3691]
+[2021-04-12 05:34:14,285][MainThread:9236][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-04-12 05:34:50,027][Thread-83:22672][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/candle/2015-01-01/AMZN]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockDataGenerator.py", line 82, in download_and_wrap_basic_info
+    rawdata = yf.download([self._stock.get_ticker()], start=self._stock.get_start_date(), end=end_date)[
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\yfinance\multi.py", line 109, in download
+    shared._PROGRESS_BAR.completed()
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\yfinance\utils.py", line 185, in completed
+    print('\r' + str(self), end='')
+OSError: [Errno 22] Invalid argument
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 74, in get_candle_render_data
+    data_obj = generator.download_and_wrap_basic_info()
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockDataGenerator.py", line 115, in download_and_wrap_basic_info
+    print("Download Data Failed, Since some unknown reason.")
+OSError: [Errno 22] Invalid argument
+[2021-04-12 05:34:50,033][Thread-83:22672][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/candle/2015-01-01/AMZN HTTP/1.1" 500 100270]
+[2021-04-12 05:34:50,462][Thread-83:22672][task_id:django.request][log.py:230][WARNING][Not Found: /favicon.ico]
+[2021-04-12 05:34:50,463][Thread-83:22672][task_id:django.server][basehttp.py:157][WARNING]["GET /favicon.ico HTTP/1.1" 404 2084]
+[2021-04-12 05:35:25,460][Thread-83:22672][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/candle/2015-01-01/AMZN]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockDataGenerator.py", line 82, in download_and_wrap_basic_info
+    rawdata = yf.download([self._stock.get_ticker()], start=self._stock.get_start_date(), end=end_date)[
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\yfinance\multi.py", line 109, in download
+    shared._PROGRESS_BAR.completed()
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\yfinance\utils.py", line 185, in completed
+    print('\r' + str(self), end='')
+OSError: [Errno 22] Invalid argument
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 74, in get_candle_render_data
+    data_obj = generator.download_and_wrap_basic_info()
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockDataGenerator.py", line 115, in download_and_wrap_basic_info
+    print("Download Data Failed, Since some unknown reason.")
+OSError: [Errno 22] Invalid argument
+[2021-04-12 05:35:25,463][Thread-83:22672][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/candle/2015-01-01/AMZN HTTP/1.1" 500 100407]
+[2021-04-12 05:36:34,810][MainThread:23924][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-04-12 05:36:51,354][Thread-83:22672][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/candle/2015-01-01/AMZN]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockDataGenerator.py", line 82, in download_and_wrap_basic_info
+    rawdata = yf.download([self._stock.get_ticker()], start=self._stock.get_start_date(), end=end_date)[
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\yfinance\multi.py", line 109, in download
+    shared._PROGRESS_BAR.completed()
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\yfinance\utils.py", line 185, in completed
+    print('\r' + str(self), end='')
+OSError: [Errno 22] Invalid argument
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 74, in get_candle_render_data
+    data_obj = generator.download_and_wrap_basic_info()
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockDataGenerator.py", line 115, in download_and_wrap_basic_info
+    print("Download Data Failed, Since some unknown reason.")
+OSError: [Errno 22] Invalid argument
+[2021-04-12 05:36:51,356][Thread-83:22672][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/candle/2015-01-01/AMZN HTTP/1.1" 500 100407]
+[2021-04-12 05:37:03,082][Thread-83:22672][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/basic/2015-01-01/AMZN]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockDataGenerator.py", line 42, in download_basic_info
+    rawdata = yf.download([self._stock.get_ticker()], start=self._stock.get_start_date(), end=end_date)[
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\yfinance\multi.py", line 109, in download
+    shared._PROGRESS_BAR.completed()
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\yfinance\utils.py", line 185, in completed
+    print('\r' + str(self), end='')
+OSError: [Errno 22] Invalid argument
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 46, in get_basic_info
+    _, data_items = generator.download_basic_info()
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockDataGenerator.py", line 57, in download_basic_info
+    print("Download Data Failed, Since some unknown reason.")
+OSError: [Errno 22] Invalid argument
+[2021-04-12 05:37:03,085][Thread-83:22672][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/basic/2015-01-01/AMZN HTTP/1.1" 500 99594]
+[2021-04-12 05:38:09,339][Thread-91:14924][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/basic/2015-01-01/AMZN]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockDataGenerator.py", line 42, in download_basic_info
+    rawdata = yf.download([self._stock.get_ticker()], start=self._stock.get_start_date(), end=end_date)[
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\yfinance\multi.py", line 109, in download
+    shared._PROGRESS_BAR.completed()
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\yfinance\utils.py", line 185, in completed
+    print('\r' + str(self), end='')
+OSError: [Errno 22] Invalid argument
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 46, in get_basic_info
+    _, data_items = generator.download_basic_info()
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockDataGenerator.py", line 57, in download_basic_info
+    print("Download Data Failed, Since some unknown reason.")
+OSError: [Errno 22] Invalid argument
+[2021-04-12 05:38:09,340][Thread-91:14924][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/basic/2015-01-01/AMZN HTTP/1.1" 500 98133]
+[2021-04-12 05:38:09,730][Thread-91:14924][task_id:django.request][log.py:230][WARNING][Not Found: /favicon.ico]
+[2021-04-12 05:38:09,731][Thread-91:14924][task_id:django.server][basehttp.py:157][WARNING]["GET /favicon.ico HTTP/1.1" 404 2084]
+[2021-04-12 05:39:05,579][MainThread:21924][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-04-12 05:39:26,094][Thread-94:18276][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/candle/2015-01-01/AMZN]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockDataGenerator.py", line 82, in download_and_wrap_basic_info
+    rawdata = yf.download([self._stock.get_ticker()], start=self._stock.get_start_date(), end=end_date)[
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\yfinance\multi.py", line 109, in download
+    shared._PROGRESS_BAR.completed()
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\yfinance\utils.py", line 185, in completed
+    print('\r' + str(self), end='')
+OSError: [Errno 22] Invalid argument
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 74, in get_candle_render_data
+    data_obj = generator.download_and_wrap_basic_info()
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockDataGenerator.py", line 115, in download_and_wrap_basic_info
+    print("Download Data Failed, Since some unknown reason.")
+OSError: [Errno 22] Invalid argument
+[2021-04-12 05:39:26,096][Thread-94:18276][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/candle/2015-01-01/AMZN HTTP/1.1" 500 100270]
+[2021-04-12 05:39:26,511][Thread-94:18276][task_id:django.request][log.py:230][WARNING][Not Found: /favicon.ico]
+[2021-04-12 05:39:26,512][Thread-94:18276][task_id:django.server][basehttp.py:157][WARNING]["GET /favicon.ico HTTP/1.1" 404 2084]
+[2021-04-12 05:45:46,788][MainThread:16924][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-04-12 05:46:05,751][Thread-1:16208][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/basic/2015-01-01/AMZN HTTP/1.1" 200 144890]
+[2021-04-12 05:46:05,997][Thread-1:16208][task_id:django.request][log.py:230][WARNING][Not Found: /favicon.ico]
+[2021-04-12 05:46:05,997][Thread-1:16208][task_id:django.server][basehttp.py:157][WARNING]["GET /favicon.ico HTTP/1.1" 404 2084]
+[2021-04-12 05:46:09,487][Thread-1:16208][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/candle/2015-01-01/AMZN HTTP/1.1" 200 162251]
+[2021-04-12 11:59:03,430][MainThread:11120][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-04-12 11:59:43,003][Thread-1:13444][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/basic/2015-01-01/AMZN HTTP/1.1" 200 153187]
+[2021-04-12 11:59:43,273][Thread-1:13444][task_id:django.request][log.py:230][WARNING][Not Found: /favicon.ico]
+[2021-04-12 11:59:43,274][Thread-1:13444][task_id:django.server][basehttp.py:157][WARNING]["GET /favicon.ico HTTP/1.1" 404 2084]

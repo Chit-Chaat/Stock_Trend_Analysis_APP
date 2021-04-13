@@ -2,7 +2,7 @@
   <div>
     <div id="title">
       <div id="logo">
-        sfasda12131
+        
       </div>
       <div id="desc">
       </div>

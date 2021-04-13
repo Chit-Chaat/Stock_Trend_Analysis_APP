@@ -628,3 +628,141 @@ Traceback (most recent call last):
     o.__class__.__name__)
 TypeError: Object of type 'recarray' is not JSON serializable
 [2021-04-04 01:36:57,774][Thread-1:13012][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/predict/AMZN HTTP/1.1" 500 140096]
+[2021-04-12 05:34:50,027][Thread-83:22672][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/candle/2015-01-01/AMZN]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockDataGenerator.py", line 82, in download_and_wrap_basic_info
+    rawdata = yf.download([self._stock.get_ticker()], start=self._stock.get_start_date(), end=end_date)[
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\yfinance\multi.py", line 109, in download
+    shared._PROGRESS_BAR.completed()
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\yfinance\utils.py", line 185, in completed
+    print('\r' + str(self), end='')
+OSError: [Errno 22] Invalid argument
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 74, in get_candle_render_data
+    data_obj = generator.download_and_wrap_basic_info()
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockDataGenerator.py", line 115, in download_and_wrap_basic_info
+    print("Download Data Failed, Since some unknown reason.")
+OSError: [Errno 22] Invalid argument
+[2021-04-12 05:34:50,033][Thread-83:22672][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/candle/2015-01-01/AMZN HTTP/1.1" 500 100270]
+[2021-04-12 05:35:25,460][Thread-83:22672][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/candle/2015-01-01/AMZN]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockDataGenerator.py", line 82, in download_and_wrap_basic_info
+    rawdata = yf.download([self._stock.get_ticker()], start=self._stock.get_start_date(), end=end_date)[
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\yfinance\multi.py", line 109, in download
+    shared._PROGRESS_BAR.completed()
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\yfinance\utils.py", line 185, in completed
+    print('\r' + str(self), end='')
+OSError: [Errno 22] Invalid argument
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 74, in get_candle_render_data
+    data_obj = generator.download_and_wrap_basic_info()
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockDataGenerator.py", line 115, in download_and_wrap_basic_info
+    print("Download Data Failed, Since some unknown reason.")
+OSError: [Errno 22] Invalid argument
+[2021-04-12 05:35:25,463][Thread-83:22672][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/candle/2015-01-01/AMZN HTTP/1.1" 500 100407]
+[2021-04-12 05:36:51,354][Thread-83:22672][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/candle/2015-01-01/AMZN]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockDataGenerator.py", line 82, in download_and_wrap_basic_info
+    rawdata = yf.download([self._stock.get_ticker()], start=self._stock.get_start_date(), end=end_date)[
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\yfinance\multi.py", line 109, in download
+    shared._PROGRESS_BAR.completed()
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\yfinance\utils.py", line 185, in completed
+    print('\r' + str(self), end='')
+OSError: [Errno 22] Invalid argument
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 74, in get_candle_render_data
+    data_obj = generator.download_and_wrap_basic_info()
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockDataGenerator.py", line 115, in download_and_wrap_basic_info
+    print("Download Data Failed, Since some unknown reason.")
+OSError: [Errno 22] Invalid argument
+[2021-04-12 05:36:51,356][Thread-83:22672][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/candle/2015-01-01/AMZN HTTP/1.1" 500 100407]
+[2021-04-12 05:37:03,082][Thread-83:22672][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/basic/2015-01-01/AMZN]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockDataGenerator.py", line 42, in download_basic_info
+    rawdata = yf.download([self._stock.get_ticker()], start=self._stock.get_start_date(), end=end_date)[
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\yfinance\multi.py", line 109, in download
+    shared._PROGRESS_BAR.completed()
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\yfinance\utils.py", line 185, in completed
+    print('\r' + str(self), end='')
+OSError: [Errno 22] Invalid argument
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 46, in get_basic_info
+    _, data_items = generator.download_basic_info()
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockDataGenerator.py", line 57, in download_basic_info
+    print("Download Data Failed, Since some unknown reason.")
+OSError: [Errno 22] Invalid argument
+[2021-04-12 05:37:03,085][Thread-83:22672][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/basic/2015-01-01/AMZN HTTP/1.1" 500 99594]
+[2021-04-12 05:38:09,339][Thread-91:14924][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/basic/2015-01-01/AMZN]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockDataGenerator.py", line 42, in download_basic_info
+    rawdata = yf.download([self._stock.get_ticker()], start=self._stock.get_start_date(), end=end_date)[
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\yfinance\multi.py", line 109, in download
+    shared._PROGRESS_BAR.completed()
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\yfinance\utils.py", line 185, in completed
+    print('\r' + str(self), end='')
+OSError: [Errno 22] Invalid argument
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 46, in get_basic_info
+    _, data_items = generator.download_basic_info()
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockDataGenerator.py", line 57, in download_basic_info
+    print("Download Data Failed, Since some unknown reason.")
+OSError: [Errno 22] Invalid argument
+[2021-04-12 05:38:09,340][Thread-91:14924][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/basic/2015-01-01/AMZN HTTP/1.1" 500 98133]
+[2021-04-12 05:39:26,094][Thread-94:18276][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/candle/2015-01-01/AMZN]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockDataGenerator.py", line 82, in download_and_wrap_basic_info
+    rawdata = yf.download([self._stock.get_ticker()], start=self._stock.get_start_date(), end=end_date)[
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\yfinance\multi.py", line 109, in download
+    shared._PROGRESS_BAR.completed()
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\yfinance\utils.py", line 185, in completed
+    print('\r' + str(self), end='')
+OSError: [Errno 22] Invalid argument
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 74, in get_candle_render_data
+    data_obj = generator.download_and_wrap_basic_info()
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockDataGenerator.py", line 115, in download_and_wrap_basic_info
+    print("Download Data Failed, Since some unknown reason.")
+OSError: [Errno 22] Invalid argument
+[2021-04-12 05:39:26,096][Thread-94:18276][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/candle/2015-01-01/AMZN HTTP/1.1" 500 100270]
