@@ -23,18 +23,18 @@
           </el-tooltip>
         </el-col>
         <el-col :span="4">
-          <el-tooltip effect="light" content="Top Left 提示文字" placement="top">
+          <el-tooltip effect="light" content="Nasdaq Indices Combined Composite Index Repr.NMS & NSC Com Shs" placement="top">
             <el-card shadow="hover" class="grid-content bg-purple-light">
               <div class="clearfix"> Nasdaq Index </div>
               <g2-sparkline style="width: 150px; height: 60px; margin: 0; padding-top: 10px;"
-                :axis-name="{name: 'Date', value: 'value'}" :data="COMP_val_obj.values" :color="'#909399'"
+                :axis-name="{name: 'Date', value: 'value'}" :data="COMP_val_obj.values" :color="up_or_down1"
                 :is-percent="false" :type="'line'">
               </g2-sparkline>
               <div class="numeric-content" :style="{'color':up_or_down1}">
                 <el-row :gutter="0">
                   <el-col :span="11">
                     <div id="lastest">
-                      {{COMP_val_obj.lastestVal}}
+                      {{COMP_val_obj.latestVal}}
                     </div>
                   </el-col>
                   <el-col :span="13">
@@ -53,18 +53,18 @@
           </el-tooltip>
         </el-col>
         <el-col :span="4">
-          <el-tooltip effect="light" content="Top Left 提示文字" placement="top">
+          <el-tooltip effect="light" content="S&P Indices S&P 500 Index" placement="top">
             <el-card shadow="hover" class="grid-content bg-purple-light">
               <div class="clearfix"> S&P500 Index </div>
               <g2-sparkline style="width: 150px; height: 60px; margin: 0; padding-top: 10px;"
-                :axis-name="{name: 'Date', value: 'value'}" :data="SP500_val_obj.values" :color="'#909399'"
+                :axis-name="{name: 'Date', value: 'value'}" :data="SP500_val_obj.values" :color="up_or_down2"
                 :is-percent="false" :type="'line'">
               </g2-sparkline>
               <div class="numeric-content" :style="{'color':up_or_down2}">
                 <el-row :gutter="0">
                   <el-col :span="11">
                     <div id="lastest">
-                      {{SP500_val_obj.lastestVal}}
+                      {{SP500_val_obj.latestVal}}
                     </div>
                   </el-col>
                   <el-col :span="13">
@@ -142,31 +142,9 @@
       return {
         upColor: '#67C23A',
         downColor: '#F56C6C',
-        COMP_Real_API: "https://finance.api.seekingalpha.com/v2/real-time-prices?symbols=COMP",
-        SP500_Real_API: "https://finance.api.seekingalpha.com/v2/real-time-prices?symbols=SP500",
-        // COMP_temp_vals: [],
-        COMP_val_obj: {
-          values: [{ name: 1, value: 86085 }, { name: 2, value: 87085 }, { name: 3, value: 80085 },
-          { name: 4, value: 86185 }, { name: 5, value: 87015 }, { name: 6, value: 81085 },
-          { name: 7, value: 86285 }, { name: 8, value: 80085 }, { name: 9, value: 81085 },
-          { name: 10, value: 86585 }, { name: 11, value: 83085 }, { name: 12, value: 80015 },
-          { name: 13, value: 86585 }, { name: 15, value: 83085 }, { name: 15, value: 80015 }],
-          percentChange: 1.76,
-          change: 47.68,
-          lastestVal: 4068.78,
-
-        },
-        SP500_val_obj: {
-          values: [{ name: 1, value: 86085 }, { name: 2, value: 87085 }, { name: 3, value: 80085 },
-          { name: 4, value: 86185 }, { name: 5, value: 87015 }, { name: 6, value: 81085 },
-          { name: 7, value: 86285 }, { name: 8, value: 80085 }, { name: 9, value: 81085 },
-          { name: 10, value: 86585 }, { name: 11, value: 83085 }, { name: 12, value: 80015 },
-          { name: 13, value: 86585 }, { name: 15, value: 83085 }, { name: 15, value: 80015 }],
-          percentChange: -1.76,
-          change: -47.68,
-          lastestVal: 4068.78,
-
-        },
+        crawlIndexApiPrefix: '/analysis/index/latest/',
+        COMP_val_obj: {},
+        SP500_val_obj: {},
         emotion_obj: [
           { icon: 'el-icon-cloudy-and-sunny', name: 'positive', value: 2 },
           { icon: 'el-icon-lightning', name: 'negative', value: 1 },
@@ -182,17 +160,15 @@
           percentChange: 12.12,
           change: 131,
         },
-        num1: 0,
-        num2: 0,
       }
     },
     created() {
       window.setInterval(() => {
         setTimeout(this.getIndexValues('COMP'), 0);
-      }, 3000);
+      }, 5000);
       window.setInterval(() => {
         setTimeout(this.getIndexValues('SP500'), 0);
-      }, 3000);
+      }, 5000);
     },
     computed: {
       up_or_down1: function () {
@@ -213,29 +189,27 @@
     },
     methods: {
       getIndexValues: function (index_type) {
-        // axios({
-        //   method: "GET",
-        //   url: this.COMP_Real_API,
-        // }).then(
-        //   result => {
-        //     if (result.data != null) {
-        //       console.log(result.data)
-        //       if (result.data.code == 200) {
-        //         this.COMP_temp_vals = result.data;
-        //       } else {
-        //         this.$options.methods.sendErrorMsg.bind(this)("failed to get Nasdaq Index value.");
-        //       }
-        //     }
-        //   },
-        //   error => {
-        //     this.$options.methods.sendErrorMsg.bind(this)("failed to get Nasdaq Index value.");
-        //   }
-        // );
-        if (index_type === "COMP"){
-          console.log("Type:"+ index_type +  " 请求" + this.num1++ + "次");
-        }else if (index_type === "SP500"){
-          console.log("Type:"+ index_type +  " 请求" + this.num2++ + "次");
-        }
+        axios({
+          method: "GET",
+          url: this.$hostname + this.crawlIndexApiPrefix + index_type
+        }).then(
+          result => {
+            if (result.data != null) {
+              if (result.data.code == 200) {
+                if (index_type === "COMP") {
+                  this.COMP_val_obj = result.data.data
+                } else if (index_type === "SP500") {
+                  this.SP500_val_obj = result.data.data
+                }
+              } else {
+                this.$options.methods.sendErrorMsg.bind(this)("failed to get Nasdaq Index value.");
+              }
+            }
+          },
+          error => {
+            this.$options.methods.sendErrorMsg.bind(this)("failed to get Nasdaq Index value.");
+          }
+        );
       },
       onSubmit() {
         console.log('submit!');
@@ -329,7 +303,7 @@
 
   .numeric-content {
     height: 40px;
-    width: 110%;
+    width: 120%;
     margin-top: 5px;
     font-family: Microsoft YaHei;
     color: #909399;
@@ -359,7 +333,7 @@
 
   #amount {
     display: inline;
-    font-size: 12px;
+    font-size: 10px;
   }
 
   #upClass {

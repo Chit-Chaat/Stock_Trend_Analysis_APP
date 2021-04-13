@@ -1,14 +1,42 @@
+import json
 import logging
+import os
 from datetime import datetime
 
+from FileUtil import read_txt_file
+from HttpClientUtil import send_get_request
 from ModelLoader import StockModel
 from JsonResponseResult import JsonResponseResult
 from NewCollector import crawl_news
 from SentimentalAnalyzer import generate_score
 from StockDataGenerator import StockDataGenerator
 from StockMetaData import StockMetaData
+from apscheduler.schedulers.background import BackgroundScheduler
+from django_apscheduler.jobstores import DjangoJobStore, register_events, register_job
+
+import uuid
 
 logger = logging.getLogger('analysis module')
+
+try:
+    scheduler = BackgroundScheduler()
+    mystore = DjangoJobStore()
+    scheduler.remove_all_jobs(mystore)
+    scheduler.add_jobstore(mystore, str(uuid.uuid4()))
+
+
+    @register_job(scheduler, "interval", seconds=30)
+    def crawling_job3():
+        url1 = "https://finance.api.seekingalpha.com/v2/real-time-prices?symbols=COMP.IND"
+        url2 = "https://finance.api.seekingalpha.com/v2/real-time-prices?symbols=SP500"
+        send_get_request(url1, 'COMP_index.txt')
+        send_get_request(url2, 'SP500_index.txt')
+
+
+    register_events(scheduler)
+    scheduler.start()
+except Exception as e:
+    print('something wrong with crontab task, since ：%s' % str(e))
 
 
 def index(request):
@@ -98,6 +126,15 @@ def predict_future_price(request, ticker, start_date="2018-01-01"):
     else:
         return JsonResponseResult().error(code=405,
                                           data="failed to predict future value of " + ticker)
+
+
+def get_latest_index(request, ticker):
+    logger.info("parameter stock is: ----> ", ticker)
+    index_values = read_txt_file(ticker)
+    if index_values is not None:
+        return JsonResponseResult().ok(data=index_values)
+    else:
+        return JsonResponseResult().error(code=405, data="failed to get latest index value of " + ticker)
 
 
 def get_latest_news(request, ticker):
