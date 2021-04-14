@@ -31,7 +31,7 @@ def read_txt_file(ticker):
     temp_res, result = [], {'values': []}
     with open(file_path, 'r', encoding='utf-8') as data_file:
         lines = data_file.readlines()
-        temp_res = lines[-10:]
+        temp_res = lines[-30:]
         data_file.close()
 
     for line in temp_res:

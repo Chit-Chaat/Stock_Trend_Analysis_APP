@@ -16,7 +16,7 @@
               </div>
               <div class="textual-content">
                 <div v-for="obj in emotion_obj" :key="obj.name" class="textual-item">
-                  <i :class="obj.icon"></i>{{ " " + obj.name + " : " + obj.value +'%' }}
+                  <i :class="obj.icon" :style="{color:obj.color}"></i>{{ " " + obj.name + " : " + obj.value +'%' }}
                 </div>
               </div>
             </el-card>
@@ -146,9 +146,9 @@
         COMP_val_obj: {},
         SP500_val_obj: {},
         emotion_obj: [
-          { icon: 'el-icon-cloudy-and-sunny', name: 'positive', value: 2 },
-          { icon: 'el-icon-lightning', name: 'negative', value: 1 },
-          { icon: 'el-icon-partly-cloudy', name: 'neutral', value: 3 }
+          { icon: 'icon-rate-face-3', color:'#FF9900', name: 'positive', value: 2 },
+          { icon: 'icon-rate-face-2', color:'#F7BA2A', name: 'negative', value: 1 },
+          { icon: 'icon-rate-face-1', color:'#99A9BF', name: 'neutral', value: 3 }
         ],
         formInline: {
           amount: 10,
