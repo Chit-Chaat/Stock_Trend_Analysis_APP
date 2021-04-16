@@ -9,7 +9,7 @@ from FileUtil import save_record_2_file
 import json
 import os
 
-DATA_SAVED_PLACE = "\index"
+DATA_SAVED_PLACE = "/index"
 
 
 def send_get_request(url, result_file_path):
