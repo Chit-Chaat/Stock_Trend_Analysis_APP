@@ -2190,3 +2190,397 @@ ValueError: not enough values to unpack (expected 3, got 2)
 [2021-04-14 00:20:41,150][Thread-1:16976][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1310]
 [2021-04-14 00:20:43,109][Thread-1:16976][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1401]
 [2021-04-14 00:20:43,111][Thread-5:1328][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1310]
+[2021-04-14 17:27:05,921][MainThread:1212][task_id:django.utils.autoreload][autoreload.py:597][INFO][Watching for file changes with StatReloader]
+[2021-04-14 17:27:43,006][MainThread:5176][task_id:django.utils.autoreload][autoreload.py:597][INFO][Watching for file changes with StatReloader]
+[2021-04-14 17:30:00,514][MainThread:14848][task_id:django.utils.autoreload][autoreload.py:597][INFO][Watching for file changes with StatReloader]
+[2021-04-14 17:30:20,537][MainThread:10272][task_id:django.utils.autoreload][autoreload.py:597][INFO][Watching for file changes with StatReloader]
+[2021-04-15 08:52:32,495][MainThread:16956][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-04-15 08:54:02,132][MainThread:7180][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-04-15 08:54:25,322][Thread-1:14020][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/index/latest/COMP]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 133, in get_latest_index
+    index_values = read_txt_file(ticker)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\FileUtil.py", line 38, in read_txt_file
+    json_line = json.loads(line)
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 2 column 1 (char 1)
+[2021-04-15 08:54:25,328][Thread-2:20768][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/index/latest/SP500]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 133, in get_latest_index
+    index_values = read_txt_file(ticker)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\FileUtil.py", line 38, in read_txt_file
+    json_line = json.loads(line)
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 2 column 1 (char 1)
+[2021-04-15 08:54:25,332][Thread-2:20768][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/index/latest/SP500 HTTP/1.1" 500 113147]
+[2021-04-15 08:54:25,333][Thread-1:14020][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/index/latest/COMP HTTP/1.1" 500 112708]
+[2021-04-15 08:54:30,698][Thread-2:20768][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/index/latest/COMP]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 133, in get_latest_index
+    index_values = read_txt_file(ticker)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\FileUtil.py", line 38, in read_txt_file
+    json_line = json.loads(line)
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 2 column 1 (char 1)
+[2021-04-15 08:54:30,729][Thread-1:14020][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/index/latest/SP500]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 133, in get_latest_index
+    index_values = read_txt_file(ticker)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\FileUtil.py", line 38, in read_txt_file
+    json_line = json.loads(line)
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 2 column 1 (char 1)
+[2021-04-15 08:54:30,730][Thread-2:20768][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/index/latest/COMP HTTP/1.1" 500 112708]
+[2021-04-15 08:54:30,732][Thread-1:14020][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/index/latest/SP500 HTTP/1.1" 500 113147]
+[2021-04-15 08:55:38,263][MainThread:20500][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-04-15 08:55:46,891][Thread-6:19636][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/index/latest/COMP]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 133, in get_latest_index
+    index_values = read_txt_file(ticker)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\FileUtil.py", line 38, in read_txt_file
+    json_line = json.loads(line)
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 2 column 1 (char 1)
+[2021-04-15 08:55:46,898][Thread-6:19636][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/index/latest/COMP HTTP/1.1" 500 115662]
+[2021-04-15 08:55:46,905][Thread-6:19636][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1310]
+[2021-04-15 08:55:50,677][Thread-7:2788][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1310]
+[2021-04-15 08:55:50,839][Thread-6:19636][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/index/latest/COMP]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 133, in get_latest_index
+    index_values = read_txt_file(ticker)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\FileUtil.py", line 38, in read_txt_file
+    json_line = json.loads(line)
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 2 column 1 (char 1)
+[2021-04-15 08:55:50,844][Thread-6:19636][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/index/latest/COMP HTTP/1.1" 500 115662]
+[2021-04-15 08:55:55,643][Thread-7:2788][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1310]
+[2021-04-15 08:55:55,749][Thread-6:19636][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/index/latest/COMP]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 133, in get_latest_index
+    index_values = read_txt_file(ticker)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\FileUtil.py", line 38, in read_txt_file
+    json_line = json.loads(line)
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 2 column 1 (char 1)
+[2021-04-15 08:55:55,752][Thread-6:19636][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/index/latest/COMP HTTP/1.1" 500 115662]
+[2021-04-15 08:56:27,331][MainThread:12524][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-04-15 08:57:14,928][Thread-1:14372][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/index/latest/COMP]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 133, in get_latest_index
+    index_values = read_txt_file(ticker)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\FileUtil.py", line 38, in read_txt_file
+    json_line = json.loads(line)
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\decoder.py", line 342, in decode
+    raise JSONDecodeError("Extra data", s, end)
+json.decoder.JSONDecodeError: Extra data: line 1 column 117 (char 116)
+[2021-04-15 08:57:14,931][Thread-1:14372][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/index/latest/COMP HTTP/1.1" 500 106770]
+[2021-04-15 08:57:15,276][Thread-1:14372][task_id:django.request][log.py:230][WARNING][Not Found: /favicon.ico]
+[2021-04-15 08:57:15,276][Thread-1:14372][task_id:django.server][basehttp.py:157][WARNING]["GET /favicon.ico HTTP/1.1" 404 2084]
+[2021-04-15 08:57:24,936][Thread-1:14372][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 08:57:51,312][MainThread:2788][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-04-15 08:58:01,670][Thread-1:20196][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1398]
+[2021-04-15 08:58:17,829][Thread-3:16412][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1398]
+[2021-04-15 08:58:17,831][Thread-4:13488][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 08:58:22,519][Thread-3:16412][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1398]
+[2021-04-15 08:58:22,521][Thread-5:12412][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 08:58:26,181][Thread-4:13488][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/candle/2016-04-16/AMZN HTTP/1.1" 200 130514]
+[2021-04-15 08:58:27,548][Thread-4:13488][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1398]
+[2021-04-15 08:58:27,548][Thread-5:12412][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 08:58:30,601][Thread-4:13488][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/predict/AMZN HTTP/1.1" 200 109334]
+[2021-04-15 08:58:32,518][Thread-4:13488][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1398]
+[2021-04-15 08:58:32,519][Thread-5:12412][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 09:06:19,444][MainThread:636][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-04-15 09:06:31,250][Thread-1:3624][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1398]
+[2021-04-15 09:06:31,251][Thread-2:6604][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 09:06:35,937][Thread-2:6604][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1398]
+[2021-04-15 09:06:35,938][Thread-1:3624][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 09:06:40,937][Thread-1:3624][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1398]
+[2021-04-15 09:06:40,937][Thread-2:6604][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 09:06:45,935][Thread-2:6604][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1398]
+[2021-04-15 09:06:45,935][Thread-1:3624][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 09:06:50,936][Thread-2:6604][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 09:06:50,936][Thread-1:3624][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1398]
+[2021-04-15 09:06:54,638][Thread-1:3624][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/candle/2016-04-16/AMZN HTTP/1.1" 200 130514]
+[2021-04-15 09:06:55,964][Thread-1:3624][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1398]
+[2021-04-15 09:06:55,965][Thread-2:6604][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 09:07:00,944][Thread-2:6604][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1399]
+[2021-04-15 09:07:00,945][Thread-1:3624][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 09:07:05,941][Thread-3:16412][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 09:07:05,944][Thread-2:6604][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1399]
+[2021-04-15 09:07:07,272][Thread-1:3624][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/predict/AMZN HTTP/1.1" 200 109184]
+[2021-04-15 09:07:10,944][Thread-1:3624][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1399]
+[2021-04-15 09:07:10,945][Thread-2:6604][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 09:07:15,939][Thread-2:6604][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1399]
+[2021-04-15 09:07:15,939][Thread-1:3624][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 09:07:20,937][Thread-1:3624][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1399]
+[2021-04-15 09:07:20,937][Thread-2:6604][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 09:07:25,941][Thread-2:6604][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 09:07:25,942][Thread-1:3624][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1399]
+[2021-04-15 09:07:30,939][Thread-1:3624][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1399]
+[2021-04-15 09:07:30,940][Thread-2:6604][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 09:07:35,936][Thread-1:3624][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 09:07:35,936][Thread-2:6604][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1399]
+[2021-04-15 09:07:40,936][Thread-2:6604][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1399]
+[2021-04-15 09:07:40,936][Thread-1:3624][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 19:31:12,040][MainThread:16424][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-04-15 19:32:13,760][Thread-1:17756][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1399]
+[2021-04-15 19:32:13,761][Thread-2:19428][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 19:32:18,069][Thread-2:19428][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1399]
+[2021-04-15 19:32:18,069][Thread-1:17756][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 19:32:23,079][Thread-1:17756][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1399]
+[2021-04-15 19:32:23,079][Thread-2:19428][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 19:32:28,078][Thread-1:17756][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1399]
+[2021-04-15 19:32:28,081][Thread-2:19428][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 19:32:33,077][Thread-2:19428][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1399]
+[2021-04-15 19:32:33,077][Thread-1:17756][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 19:32:38,075][Thread-2:19428][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 19:32:38,076][Thread-1:17756][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1399]
+[2021-04-15 19:32:43,427][Thread-2:19428][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1399]
+[2021-04-15 19:32:43,428][Thread-1:17756][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 23:00:29,240][MainThread:16148][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-04-15 23:01:02,645][Thread-1:3996][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/candle/2016-04-17/AMZN HTTP/1.1" 200 130514]
+[2021-04-15 23:01:03,875][Thread-1:3996][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1399]
+[2021-04-15 23:01:03,875][Thread-2:1944][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 23:01:09,439][Thread-2:1944][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1399]
+[2021-04-15 23:01:09,441][Thread-1:3996][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 23:01:14,438][Thread-1:3996][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1399]
+[2021-04-15 23:01:14,441][Thread-2:1944][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 23:01:19,433][Thread-2:1944][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1399]
+[2021-04-15 23:01:19,434][Thread-1:3996][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 23:01:24,438][Thread-1:3996][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1399]
+[2021-04-15 23:01:24,448][Thread-2:1944][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 23:01:29,430][Thread-1:3996][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 23:01:29,431][Thread-2:1944][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1399]
+[2021-04-15 23:01:34,431][Thread-1:3996][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1399]
+[2021-04-15 23:01:34,432][Thread-2:1944][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 23:01:39,429][Thread-2:1944][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1399]
+[2021-04-15 23:01:39,431][Thread-1:3996][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 23:01:44,434][Thread-1:3996][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1399]
+[2021-04-15 23:01:44,435][Thread-2:1944][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 23:01:48,818][Thread-1:3996][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 23:01:48,818][Thread-2:1944][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1399]
+[2021-04-15 23:01:53,824][Thread-1:3996][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 23:01:53,825][Thread-2:1944][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1399]
+[2021-04-15 23:01:58,885][Thread-2:1944][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1399]
+[2021-04-15 23:01:58,889][Thread-1:3996][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 23:02:02,952][Thread-1:3996][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/candle/2016-04-17/GOOG HTTP/1.1" 200 130541]
+[2021-04-15 23:02:03,819][Thread-1:3996][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1399]
+[2021-04-15 23:02:03,820][Thread-2:1944][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 23:02:09,427][Thread-2:1944][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1399]
+[2021-04-15 23:02:09,428][Thread-1:3996][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 23:02:14,427][Thread-1:3996][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1399]
+[2021-04-15 23:02:14,429][Thread-2:1944][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 23:02:19,418][Thread-2:1944][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1399]
+[2021-04-15 23:02:19,418][Thread-1:3996][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 23:02:24,433][Thread-1:3996][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1399]
+[2021-04-15 23:02:24,433][Thread-2:1944][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 23:02:29,435][Thread-2:1944][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1399]
+[2021-04-15 23:02:29,436][Thread-1:3996][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 23:02:34,422][Thread-2:1944][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 23:02:34,423][Thread-1:3996][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1399]
+[2021-04-15 23:02:39,425][Thread-2:1944][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1399]
+[2021-04-15 23:02:39,427][Thread-1:3996][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 23:02:44,436][Thread-1:3996][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1399]
+[2021-04-15 23:02:44,438][Thread-2:1944][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 23:02:49,425][Thread-2:1944][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1399]
+[2021-04-15 23:02:49,425][Thread-1:3996][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 23:02:54,430][Thread-2:1944][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 23:02:54,430][Thread-1:3996][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1399]
+[2021-04-15 23:02:58,822][Thread-1:3996][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1399]
+[2021-04-15 23:02:58,823][Thread-2:1944][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 23:03:01,369][Thread-2:1944][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/candle/2016-04-17/FB HTTP/1.1" 200 125113]
+[2021-04-15 23:03:03,820][Thread-2:1944][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1399]
+[2021-04-15 23:03:03,820][Thread-1:3996][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 23:03:09,432][Thread-1:3996][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1399]
+[2021-04-15 23:03:09,434][Thread-2:1944][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 23:03:14,424][Thread-2:1944][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1399]
+[2021-04-15 23:03:14,425][Thread-1:3996][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 23:03:19,429][Thread-1:3996][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1399]
+[2021-04-15 23:03:19,430][Thread-2:1944][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 23:03:24,435][Thread-2:1944][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1399]
+[2021-04-15 23:03:24,436][Thread-1:3996][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 23:03:29,441][Thread-1:3996][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1399]
+[2021-04-15 23:03:29,443][Thread-2:1944][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 23:03:34,427][Thread-1:3996][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 23:03:34,428][Thread-2:1944][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1399]
+[2021-04-15 23:03:39,433][Thread-2:1944][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 23:03:39,434][Thread-1:3996][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1401]
+[2021-04-15 23:03:44,427][Thread-1:3996][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1401]
+[2021-04-15 23:03:44,428][Thread-2:1944][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 23:03:46,789][Thread-1:3996][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/candle/2016-04-17/FB HTTP/1.1" 200 125113]
+[2021-04-15 23:03:48,913][Thread-1:3996][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1401]
+[2021-04-15 23:03:48,913][Thread-2:1944][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 23:03:49,605][Thread-2:1944][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/candle/2016-04-17/AAPL]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 100, in get_candle_render_data
+    metadata = StockMetaData(ticker, start_date_obj)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockMetaData.py", line 20, in __init__
+    AVAILABLE_TOKEN = check_is_subset(TOKEN, os.getcwd() + DATA_SAVED_PLACE)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StringUtil.py", line 19, in check_is_subset
+    f_ticker, f_start, f_end = file.split("_")
+ValueError: not enough values to unpack (expected 3, got 1)
+[2021-04-15 23:03:49,607][Thread-2:1944][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/candle/2016-04-17/AAPL HTTP/1.1" 500 86883]
+[2021-04-15 23:03:53,818][Thread-2:1944][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1401]
+[2021-04-15 23:03:53,818][Thread-1:3996][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 23:03:59,433][Thread-1:3996][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1401]
+[2021-04-15 23:03:59,435][Thread-2:1944][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 23:04:04,432][Thread-2:1944][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1401]
+[2021-04-15 23:04:04,433][Thread-1:3996][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 23:04:07,983][Thread-1:3996][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/candle/2016-04-17/NFLX]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 100, in get_candle_render_data
+    metadata = StockMetaData(ticker, start_date_obj)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockMetaData.py", line 20, in __init__
+    AVAILABLE_TOKEN = check_is_subset(TOKEN, os.getcwd() + DATA_SAVED_PLACE)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StringUtil.py", line 19, in check_is_subset
+    f_ticker, f_start, f_end = file.split("_")
+ValueError: not enough values to unpack (expected 3, got 1)
+[2021-04-15 23:04:07,984][Thread-1:3996][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/candle/2016-04-17/NFLX HTTP/1.1" 500 86883]
+[2021-04-15 23:04:08,818][Thread-1:3996][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1403]
+[2021-04-15 23:04:08,820][Thread-2:1944][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 23:04:25,918][MainThread:15584][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-04-15 23:04:42,503][Thread-1:3484][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1403]
+[2021-04-15 23:04:42,504][Thread-2:14720][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 23:04:44,421][Thread-2:14720][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1403]
+[2021-04-15 23:04:44,421][Thread-1:3484][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 23:04:48,817][Thread-2:14720][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1403]
+[2021-04-15 23:04:48,817][Thread-1:3484][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 23:04:50,386][Thread-1:3484][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/candle/2016-04-17/XLK HTTP/1.1" 200 116641]
+[2021-04-15 23:04:54,426][Thread-1:3484][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1403]
+[2021-04-15 23:04:54,427][Thread-2:14720][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 23:04:59,434][Thread-2:14720][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1403]
+[2021-04-15 23:04:59,435][Thread-1:3484][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 23:05:04,425][Thread-2:14720][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 23:05:04,425][Thread-1:3484][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1403]
+[2021-04-15 23:05:08,820][Thread-1:3484][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 23:05:08,821][Thread-2:14720][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1403]
+[2021-04-15 23:05:11,660][Thread-1:3484][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/candle/2016-04-17/BOTZ HTTP/1.1" 200 103553]
+[2021-04-15 23:05:13,755][Thread-1:3484][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/predict/BOTZ HTTP/1.1" 200 98]
+[2021-04-15 23:05:13,821][Thread-1:3484][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1403]
+[2021-04-15 23:05:13,822][Thread-2:14720][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 23:05:18,816][Thread-2:14720][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1403]
+[2021-04-15 23:05:18,818][Thread-1:3484][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 23:05:23,819][Thread-2:14720][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 23:05:23,820][Thread-1:3484][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1403]
+[2021-04-15 23:06:04,810][MainThread:2632][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-04-15 23:06:11,512][Thread-2:14828][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 23:06:11,513][Thread-1:12740][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1403]
+[2021-04-15 23:06:12,424][Thread-1:12740][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1403]
+[2021-04-15 23:06:12,425][Thread-2:14828][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 23:06:21,102][Thread-1:12740][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 23:06:21,102][Thread-2:14828][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1403]
+[2021-04-15 23:06:26,101][Thread-2:14828][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1403]
+[2021-04-15 23:06:26,101][Thread-1:12740][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 23:06:31,098][Thread-1:12740][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1403]
+[2021-04-15 23:06:31,098][Thread-2:14828][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 23:06:36,099][Thread-1:12740][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1403]
+[2021-04-15 23:06:36,100][Thread-2:14828][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 23:06:41,102][Thread-1:12740][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1403]
+[2021-04-15 23:06:41,102][Thread-3:14128][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 23:06:41,356][Thread-2:14828][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/candle/2016-04-17/GOOG HTTP/1.1" 200 130541]
+[2021-04-15 23:06:46,105][Thread-2:14828][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1403]
+[2021-04-15 23:06:46,106][Thread-3:14128][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 23:06:51,102][Thread-2:14828][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 23:06:51,102][Thread-3:14128][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1403]
+[2021-04-15 23:06:56,102][Thread-2:14828][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 23:06:56,102][Thread-3:14128][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1403]
+[2021-04-15 23:07:01,113][Thread-2:14828][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1403]
+[2021-04-15 23:07:01,113][Thread-3:14128][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-15 23:08:43,670][MainThread:17004][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-04-15 23:08:58,411][Thread-1:12872][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/test HTTP/1.1" 301 0]
+[2021-04-15 23:08:58,423][Thread-1:12872][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/test/ HTTP/1.1" 200 57]
+[2021-04-15 23:08:58,700][Thread-1:12872][task_id:django.request][log.py:230][WARNING][Not Found: /favicon.ico]
+[2021-04-15 23:08:58,700][Thread-1:12872][task_id:django.server][basehttp.py:157][WARNING]["GET /favicon.ico HTTP/1.1" 404 2084]
+[2021-04-16 03:26:31,780][MainThread:13460][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-04-16 03:30:49,209][Thread-1:20328][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/calculator/AMZN/222.2/200 HTTP/1.1" 200 200]
+[2021-04-16 03:30:49,488][Thread-1:20328][task_id:django.request][log.py:230][WARNING][Not Found: /favicon.ico]
+[2021-04-16 03:30:49,489][Thread-1:20328][task_id:django.server][basehttp.py:157][WARNING]["GET /favicon.ico HTTP/1.1" 404 2084]
+[2021-04-16 03:31:11,868][MainThread:13460][task_id:django.utils.autoreload][autoreload.py:240][INFO][D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\HttpClientUtil.py changed, reloading.]
+[2021-04-16 03:31:13,385][MainThread:6164][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-04-16 03:32:00,208][Thread-1:20476][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1403]
+[2021-04-16 03:32:00,211][Thread-2:7988][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-16 03:32:04,852][Thread-2:7988][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/COMP HTTP/1.1" 200 1403]
+[2021-04-16 03:32:04,853][Thread-1:20476][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/index/latest/SP500 HTTP/1.1" 200 1311]
+[2021-04-16 03:32:55,876][Thread-1:20476][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/calculator/AMZN/3222.2/200 HTTP/1.1" 200 149]
+[2021-04-16 03:35:48,333][MainThread:20640][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-04-16 03:36:01,257][Thread-1:22180][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/calculator/AMZN/3222.2/200 HTTP/1.1" 200 147]
+[2021-04-16 03:36:26,294][MainThread:20640][task_id:django.utils.autoreload][autoreload.py:240][INFO][D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py changed, reloading.]
+[2021-04-16 03:36:27,989][MainThread:23280][task_id:django.utils.autoreload][autoreload.py:617][INFO][Watching for file changes with StatReloader]
+[2021-04-16 03:36:37,374][Thread-1:4252][task_id:django.server][basehttp.py:157][INFO]["GET /analysis/calculator/AMZN/3222.2/200 HTTP/1.1" 200 133]

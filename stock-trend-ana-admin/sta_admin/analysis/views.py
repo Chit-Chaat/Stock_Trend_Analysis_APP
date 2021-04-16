@@ -4,7 +4,7 @@ import os
 from datetime import datetime
 
 from FileUtil import read_txt_file
-from HttpClientUtil import send_get_request
+from HttpClientUtil import record_get_request, send_get_request
 from ModelLoader import StockModel
 from JsonResponseResult import JsonResponseResult
 from NewCollector import crawl_news
@@ -29,8 +29,8 @@ try:
     def crawling_job3():
         url1 = "https://finance.api.seekingalpha.com/v2/real-time-prices?symbols=COMP.IND"
         url2 = "https://finance.api.seekingalpha.com/v2/real-time-prices?symbols=SP500"
-        send_get_request(url1, 'COMP_index.txt')
-        send_get_request(url2, 'SP500_index.txt')
+        record_get_request(url1, 'COMP_index.txt')
+        record_get_request(url2, 'SP500_index.txt')
 
 
     register_events(scheduler)
@@ -145,3 +145,18 @@ def get_latest_news(request, ticker):
         return JsonResponseResult().ok(data=scored_news)
     else:
         return JsonResponseResult().error(code=405, data="failed to get current news data of " + ticker)
+
+
+def get_net_price(request, ticker, cost_price, amount):
+    url = "https://finance.api.seekingalpha.com/v2/real-time-prices?symbols={}".format(ticker)
+    result_dict = send_get_request(url)
+    latestVal = result_dict['latestVal']
+    if latestVal != 0:
+        net_price = round(latestVal * amount, 3)
+        floating_price = round((latestVal - cost_price) * amount, 3)
+        result_dict["netPrice"] = net_price
+        result_dict["floatingPrice"] = floating_price
+        result_dict['percentChange'] = str(100 * round(floating_price / (cost_price * amount), 3)) + '%'
+        return JsonResponseResult().ok(data=[result_dict])
+    else:
+        return JsonResponseResult().error(code=405, data="failed to get net price of " + ticker)

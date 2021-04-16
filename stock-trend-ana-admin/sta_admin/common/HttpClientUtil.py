@@ -12,7 +12,7 @@ import os
 DATA_SAVED_PLACE = "\index"
 
 
-def send_get_request(url, result_file_path):
+def record_get_request(url, result_file_path):
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.190 Safari/537.36"}
 
@@ -28,3 +28,21 @@ def send_get_request(url, result_file_path):
         save_record_2_file(os.path.join(os.getcwd() + DATA_SAVED_PLACE, result_file_path), row)
     else:
         print('something wrong with crontab task, since ：%s' % response.status_code)
+
+
+def send_get_request(url):
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.190 Safari/537.36"}
+
+    response = requests.get(url=url, headers=headers)
+
+    if response.status_code == 200:
+        data = json.loads(response.text)['data'][0]['attributes']
+        return {
+            "latestVal": round(data['last'], 2)
+        }
+    else:
+        print('something wrong with crontab task, since ：%s' % response.status_code)
+        return {
+            "latestVal": 0
+        }
