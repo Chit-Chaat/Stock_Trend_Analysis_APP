@@ -28,8 +28,8 @@ class StockModel:
     def load(self):
         if Path(os.path.join(os.getcwd() + MODEL_SAVED_PLACE + "/" + self._ticker, MODEL_NAME)).is_file():
 
-            self._model_obj = tf.keras.models.load_model(
-                os.path.join(os.getcwd() + MODEL_SAVED_PLACE + "/" + self._ticker, MODEL_NAME))
+            # self._model_obj = tf.keras.models.load_model(
+            #     os.path.join(os.getcwd() + MODEL_SAVED_PLACE + "/" + self._ticker, MODEL_NAME))
 
             dependencies = {
                 'RealMSE': RealMSE(),
