@@ -27,17 +27,17 @@ class StockModel:
 
     def load(self):
         if Path(os.path.join(os.getcwd() + MODEL_SAVED_PLACE + "/" + self._ticker, MODEL_NAME)).is_file():
-<<<<<<< HEAD
+
             self._model_obj = tf.keras.models.load_model(
                 os.path.join(os.getcwd() + MODEL_SAVED_PLACE + "/" + self._ticker, MODEL_NAME))
-=======
+
             dependencies = {
                 'RealMSE': RealMSE(),
                 'ScaledRealMSE': ScaledRealMSE(),
             }
             self._model_obj = tf.keras.models.load_model(
                 os.path.join(os.getcwd() + MODEL_SAVED_PLACE + "/" + self._ticker, MODEL_NAME), custom_objects=dependencies)
->>>>>>> main
+
         else:
             raise FileNotFoundError("the model file is not exist.")
 
