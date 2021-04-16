@@ -806,3 +806,209 @@ Traceback (most recent call last):
     f_ticker, f_start, f_end = file.split("_")
 ValueError: not enough values to unpack (expected 3, got 2)
 [2021-04-13 07:13:59,445][Thread-3:10520][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/candle/2015-01-01/AMZN HTTP/1.1" 500 89097]
+[2021-04-15 08:54:25,322][Thread-1:14020][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/index/latest/COMP]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 133, in get_latest_index
+    index_values = read_txt_file(ticker)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\FileUtil.py", line 38, in read_txt_file
+    json_line = json.loads(line)
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 2 column 1 (char 1)
+[2021-04-15 08:54:25,328][Thread-2:20768][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/index/latest/SP500]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 133, in get_latest_index
+    index_values = read_txt_file(ticker)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\FileUtil.py", line 38, in read_txt_file
+    json_line = json.loads(line)
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 2 column 1 (char 1)
+[2021-04-15 08:54:25,332][Thread-2:20768][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/index/latest/SP500 HTTP/1.1" 500 113147]
+[2021-04-15 08:54:25,333][Thread-1:14020][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/index/latest/COMP HTTP/1.1" 500 112708]
+[2021-04-15 08:54:30,698][Thread-2:20768][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/index/latest/COMP]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 133, in get_latest_index
+    index_values = read_txt_file(ticker)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\FileUtil.py", line 38, in read_txt_file
+    json_line = json.loads(line)
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 2 column 1 (char 1)
+[2021-04-15 08:54:30,729][Thread-1:14020][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/index/latest/SP500]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 133, in get_latest_index
+    index_values = read_txt_file(ticker)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\FileUtil.py", line 38, in read_txt_file
+    json_line = json.loads(line)
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 2 column 1 (char 1)
+[2021-04-15 08:54:30,730][Thread-2:20768][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/index/latest/COMP HTTP/1.1" 500 112708]
+[2021-04-15 08:54:30,732][Thread-1:14020][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/index/latest/SP500 HTTP/1.1" 500 113147]
+[2021-04-15 08:55:46,891][Thread-6:19636][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/index/latest/COMP]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 133, in get_latest_index
+    index_values = read_txt_file(ticker)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\FileUtil.py", line 38, in read_txt_file
+    json_line = json.loads(line)
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 2 column 1 (char 1)
+[2021-04-15 08:55:46,898][Thread-6:19636][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/index/latest/COMP HTTP/1.1" 500 115662]
+[2021-04-15 08:55:50,839][Thread-6:19636][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/index/latest/COMP]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 133, in get_latest_index
+    index_values = read_txt_file(ticker)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\FileUtil.py", line 38, in read_txt_file
+    json_line = json.loads(line)
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 2 column 1 (char 1)
+[2021-04-15 08:55:50,844][Thread-6:19636][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/index/latest/COMP HTTP/1.1" 500 115662]
+[2021-04-15 08:55:55,749][Thread-6:19636][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/index/latest/COMP]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 133, in get_latest_index
+    index_values = read_txt_file(ticker)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\FileUtil.py", line 38, in read_txt_file
+    json_line = json.loads(line)
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 2 column 1 (char 1)
+[2021-04-15 08:55:55,752][Thread-6:19636][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/index/latest/COMP HTTP/1.1" 500 115662]
+[2021-04-15 08:57:14,928][Thread-1:14372][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/index/latest/COMP]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 133, in get_latest_index
+    index_values = read_txt_file(ticker)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\FileUtil.py", line 38, in read_txt_file
+    json_line = json.loads(line)
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\AARON-PREDATOR\AppData\Local\Programs\Python\Python36\lib\json\decoder.py", line 342, in decode
+    raise JSONDecodeError("Extra data", s, end)
+json.decoder.JSONDecodeError: Extra data: line 1 column 117 (char 116)
+[2021-04-15 08:57:14,931][Thread-1:14372][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/index/latest/COMP HTTP/1.1" 500 106770]
+[2021-04-15 23:03:49,605][Thread-2:1944][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/candle/2016-04-17/AAPL]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 100, in get_candle_render_data
+    metadata = StockMetaData(ticker, start_date_obj)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockMetaData.py", line 20, in __init__
+    AVAILABLE_TOKEN = check_is_subset(TOKEN, os.getcwd() + DATA_SAVED_PLACE)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StringUtil.py", line 19, in check_is_subset
+    f_ticker, f_start, f_end = file.split("_")
+ValueError: not enough values to unpack (expected 3, got 1)
+[2021-04-15 23:03:49,607][Thread-2:1944][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/candle/2016-04-17/AAPL HTTP/1.1" 500 86883]
+[2021-04-15 23:04:07,983][Thread-1:3996][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/candle/2016-04-17/NFLX]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 100, in get_candle_render_data
+    metadata = StockMetaData(ticker, start_date_obj)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StockMetaData.py", line 20, in __init__
+    AVAILABLE_TOKEN = check_is_subset(TOKEN, os.getcwd() + DATA_SAVED_PLACE)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\StringUtil.py", line 19, in check_is_subset
+    f_ticker, f_start, f_end = file.split("_")
+ValueError: not enough values to unpack (expected 3, got 1)
+[2021-04-15 23:04:07,984][Thread-1:3996][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/candle/2016-04-17/NFLX HTTP/1.1" 500 86883]
+[2021-04-16 04:41:44,136][Thread-1:10424][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/predict/FB]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 118, in predict_future_price
+    model.load()
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\ModelLoader.py", line 29, in load
+    os.path.join(os.getcwd() + MODEL_SAVED_PLACE + "/" + self._ticker, MODEL_NAME))
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\tensorflow\python\keras\saving\save.py", line 207, in load_model
+    compile)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\tensorflow\python\keras\saving\hdf5_format.py", line 200, in load_model_from_hdf5
+    training_config, custom_objects))
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\tensorflow\python\keras\saving\saving_utils.py", line 224, in compile_args_from_training_config
+    metrics = _deserialize_nested_config(_deserialize_metric, metrics_config)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\tensorflow\python\keras\saving\saving_utils.py", line 266, in _deserialize_nested_config
+    return [_deserialize_nested_config(deserialize_fn, obj) for obj in config]
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\tensorflow\python\keras\saving\saving_utils.py", line 266, in <listcomp>
+    return [_deserialize_nested_config(deserialize_fn, obj) for obj in config]
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\tensorflow\python\keras\saving\saving_utils.py", line 266, in _deserialize_nested_config
+    return [_deserialize_nested_config(deserialize_fn, obj) for obj in config]
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\tensorflow\python\keras\saving\saving_utils.py", line 266, in <listcomp>
+    return [_deserialize_nested_config(deserialize_fn, obj) for obj in config]
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\tensorflow\python\keras\saving\saving_utils.py", line 259, in _deserialize_nested_config
+    return deserialize_fn(config)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\tensorflow\python\keras\saving\saving_utils.py", line 289, in _deserialize_metric
+    return metrics_module.deserialize(metric_config)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\tensorflow\python\keras\metrics.py", line 3450, in deserialize
+    printable_module_name='metric function')
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\tensorflow\python\keras\utils\generic_utils.py", line 347, in deserialize_keras_object
+    config, module_objects, custom_objects, printable_module_name)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\tensorflow\python\keras\utils\generic_utils.py", line 296, in class_and_config_for_serialized_keras_object
+    raise ValueError('Unknown ' + printable_module_name + ': ' + class_name)
+ValueError: Unknown metric function: RealMSE
+[2021-04-16 04:41:44,141][Thread-1:10424][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/predict/FB HTTP/1.1" 500 157349]
