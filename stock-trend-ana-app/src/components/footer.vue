@@ -101,8 +101,8 @@
                   <el-input-number size="mini" v-model="formInline.amount" style="width: 120px;"></el-input-number>
                 </el-form-item>
                 <el-form-item>
-                  <el-button type="primary" size="mini" icon="el-icon-video-play"></el-button>
-                  <el-button type="danger" size="mini" icon="el-icon-video-pause"></el-button>
+                  <el-button type="primary" size="mini" icon="el-icon-video-play" @click="startNetPrice"></el-button>
+                  <el-button type="danger" size="mini" icon="el-icon-video-pause" @click="pauseNetPrice"></el-button>
                 </el-form-item>
               </el-form>
               <el-form :inline="true" :model="formResult" id="form_result_inline">
@@ -146,19 +146,21 @@
         COMP_val_obj: {},
         SP500_val_obj: {},
         emotion_obj: [
-          { icon: 'icon-rate-face-3', color:'#FF9900', name: 'positive', value: 2 },
+          { icon: 'icon-rate-face-3', color:'#FF9900', name: 'positive', value: 1 },
           { icon: 'icon-rate-face-2', color:'#F7BA2A', name: 'negative', value: 1 },
           { icon: 'icon-rate-face-1', color:'#99A9BF', name: 'neutral', value: 3 }
         ],
+        stock_ticker: 'AMZN',
+        pauseShowNetPrice: false,
         formInline: {
           amount: 10,
           region: ''
         },
         formResult: {
-          netValue: 123123,
-          floatingValue: 123123,
-          percentChange: 12.12,
-          change: 131,
+          netValue: '',
+          floatingValue: '',
+          percentChange: '',
+          // change: 131,
         },
       }
     },
@@ -169,7 +171,15 @@
       window.setInterval(() => {
         setTimeout(this.getIndexValues('SP500'), 0);
       }, 5000);
+      window.setInterval(() => {
+        setTimeout(this.getNetPrice(), 0);
+      }, 5000);
     },
+    // mounted() {
+    //   window.setInterval(() => {
+    //     setTimeout(this.getNetPrice(), 0);
+    //   }, 5000);
+    // },
     computed: {
       up_or_down1: function () {
         return this.COMP_val_obj.change > 0 ? this.upColor : this.downColor
@@ -210,6 +220,57 @@
             this.$options.methods.sendErrorMsg.bind(this)("failed to get Nasdaq Index value.");
           }
         );
+      },
+      isNull(str) {
+        return !str && str !== 0 && typeof str !== "boolean" ? true : false;
+      },
+      pauseNetPrice() {
+        this.pauseShowNetPrice = false
+      },
+      getNetPrice() {
+        if (this.pauseShowNetPrice === true) {
+          if (this.isNull(this.stock_ticker)) {
+            this.$options.methods.sendErrorMsg.bind(this)("Please assign Ticker first.");
+          } else { 
+            axios({
+              method: "GET",
+              // headers: {
+              //   'Access-Control-Allow-Origin': '*',
+              //   'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+              // },
+              // proxy: {
+              //   host: '104.236.174.88',
+              //   port: 3128
+              // },
+              url: 'https://finance.api.seekingalpha.com/v2/real-time-prices?symbols=' + this.stock_ticker
+            }).then(
+              result => {
+                if (result.data != null) {
+                    console.log(result)
+                    console.log(result.data[0].attributes.last)
+                    console.log(this.formInline.amount)
+                    this.formResult.netValue = result.data[0].attributes.last * this.formInline.amount
+                    console.log(this.formResult.netValue)
+                    if (isNaN(this.formInline.region)) {
+                      this.$options.methods.sendErrorMsg.bind(this)("Please input your cost price.");
+                    } else {
+                      this.formResult.floatingValue = this.formResult.netValue - this.formInline.region * this.formInline.amount
+                      this.formResult.percentChange = this.formResult.floatingValue/(this.formInline.region * this.formInline.amount)
+                    }
+                  } else {
+                    this.$options.methods.sendErrorMsg.bind(this)("failed to get net price.");
+                  }
+                },
+              error => {
+                this.$options.methods.sendErrorMsg.bind(this)("failed to get the net price.");
+              }
+            );
+          }
+        }
+      },
+      startNetPrice() {
+        this.pauseShowNetPrice = true
+        this.getNetPrice()
       },
       onSubmit() {
         console.log('submit!');

@@ -13,7 +13,7 @@ from pathlib import Path
 
 from StockDataGenerator import StockDataGenerator
 
-MODEL_SAVED_PLACE = "\model"
+MODEL_SAVED_PLACE = "/model"
 MODEL_NAME = "model_weights.h5"
 
 
@@ -24,9 +24,9 @@ class StockModel:
         self._model_obj = None
 
     def load(self):
-        if Path(os.path.join(os.getcwd() + MODEL_SAVED_PLACE + "\\" + self._ticker, MODEL_NAME)).is_file():
+        if Path(os.path.join(os.getcwd() + MODEL_SAVED_PLACE + "/" + self._ticker, MODEL_NAME)).is_file():
             self._model_obj = tf.keras.models.load_model(
-                os.path.join(os.getcwd() + MODEL_SAVED_PLACE + "\\" + self._ticker, MODEL_NAME))
+                os.path.join(os.getcwd() + MODEL_SAVED_PLACE + "/" + self._ticker, MODEL_NAME))
         else:
             raise FileNotFoundError("the model file is not exist.")
 
