@@ -976,3 +976,39 @@ Traceback (most recent call last):
     f_ticker, f_start, f_end = file.split("_")
 ValueError: not enough values to unpack (expected 3, got 1)
 [2021-04-15 23:04:07,984][Thread-1:3996][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/candle/2016-04-17/NFLX HTTP/1.1" 500 86883]
+[2021-04-16 04:41:44,136][Thread-1:10424][task_id:django.request][log.py:230][ERROR][Internal Server Error: /analysis/predict/FB]
+Traceback (most recent call last):
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\analysis\views.py", line 118, in predict_future_price
+    model.load()
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\sta_admin\common\ModelLoader.py", line 29, in load
+    os.path.join(os.getcwd() + MODEL_SAVED_PLACE + "/" + self._ticker, MODEL_NAME))
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\tensorflow\python\keras\saving\save.py", line 207, in load_model
+    compile)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\tensorflow\python\keras\saving\hdf5_format.py", line 200, in load_model_from_hdf5
+    training_config, custom_objects))
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\tensorflow\python\keras\saving\saving_utils.py", line 224, in compile_args_from_training_config
+    metrics = _deserialize_nested_config(_deserialize_metric, metrics_config)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\tensorflow\python\keras\saving\saving_utils.py", line 266, in _deserialize_nested_config
+    return [_deserialize_nested_config(deserialize_fn, obj) for obj in config]
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\tensorflow\python\keras\saving\saving_utils.py", line 266, in <listcomp>
+    return [_deserialize_nested_config(deserialize_fn, obj) for obj in config]
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\tensorflow\python\keras\saving\saving_utils.py", line 266, in _deserialize_nested_config
+    return [_deserialize_nested_config(deserialize_fn, obj) for obj in config]
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\tensorflow\python\keras\saving\saving_utils.py", line 266, in <listcomp>
+    return [_deserialize_nested_config(deserialize_fn, obj) for obj in config]
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\tensorflow\python\keras\saving\saving_utils.py", line 259, in _deserialize_nested_config
+    return deserialize_fn(config)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\tensorflow\python\keras\saving\saving_utils.py", line 289, in _deserialize_metric
+    return metrics_module.deserialize(metric_config)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\tensorflow\python\keras\metrics.py", line 3450, in deserialize
+    printable_module_name='metric function')
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\tensorflow\python\keras\utils\generic_utils.py", line 347, in deserialize_keras_object
+    config, module_objects, custom_objects, printable_module_name)
+  File "D:\Projects\Stock_Trend_Analysis_APP\stock-trend-ana-admin\venv\lib\site-packages\tensorflow\python\keras\utils\generic_utils.py", line 296, in class_and_config_for_serialized_keras_object
+    raise ValueError('Unknown ' + printable_module_name + ': ' + class_name)
+ValueError: Unknown metric function: RealMSE
+[2021-04-16 04:41:44,141][Thread-1:10424][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/predict/FB HTTP/1.1" 500 157349]

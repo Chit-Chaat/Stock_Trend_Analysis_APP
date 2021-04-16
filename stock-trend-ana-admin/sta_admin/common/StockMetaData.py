@@ -7,7 +7,7 @@ from datetime import datetime
 
 from StringUtil import check_is_subset
 
-DATA_SAVED_PLACE = "/data"
+DATA_SAVED_PLACE = "\data"
 
 
 class StockMetaData:

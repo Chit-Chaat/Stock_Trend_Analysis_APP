@@ -6,7 +6,7 @@ import csv
 import json
 import os
 
-DATA_SAVED_PLACE = "/index"
+DATA_SAVED_PLACE = "\index"
 
 
 def save_record_2_file(file_path, content, mode="a+"):
