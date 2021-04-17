@@ -8,7 +8,7 @@ from HttpClientUtil import record_get_request, send_get_request
 from ModelLoader import StockModel
 from JsonResponseResult import JsonResponseResult
 from NewCollector import crawl_news
-from SentimentalAnalyzer import generate_score
+from SentimentalAnalyzer import generate_score, calculate_proportion
 from StockDataGenerator import StockDataGenerator
 from StockMetaData import StockMetaData
 from apscheduler.schedulers.background import BackgroundScheduler
@@ -18,25 +18,25 @@ import uuid
 
 logger = logging.getLogger('analysis module')
 
-try:
-    scheduler = BackgroundScheduler()
-    mystore = DjangoJobStore()
-    scheduler.remove_all_jobs(mystore)
-    scheduler.add_jobstore(mystore, str(uuid.uuid4()))
-
-
-    @register_job(scheduler, "interval", seconds=30)
-    def crawling_job3():
-        url1 = "https://finance.api.seekingalpha.com/v2/real-time-prices?symbols=COMP.IND"
-        url2 = "https://finance.api.seekingalpha.com/v2/real-time-prices?symbols=SP500"
-        record_get_request(url1, 'COMP_index.txt')
-        record_get_request(url2, 'SP500_index.txt')
-
-
-    register_events(scheduler)
-    scheduler.start()
-except Exception as e:
-    print('something wrong with crontab task, since ：%s' % str(e))
+# try:
+#     scheduler = BackgroundScheduler()
+#     mystore = DjangoJobStore()
+#     scheduler.remove_all_jobs(mystore)
+#     scheduler.add_jobstore(mystore, str(uuid.uuid4()))
+#
+#
+#     @register_job(scheduler, "interval", seconds=30)
+#     def crawling_job3():
+#         url1 = "https://finance.api.seekingalpha.com/v2/real-time-prices?symbols=COMP.IND"
+#         url2 = "https://finance.api.seekingalpha.com/v2/real-time-prices?symbols=SP500"
+#         record_get_request(url1, 'COMP_index.txt')
+#         record_get_request(url2, 'SP500_index.txt')
+#
+#
+#     register_events(scheduler)
+#     scheduler.start()
+# except Exception as e:
+#     print('something wrong with crontab task, since ：%s' % str(e))
 
 
 def index(request):
@@ -142,6 +142,16 @@ def get_latest_news(request, ticker):
     raw_news = crawl_news(ticker)
     if len(raw_news) > 0:
         scored_news = generate_score(raw_news, textKey="content")
+        return JsonResponseResult().ok(data=scored_news)
+    else:
+        return JsonResponseResult().error(code=405, data="failed to get current news data of " + ticker)
+
+
+def get_todays_emotion(request, ticker):
+    logger.info("parameter stock is: ----> ", ticker)
+    raw_news = crawl_news(ticker, size=20)
+    if len(raw_news) > 0:
+        scored_news = calculate_proportion(raw_news, textKey="content")
         return JsonResponseResult().ok(data=scored_news)
     else:
         return JsonResponseResult().error(code=405, data="failed to get current news data of " + ticker)
