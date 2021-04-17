@@ -162,8 +162,18 @@
           netValue: '',
           floatingValue: '',
           percentChange: '',
-          // change: 131,
         },
+      }
+    },
+    watch:{
+      $route (to, from){
+        this.stock_ticker = '';
+        this.pauseNetPrice();
+        this.formResult.netValue = '';
+        this.formResult.floatingValue = '';
+        this.formResult.percentChange = '';
+        this.formInline.region = '';
+        this.formInline.amount = 10;
       }
     },
     created() {
@@ -194,7 +204,7 @@
         return this.formResult.floatingValue > 0 ? this.upColor : this.downColor
       },
       up_or_down5: function () {
-        return parseFloat((this.formResult.percentChange)) > 0 ? this.upColor : this.downColor
+        return parseFloat(this.formResult.percentChange) > 0 ? this.upColor : this.downColor
       }
     },
     methods: {
