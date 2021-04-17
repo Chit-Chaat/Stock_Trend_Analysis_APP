@@ -147,7 +147,7 @@
       },
       stock_ticker() {
         bus.$emit("selectedStockTicker", this.stock_ticker)
-      },
+      }
     },
     methods: {
       isNull(str) {
