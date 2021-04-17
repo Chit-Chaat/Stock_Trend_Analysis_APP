@@ -16,5 +16,6 @@ urlpatterns = [
     path('calculator/<str:ticker>/<float:cost_price>/<int:amount>', views.get_net_price, name="get_net_price"),
     path('candle/<str:start_date>/<str:ticker>', views.get_candle_render_data, name="candle_chart"),
     path('news/latest/<str:ticker>', views.get_latest_news, name="get_news"),
+    path('emotion/today/<str:ticker>', views.get_todays_emotion, name="cal_proportion"),
     path('index/latest/<str:ticker>', views.get_latest_index, name="get_index"),
 ]

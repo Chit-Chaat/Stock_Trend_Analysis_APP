@@ -17,7 +17,7 @@ class StockMetaData:
         self._validation_date = validation_date
         # create or not , make a decision here.
         TOKEN = ticker + '_' + start_date.strftime("%Y%m%d") + '_' + datetime.today().strftime("%Y%m%d")
-        AVAILABLE_TOKEN = check_is_subset(TOKEN, os.getcwd() + DATA_SAVED_PLACE)
+        AVAILABLE_TOKEN = check_is_subset(TOKEN, os.getcwd() + DATA_SAVED_PLACE, flag=False)
         if AVAILABLE_TOKEN is None:
             os.makedirs(os.path.join(os.getcwd() + DATA_SAVED_PLACE, TOKEN))
             self._data_folder = os.path.join(os.getcwd() + DATA_SAVED_PLACE, TOKEN)
