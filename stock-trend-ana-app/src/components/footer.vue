@@ -16,7 +16,7 @@
               </div>
               <div class="textual-content">
                 <div v-for="obj in emotion_obj" :key="obj.name" class="textual-item">
-                  <i :class="obj.icon" :style="{color:obj.color}"></i>{{ " " + obj.name + " : " + obj.value +'%' }}
+                  <i :class="obj.icon" :style="{color:obj.color}"></i>{{ " " + obj.name + " : " + obj.proportion }}
                 </div>
               </div>
             </el-card>
@@ -145,12 +145,13 @@
         downColor: '#F56C6C',
         crawlIndexApiPrefix: '/analysis/index/latest/',
         crawlLatestPriceApiPrefix: '/analysis/calculator/',
+        crawlEmotionApiPrefix: '/analysis/emotion/today/',
         COMP_val_obj: {},
         SP500_val_obj: {},
         emotion_obj: [
-          { icon: 'icon-rate-face-3', color:'#FF9900', name: 'positive', value: 1 },
-          { icon: 'icon-rate-face-2', color:'#F7BA2A', name: 'negative', value: 1 },
-          { icon: 'icon-rate-face-1', color:'#99A9BF', name: 'neutral', value: 3 }
+          // { icon: 'icon-rate-face-3', color:'#FF9900', name: 'positive', value: 1, 'proportion': '33.33%' },
+          // { icon: 'icon-rate-face-2', color:'#F7BA2A', name: 'negative', value: 1, 'proportion': '33.33%' },
+          // { icon: 'icon-rate-face-1', color:'#99A9BF', name: 'neutral', value: 1, 'proportion': '33.33%' }
         ],
         stock_ticker: '',
         pauseShowNetPrice: false,
@@ -181,6 +182,9 @@
         this.stock_ticker = data;
       });
       window.setInterval(() => {
+        setTimeout(this.getEmotion(), 0);
+      }, 5000);
+      window.setInterval(() => {
         setTimeout(this.getIndexValues('COMP'), 0);
       }, 5000);
       window.setInterval(() => {
@@ -208,6 +212,29 @@
       }
     },
     methods: {
+      getEmotion() {
+        if (this.isNull(this.stock_ticker)) {
+            this.$options.methods.sendErrorMsg.bind(this)("Please assign Ticker first.");
+          } else {
+            axios({
+              method: "GET",
+              url: this.$hostname + this.crawlEmotionApiPrefix + this.stock_ticker
+            }).then(
+              result => {
+                if (result.data != null) {
+                  if (result.data.code == 200) {
+                    this.emotion_obj = result.data.data
+                  } else {
+                    this.$options.methods.sendErrorMsg.bind(this)("failed to get sentiment result.");
+                  }
+                }
+              },
+              error => {
+                this.$options.methods.sendErrorMsg.bind(this)("failed to get the sentiment result.");
+              }
+            );
+          }
+      },
       getIndexValues: function (index_type) {
         axios({
           method: "GET",
