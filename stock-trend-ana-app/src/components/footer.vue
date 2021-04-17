@@ -119,7 +119,7 @@
                   <div class="price_value" :style="{'color':up_or_down4}">{{'$' + formResult.floatingValue}}</div>
                 </el-form-item>
                 <el-form-item>
-                  <div class="price_value" :style="{'color':up_or_down5}">{{ "(" +formResult.percentChange + "%)"}}
+                  <div class="price_value" :style="{'color':up_or_down5}">{{ "(" + formResult.percentChange + ")"}}
                   </div>
                 </el-form-item>
               </el-form>
@@ -136,6 +136,7 @@
 
 <script>
   import axios from "axios"
+  import { bus } from '../main'
   export default {
 
     data() {
@@ -143,6 +144,7 @@
         upColor: '#67C23A',
         downColor: '#F56C6C',
         crawlIndexApiPrefix: '/analysis/index/latest/',
+        crawlLatestPriceApiPrefix: '/analysis/calculator/',
         COMP_val_obj: {},
         SP500_val_obj: {},
         emotion_obj: [
@@ -150,7 +152,7 @@
           { icon: 'icon-rate-face-2', color:'#F7BA2A', name: 'negative', value: 1 },
           { icon: 'icon-rate-face-1', color:'#99A9BF', name: 'neutral', value: 3 }
         ],
-        stock_ticker: 'AMZN',
+        stock_ticker: '',
         pauseShowNetPrice: false,
         formInline: {
           amount: 10,
@@ -165,6 +167,9 @@
       }
     },
     created() {
+      bus.$on("selectedStockTicker", (data) => {
+        this.stock_ticker = data;
+      });
       window.setInterval(() => {
         setTimeout(this.getIndexValues('COMP'), 0);
       }, 5000);
@@ -175,11 +180,6 @@
         setTimeout(this.getNetPrice(), 0);
       }, 5000);
     },
-    // mounted() {
-    //   window.setInterval(() => {
-    //     setTimeout(this.getNetPrice(), 0);
-    //   }, 5000);
-    // },
     computed: {
       up_or_down1: function () {
         return this.COMP_val_obj.change > 0 ? this.upColor : this.downColor
@@ -228,44 +228,38 @@
         this.pauseShowNetPrice = false
       },
       getNetPrice() {
-        if (this.pauseShowNetPrice === true) {
+        if (this.pauseShowNetPrice !== false) {
           if (this.isNull(this.stock_ticker)) {
             this.$options.methods.sendErrorMsg.bind(this)("Please assign Ticker first.");
-          } else { 
-            axios({
-              method: "GET",
-              // headers: {
-              //   'Access-Control-Allow-Origin': '*',
-              //   'Access-Control-Allow-Headers': 'Content-Type, Authorization',
-              // },
-              // proxy: {
-              //   host: '104.236.174.88',
-              //   port: 3128
-              // },
-              url: 'https://finance.api.seekingalpha.com/v2/real-time-prices?symbols=' + this.stock_ticker
-            }).then(
-              result => {
-                if (result.data != null) {
-                    console.log(result)
-                    console.log(result.data[0].attributes.last)
-                    console.log(this.formInline.amount)
-                    this.formResult.netValue = result.data[0].attributes.last * this.formInline.amount
-                    console.log(this.formResult.netValue)
-                    if (isNaN(this.formInline.region)) {
-                      this.$options.methods.sendErrorMsg.bind(this)("Please input your cost price.");
-                    } else {
-                      this.formResult.floatingValue = this.formResult.netValue - this.formInline.region * this.formInline.amount
-                      this.formResult.percentChange = this.formResult.floatingValue/(this.formInline.region * this.formInline.amount)
-                    }
-                  } else {
-                    this.$options.methods.sendErrorMsg.bind(this)("failed to get net price.");
+          } else { if (this.formInline.region < 10) {
+                      this.$options.methods.sendErrorMsg.bind(this)("Please input a valid cost price.");
+                    } else { if (this.formInline.amount <= 0) {
+                                this.$options.methods.sendErrorMsg.bind(this)("Please input a valid number of share.");
+                              } else {
+                                  axios({
+                                    method: "GET",
+                                    url: this.$hostname + this.crawlLatestPriceApiPrefix + this.stock_ticker + '/' + this.formInline.region + '/' + this.formInline.amount
+                                  }).then(
+                                    result => {
+                                      if (result.data != null) {
+                                        if (result.data.code == 200) {
+                                          this.formResult.netValue = result.data.data[0].netPrice.toString(),
+                                          this.formResult.floatingValue = result.data.data[0].floatingPrice.toString(),
+                                          this.formResult.percentChange = result.data.data[0].percentChange
+                                        } else {
+                                          this.$options.methods.sendErrorMsg.bind(this)("failed to get net price.");
+                                        }
+                                      }
+                                    },
+                                    error => {
+                                      this.$options.methods.sendErrorMsg.bind(this)("failed to get the net price.");
+                                    }
+                                  );
+                              }
+
+                            }
+            
                   }
-                },
-              error => {
-                this.$options.methods.sendErrorMsg.bind(this)("failed to get the net price.");
-              }
-            );
-          }
         }
       },
       startNetPrice() {
