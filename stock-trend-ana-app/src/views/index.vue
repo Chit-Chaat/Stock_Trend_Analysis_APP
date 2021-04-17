@@ -24,6 +24,7 @@
 <script>
   var echarts = require("echarts");
   import axios from "axios"
+  import { bus } from '../main'
   export default {
 
     data() {
@@ -143,7 +144,10 @@
     watch: {
       stock_data(val) {
         this.drawCandleChart();
-      }
+      },
+      stock_ticker() {
+        bus.$emit("selectedStockTicker", this.stock_ticker)
+      },
     },
     methods: {
       isNull(str) {
