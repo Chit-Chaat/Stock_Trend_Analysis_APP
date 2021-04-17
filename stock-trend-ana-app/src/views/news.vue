@@ -26,6 +26,7 @@
 
 <script>
   import axios from "axios"
+  import { bus } from '../main'
   export default {
     data() {
       return {
@@ -65,6 +66,12 @@
     mounted() {
       this.cover_show = false
       this.crawl_new()
+      this.stock_ticker = ''
+    },
+    watch: {
+      stock_ticker() {
+        bus.$emit("selectedStockTicker", this.stock_ticker)
+      }
     },
     methods: {
       wrapper(text) {
