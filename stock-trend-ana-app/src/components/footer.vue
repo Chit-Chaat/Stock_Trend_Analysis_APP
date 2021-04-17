@@ -194,7 +194,7 @@
         return this.formResult.floatingValue > 0 ? this.upColor : this.downColor
       },
       up_or_down5: function () {
-        return this.formResult.percentChange > 0 ? this.upColor : this.downColor
+        return parseFloat((this.formResult.percentChange)) > 0 ? this.upColor : this.downColor
       }
     },
     methods: {
