@@ -19,6 +19,8 @@ axios.defaults.baseURL = Vue.prototype.$hostname
 
 Vue.use(ElementUI, { locale });
 
+export const bus = new Vue();
+
 new Vue({
   el: '#app',
   router,
