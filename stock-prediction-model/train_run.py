@@ -33,6 +33,10 @@ def train_LSTM_network(stock):
     test_predictions_baseline = model.predict(x_test)
     y_test = np.concatenate([test_predictions_baseline, test_predictions_baseline], axis=1)
 
+    temp_matrix_vals = np.array(baseline_results).reshape(-1, 1)
+    matrix_vals = np.concatenate([temp_matrix_vals, temp_matrix_vals], axis=1)
+    scaled_matrix_vals = data.get_min_max().inverse_transform(matrix_vals)
+    print("real MSE", scaled_matrix_vals.tolist()[3][0])
     test_predictions_baseline = data.get_min_max().inverse_transform(y_test)
     test_predictions_baseline = pd.DataFrame(test_predictions_baseline)
 
@@ -44,11 +48,11 @@ def train_LSTM_network(stock):
 
 
 if __name__ == '__main__':
-    STOCK_TICKER = 'AMZN'
-    STOCK_START_DATE = pd.to_datetime('2015-01-01')
+    STOCK_TICKER = 'BOTZ'
+    STOCK_START_DATE = pd.to_datetime('2016-01-01')
     STOCK_VALIDATION_DATE = pd.to_datetime('2020-01-01')
     EPOCHS = 100
-    BATCH_SIZE = 32
+    BATCH_SIZE = 64
     TIME_STEPS = 3
     TODAY_RUN = datetime.today().strftime("%Y%m%d")
     TOKEN = STOCK_TICKER + '_' + TODAY_RUN + '_' + secrets.token_hex(16)

@@ -4,6 +4,9 @@ import tensorflow as tf
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
+
+from RealMSE import RealMSE
+from ScaledRealMSE import ScaledRealMSE
 from stock_prediction_class import StockMetaData
 from stock_prediction_numpy import StockDataGenerator
 from datetime import timedelta
@@ -33,7 +36,8 @@ def main(argv):
 
     tomorrow_date = latest_date + timedelta(1)
     # Specify the next 300 days
-    next_year = latest_date + timedelta(100)
+    # 25 /50/ 75
+    next_year = latest_date + timedelta(25 * NEXT_DAYS)
     # next_year = latest_date + timedelta(5)
 
     print('Future Date')
@@ -45,8 +49,12 @@ def main(argv):
     x_test, y_test, test_data = \
         data.generate_future_data(TIME_STEPS, min_max, tomorrow_date, next_year, latest_close_price)
 
+    dependencies = {
+        'RealMSE': RealMSE(),
+        'ScaledRealMSE':ScaledRealMSE(),
+    }
     # load the weights from our best model
-    model = tf.keras.models.load_model(os.path.join(inference_folder, 'model_weights.h5'))
+    model = tf.keras.models.load_model(os.path.join(inference_folder, 'model_weights.h5'), custom_objects=dependencies)
     model.summary()
 
     # display the content of the model
@@ -54,6 +62,11 @@ def main(argv):
     for name, value in zip(model.metrics_names, baseline_results):
         print(name, ': ', value)
     print()
+
+    temp_matrix_vals = np.array(baseline_results).reshape(-1, 1)
+    matrix_vals = np.concatenate([temp_matrix_vals, temp_matrix_vals], axis=1)
+    scaled_matrix_vals = min_max.inverse_transform(matrix_vals)
+    print("===>real MSE", scaled_matrix_vals.tolist()[3][0])
 
     # perform a prediction
     test_predictions_baseline = model.predict(x_test)
@@ -81,8 +94,9 @@ def main(argv):
 
 if __name__ == '__main__':
     TIME_STEPS = 3
-    RUN_FOLDER = 'AMZN_20210411_b6d0355a380762b34c9f8c9f778e4846'
-    STOCK_TICKER = 'AMZN'
+    NEXT_DAYS = 1
+    RUN_FOLDER = 'BOTZ_20210416_75738c5446f08ca779259c71421df437'
+    STOCK_TICKER = 'BOTZ'
     STOCK_START_DATE = pd.to_datetime('2018-01-01')
     STOCK_VALIDATION_DATE = pd.to_datetime('2020-01-01')
     app.run(main)

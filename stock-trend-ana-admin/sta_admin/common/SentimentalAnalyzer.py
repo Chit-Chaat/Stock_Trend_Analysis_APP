@@ -44,7 +44,7 @@ def calculate_proportion(rawData, textKey, scoreKey="score"):
             negative_val += scores['neg']
             neutral_val += scores['neu']
 
-    emotion_sum = positive_val + negative_val + neutral_val
+    emotion_sum = max(positive_val + negative_val + neutral_val, 1)
     result = [
         {'icon': 'icon-rate-face-3', 'color': '#FF9900', 'name': 'positive', 'value': round(positive_val, 2),
          'proportion': str(round(positive_val * 100 / emotion_sum, 1)) + '%'},
