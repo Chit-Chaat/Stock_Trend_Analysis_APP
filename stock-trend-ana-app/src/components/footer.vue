@@ -88,7 +88,7 @@
             <div class="calculator_form">
               <el-form :inline="true" :model="formInline" id="calculator_form_inline">
                 <el-form-item>
-                  <el-popover placement="top-start" title="标题" width="200" trigger="hover"
+                  <el-popover placement="top-start" title="Floating Value Calculator" width="200" trigger="hover"
                     content="Please input your buy-in price and the number of share to calculate floating value.">
                     <el-button slot="reference" size="mini" icon="el-icon-info" circle></el-button>
                   </el-popover>
