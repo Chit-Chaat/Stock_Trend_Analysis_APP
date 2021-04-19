@@ -5,7 +5,7 @@
       <el-row :gutter="20" style="padding-left: 62px; padding-top: 10px;">
         <el-col :span="6">
           <el-tooltip effect="light" placement="top">
-            <div slot="content">多行信息<br />第二行信息</div>
+            <div slot="content">Stock Overall Sentiment in the Last 48 Hours<br /></div>
             <el-card shadow="hover" class="grid-content bg-purple-light">
               <div class="clearfix"> Stock Market Emotion </div>
               <div style="display: inline;">
@@ -89,7 +89,7 @@
               <el-form :inline="true" :model="formInline" id="calculator_form_inline">
                 <el-form-item>
                   <el-popover placement="top-start" title="标题" width="200" trigger="hover"
-                    content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。">
+                    content="Please input your buy-in price and the number of share to calculate floating value.">
                     <el-button slot="reference" size="mini" icon="el-icon-info" circle></el-button>
                   </el-popover>
                   &nbsp;
