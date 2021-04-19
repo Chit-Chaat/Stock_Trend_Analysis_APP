@@ -95,3 +95,11 @@
 {"values": {"name": "17:32:49", "value": 14052.3421}, "percentChange": 0.097, "change": 13.58, "latestVal": 14052.34}
 {"values": {"name": "17:36:14", "value": 14052.3421}, "percentChange": 0.097, "change": 13.58, "latestVal": 14052.34}
 {"values": {"name": "17:36:44", "value": 14052.3421}, "percentChange": 0.097, "change": 13.58, "latestVal": 14052.34}
+{"values": {"name": "04:04:40", "value": 14052.3421}, "percentChange": 0.097, "change": 13.58, "latestVal": 14052.34}
+{"values": {"name": "04:05:09", "value": 14052.3421}, "percentChange": 0.097, "change": 13.58, "latestVal": 14052.34}
+{"values": {"name": "04:05:39", "value": 14052.3421}, "percentChange": 0.097, "change": 13.58, "latestVal": 14052.34}
+{"values": {"name": "04:11:52", "value": 14052.3421}, "percentChange": 0.097, "change": 13.58, "latestVal": 14052.34}
+{"values": {"name": "04:12:22", "value": 14052.3421}, "percentChange": 0.097, "change": 13.58, "latestVal": 14052.34}
+{"values": {"name": "04:12:52", "value": 14052.3421}, "percentChange": 0.097, "change": 13.58, "latestVal": 14052.34}
+{"values": {"name": "04:13:22", "value": 14052.3421}, "percentChange": 0.097, "change": 13.58, "latestVal": 14052.34}
+{"values": {"name": "04:14:49", "value": 14052.3421}, "percentChange": 0.097, "change": 13.58, "latestVal": 14052.34}

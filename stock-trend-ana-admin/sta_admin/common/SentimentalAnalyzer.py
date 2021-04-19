@@ -35,7 +35,7 @@ def calculate_proportion(rawData, textKey, scoreKey="score"):
     for kv in rawData:
         date_str = kv['timestamp'].split(' ')[0]
         date_obj = datetime.datetime.strptime(date_str, '%b-%d-%y')
-        today_obj = datetime.datetime.today() - datetime.timedelta(days=1)
+        today_obj = datetime.datetime.today() - datetime.timedelta(days=2)
         if today_obj <= date_obj:
             # if it is today's news
             value = kv[textKey]

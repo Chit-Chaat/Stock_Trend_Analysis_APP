@@ -18,25 +18,25 @@ import uuid
 
 logger = logging.getLogger('analysis module')
 
-# try:
-#     scheduler = BackgroundScheduler()
-#     mystore = DjangoJobStore()
-#     scheduler.remove_all_jobs(mystore)
-#     scheduler.add_jobstore(mystore, str(uuid.uuid4()))
-#
-#
-#     @register_job(scheduler, "interval", seconds=30)
-#     def crawling_job3():
-#         url1 = "https://finance.api.seekingalpha.com/v2/real-time-prices?symbols=COMP.IND"
-#         url2 = "https://finance.api.seekingalpha.com/v2/real-time-prices?symbols=SP500"
-#         record_get_request(url1, 'COMP_index.txt')
-#         record_get_request(url2, 'SP500_index.txt')
-#
-#
-#     register_events(scheduler)
-#     scheduler.start()
-# except Exception as e:
-#     print('something wrong with crontab task, since ：%s' % str(e))
+try:
+    scheduler = BackgroundScheduler()
+    mystore = DjangoJobStore()
+    scheduler.remove_all_jobs(mystore)
+    scheduler.add_jobstore(mystore, str(uuid.uuid4()))
+
+
+    @register_job(scheduler, "interval", seconds=30)
+    def crawling_job3():
+        url1 = "https://finance.api.seekingalpha.com/v2/real-time-prices?symbols=COMP.IND"
+        url2 = "https://finance.api.seekingalpha.com/v2/real-time-prices?symbols=SP500"
+        record_get_request(url1, 'COMP_index.txt')
+        record_get_request(url2, 'SP500_index.txt')
+
+
+    register_events(scheduler)
+    scheduler.start()
+except Exception as e:
+    print('something wrong with crontab task, since ：%s' % str(e))
 
 
 def index(request):

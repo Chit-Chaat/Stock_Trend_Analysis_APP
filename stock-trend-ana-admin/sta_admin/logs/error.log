@@ -1012,3 +1012,5 @@ Traceback (most recent call last):
     raise ValueError('Unknown ' + printable_module_name + ': ' + class_name)
 ValueError: Unknown metric function: RealMSE
 [2021-04-16 04:41:44,141][Thread-1:10424][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/predict/FB HTTP/1.1" 500 157349]
+[2021-04-18 04:05:58,515][Thread-3:20168][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/emotion/today/GOOG HTTP/1.1" 500 59]
+[2021-04-18 04:12:41,526][Thread-3:3524][task_id:django.server][basehttp.py:157][ERROR]["GET /analysis/emotion/today/BOTZ HTTP/1.1" 500 59]

@@ -29,7 +29,6 @@ def crawl_news(identifier, size=10):
                 current_date_prefix = prefix
             else:
                 time_str = current_date_prefix + ' ' + time_str
-                print(time_str)
             content_list.append({
                 "content": content,
                 "timestamp": time_str,
