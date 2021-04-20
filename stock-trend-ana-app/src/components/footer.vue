@@ -11,7 +11,7 @@
               <div style="display: inline;">
                 <g2-pie :type="'ring'" :axis-name="{name:'type', value:'amount'}"
                   style="width: 150px; height: 150px; margin: 0; padding-top: 10px;" :data="emotion_obj"
-                  :useTooltip="false">
+                  :useTooltip="false"  :color-map="['#67C23A','#F56C6C', '#DCDFE6']">
                 </g2-pie>
               </div>
               <div class="textual-content">
