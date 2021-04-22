@@ -16,7 +16,7 @@
         <el-timeline-item v-for="(activity, index) in activities" :key="index" :icon="activity.icon"
           :type="activity.type" :color="activity.color" size="large" :timestamp="activity.timestamp">
           <el-alert :title="activity.content" :type="activity.type" :description="wrapper(activity.url)"
-            close-text="Check More Detail..." @close="go_that_url(activity.url)">
+            close-text="Read more" @close="go_that_url(activity.url)">
           </el-alert>
         </el-timeline-item>
       </el-timeline>

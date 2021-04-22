@@ -147,3 +147,4 @@
 {"values": {"name": "19:27:26", "value": 13914.7652}, "percentChange": -0.979, "change": -137.58, "latestVal": 13914.77}
 {"values": {"name": "19:27:57", "value": 13914.7652}, "percentChange": -0.979, "change": -137.58, "latestVal": 13914.77}
 {"values": {"name": "19:28:26", "value": 13914.7652}, "percentChange": -0.979, "change": -137.58, "latestVal": 13914.77}
+{"values": {"name": "17:08:42", "value": 14015.57}, "percentChange": 0.468, "change": 65.35, "latestVal": 14015.57}
