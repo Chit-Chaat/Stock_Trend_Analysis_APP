@@ -6,7 +6,7 @@
         <el-option v-for="item in ticker_options" :key="item.value" :label="item.label" :value="item.value">
         </el-option>
       </el-select>
-      <el-button type="success" style="margin-left:20px; width: 180px;" @click="crawl_new">Do Filter<i
+      <el-button type="success" style="margin-left:20px; width: 180px;" @click="crawl_new">Refresh<i
           class="el-icon-s-operation el-icon--right"></i></el-button>
     </el-header>
     <el-main id="news_content" v-loading.fullscreen.lock="loading">
