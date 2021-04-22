@@ -24,9 +24,9 @@
     data() {
       return {
         navList: [
-          { path: '/index', navItem: 'INDEX', disabled: false, icon: 'el-icon-data-line' },
+          { path: '/index', navItem: 'STOCK', disabled: false, icon: 'el-icon-data-line' },
           { path: '/news', navItem: 'NEWS', disabled: false, icon: 'el-icon-postcard' },
-          { path: '/support', navItem: 'HELP!!', disabled: true, icon: 'el-icon-help' },
+          // { path: '/support', navItem: 'HELP', disabled: true, icon: 'el-icon-help' },
           { path: '/about', navItem: 'ABOUT', disabled: false, icon: 'el-icon-user' },
         ]
 
