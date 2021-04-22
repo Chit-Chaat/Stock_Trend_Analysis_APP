@@ -13,7 +13,7 @@
       <div id="news_cover" v-show="cover_show">Failed to get News Data.</div>
       <div id="news_cover2" v-show="cover_show">Please contact the admin team.</div>
       <el-timeline>
-        <el-timeline-item v-for="(activity, index) in activities" :key="index" :icon="activity.icon"
+        <el-timeline-item v-for="(activity, index) in activities" :key="index"
           :type="activity.type" :color="activity.color" size="large" :timestamp="activity.timestamp">
           <el-alert :title="activity.content" :type="activity.type" :description="wrapper(activity.url)"
             close-text="Read more" @close="go_that_url(activity.url)">
